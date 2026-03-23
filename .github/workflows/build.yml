@@ -1,0 +1,31 @@
+name: Tự động chạy Unit Test (CI)
+
+# Khi nào Bot sẽ chạy? -> Khi có người đẩy code lên nhánh main hoặc tạo Pull Request
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-code:
+    runs-on: ubuntu-latest # Bot sẽ mượn một máy ảo Linux của GitHub
+
+    # Chỉ định cho Bot biết project Maven đang nằm ở thư mục nào
+    defaults:
+      run:
+        working-directory: ./online-auction-system
+
+    steps:
+    - name: 1. Clone code từ GitHub về máy ảo của Bot
+      uses: actions/checkout@v4
+
+    - name: 2. Cài đặt môi trường Java 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: 3. Ra lệnh cho Maven tự động chạy Test
+      run: mvn test
