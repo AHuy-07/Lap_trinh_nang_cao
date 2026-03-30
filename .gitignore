@@ -1,0 +1,53 @@
+# ==================================
+# 1. Các file biên dịch của Java
+# ==================================
+*.class
+*.log
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# ==================================
+# 2. Thư mục Build của Maven / Gradle
+# Nếu dùng Maven, folder "target" sẽ tự sinh ra
+# Nếu dùng Gradle, folder "build" và ".gradle" sẽ tự sinh ra
+# Bắt buộc phải ignore bọn này để tránh nặng repo và conflict!
+# ==================================
+target/
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ==================================
+# 3. Cấu hình cá nhân của IntelliJ IDEA
+# Mỗi máy sẽ có đường dẫn riêng, không được đẩy lên Git
+# ==================================
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ==================================
+# 4. Cấu hình cá nhân của Eclipse (Phòng khi nhóm có người dùng Eclipse)
+# ==================================
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.classpath
+
+# ==================================
+# 5. File hệ thống của hệ điều hành (Mac/Windows)
+# ==================================
+.DS_Store
+Thumbs.db
