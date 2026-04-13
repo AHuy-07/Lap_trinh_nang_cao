@@ -10,7 +10,7 @@ public class ClientApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/client/views/Login.fxml"));
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
