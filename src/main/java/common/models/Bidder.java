@@ -3,7 +3,7 @@ package common.models;
 import java.util.ArrayList;
 
 public class Bidder extends User {
-    private int balance = 0;
+    private double balance = 0.0;
     private ArrayList<String> bidHistory = new ArrayList<>();
 
     public Bidder(String loginUsername, String password) {
@@ -11,7 +11,7 @@ public class Bidder extends User {
     }
 
     //Begin: Nap/rut tien
-    public void userDeposit(int money) {
+    public void userDeposit(double money) {
         System.out.println("Nap tien thanh cong");
         balance += money;
     }
