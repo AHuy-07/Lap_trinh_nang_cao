@@ -7,8 +7,8 @@ public class Seller extends User{
     Map<String, Integer> sellingItemList = new HashMap<>();
     int balance = 0;
 
-    public Seller(String loginUsername, String password) {
-        super(loginUsername, password);
+    public Seller(int id, String loginUsername, double balance) {
+        super(id, loginUsername, "SELLER", balance);
     }
 
     public void addSellingItemList(String item) {

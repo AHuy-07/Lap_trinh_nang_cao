@@ -1,6 +1,8 @@
 package client.controllers.loginAndSignUp;
 
 import client.controllers.SceneController;
+import client.controllers.Session;
+import common.Request;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,10 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SignUpController {
-    private SignUpModel signUpModel = new SignUpModel();
+    @FXML
+    private Label signUpStatusFail;
 
     @FXML
-    private Label signUpError;
+    private Label signUpStatusSuccess;
 
     @FXML
     private TextField usernameSignUp;
@@ -24,20 +27,59 @@ public class SignUpController {
     private TextField roleSignUp;
 
     public void SignUp(ActionEvent event) throws Exception {
-        roleSignUp.setText(roleSignUp.getText().toUpperCase());
-        if (!passwordSignUp.getText().equals(re_passwordSignUp.getText())) {
-            signUpError.setText("Passwords didn't match");
-        }else if (!roleSignUp.getText().equals("SELLER") && !roleSignUp.getText().equals("BIDDER")) {
-            signUpError.setText("Your role must be SELLER or BIDDER");
-        }else {
-            boolean signUpStatus = signUpModel.signUpStatus(usernameSignUp.getText(), passwordSignUp.getText(), roleSignUp.getText());
-            if (!signUpStatus) {
-                signUpError.setText("Username is already taken. Try another name");
-            }else {
-                signUpError.setText("Sign Up successful");
-                SceneController.switchScene("/client/views/Login.fxml");
-                // Chuyen sang scene cua Login
-            }
+        String username = usernameSignUp.getText();
+        String pwdSignUp = passwordSignUp.getText();
+        String re_pwdSignUp = re_passwordSignUp.getText();
+        String role = roleSignUp.getText();
+        role = role.toUpperCase();
+
+        if (!checkSpecialCase(username, pwdSignUp, re_pwdSignUp, role)) {
+            return;
         }
+
+        lockUI(true);
+
+        String[] info = {username, pwdSignUp, role};
+        Request signUpReq = new Request("SIGN_UP", info);
+
+        Session.getInstance().sendRequest(
+                signUpReq,
+                response -> { // tham chiếu respone là đối tượng Request
+                    lockUI(false);
+                    if (response.getAction().equals("SIGN_UP_SUCCESS")) {
+                        signUpStatusSuccess.setText("Đăng ký thành công!");
+                        SceneController.switchScene("/client/views/Login.fxml");
+                    } else if (response.getAction().equals("SIGN_UP_FAIL")) {
+                        signUpStatusFail.setText("Tên tài khoản đã tồn tại. Hãy thử tên đăng nhập khác!");
+                    }
+                },
+                error -> {
+                    lockUI(false);
+                    signUpStatusFail.setText("Không thể kết nối với Server");
+                }
+        );
+    }
+
+    private boolean checkSpecialCase(String username, String pwdSignUp, String re_pwdSignUp, String role) {
+        if (username.isEmpty() || pwdSignUp.isEmpty() || re_pwdSignUp.isEmpty() || role.isEmpty()) {
+            signUpStatusFail.setText("Bạn phải nhập đầy đủ thông tin!");
+            return false;
+        }
+        if (!role.equals("BIDDER") && !role.equals("SELLER")) {
+            signUpStatusFail.setText("Vai trò của bạn phải là BIDDER hoặc SELLER!"); // Kiểm tra role
+            return false;
+        }
+        if (!pwdSignUp.equals(re_pwdSignUp)) {
+            signUpStatusFail.setText("Hai mật khẩu không khớp. Vui lòng thử lại!");
+            return false;
+        }
+        return true;
+    }
+
+    private void lockUI(boolean type) {
+        usernameSignUp.setDisable(type);
+        passwordSignUp.setDisable(type);
+        re_passwordSignUp.setDisable(type);
+        roleSignUp.setDisable(type);
     }
 }

@@ -1,0 +1,26 @@
+2026-04-28 00:05:35 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-28 00:05:36 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-28 00:05:36 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-28 00:06:12 [Thread-0] INFO  server.dao.UserDAO - Người dùng hungg xác thực thành công
+2026-04-28 00:06:14 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client hungg: Connection reset
+2026-04-28 00:06:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-28 00:06:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-28 00:06:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-28 00:06:47 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-04-28 00:07:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-28 00:07:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-28 00:07:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-28 00:07:42 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-04-28 00:08:11 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-28 00:08:11 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-28 00:08:11 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-28 00:08:28 [Thread-0] ERROR server.dao.UserDAO - Lỗi SQL khi đăng kí
+java.sql.SQLException: no such column: 'userId'
+	at org.sqlite.jdbc3.JDBC3ResultSet.findColumn(JDBC3ResultSet.java:51)
+	at org.sqlite.jdbc3.JDBC3ResultSet.getInt(JDBC3ResultSet.java:336)
+	at server.dao.UserDAO.signUp(UserDAO.java:70)
+	at server.ClientHandler.handleSignUp(ClientHandler.java:84)
+	at server.ClientHandler.handleRequest(ClientHandler.java:55)
+	at server.ClientHandler.run(ClientHandler.java:37)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-04-28 00:08:30 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset

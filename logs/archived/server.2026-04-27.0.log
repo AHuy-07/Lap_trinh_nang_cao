@@ -1,0 +1,75 @@
+2026-04-27 14:06:25 [main] INFO  server.AppServer - Chat server đang chạy trên port 8080...
+2026-04-27 14:09:08 [main] INFO  server.AppServer - Chat server đang chạy trên port 8080...
+2026-04-27 14:11:46 [main] INFO  server.AppServer - Chat server đang chạy trên port 8080...
+2026-04-27 14:15:36 [main] INFO  server.AppServer - Chat server đang chạy trên port 8080...
+2026-04-27 14:15:50 [Thread-0] INFO  server.AppServer - He thong: Tao nhom n1 thanh cong!
+2026-04-27 21:01:32 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:01:32 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:01:32 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:13:45 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:13:45 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:13:45 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:14:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-04-27 21:16:54 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-04-27 21:24:19 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:24:19 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:24:19 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:25:12 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-04-27 21:25:19 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-04-27 21:25:23 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client null: null
+2026-04-27 21:25:24 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-04-27 21:25:26 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-04-27 21:26:49 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:26:49 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:26:49 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:28:01 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:28:01 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:28:01 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:28:58 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:28:58 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:28:58 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:53:10 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:53:10 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:53:10 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:55:04 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:55:04 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:55:04 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:56:17 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:56:17 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:56:17 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:56:51 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:56:51 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:56:51 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:57:36 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:57:36 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:57:36 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 21:58:20 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 21:58:20 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 21:58:20 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 22:01:00 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 22:01:00 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 22:01:00 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 22:01:35 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 22:01:35 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 22:01:35 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 23:40:48 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-04-27 23:40:48 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-04-27 23:40:48 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-04-27 23:41:19 [Thread-0] ERROR server.dao.UserDAO - Lỗi SQL khi đăng kí
+java.sql.SQLException: no such column: 'userId'
+	at org.sqlite.jdbc3.JDBC3ResultSet.findColumn(JDBC3ResultSet.java:51)
+	at org.sqlite.jdbc3.JDBC3ResultSet.getInt(JDBC3ResultSet.java:336)
+	at server.dao.UserDAO.signUp(UserDAO.java:70)
+	at server.ClientHandler.handleSignUp(ClientHandler.java:84)
+	at server.ClientHandler.handleRequest(ClientHandler.java:55)
+	at server.ClientHandler.run(ClientHandler.java:37)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-04-27 23:41:39 [Thread-0] ERROR server.dao.UserDAO - Lỗi SQL khi đăng kí
+java.sql.SQLException: no such column: 'userId'
+	at org.sqlite.jdbc3.JDBC3ResultSet.findColumn(JDBC3ResultSet.java:51)
+	at org.sqlite.jdbc3.JDBC3ResultSet.getInt(JDBC3ResultSet.java:336)
+	at server.dao.UserDAO.signUp(UserDAO.java:70)
+	at server.ClientHandler.handleSignUp(ClientHandler.java:84)
+	at server.ClientHandler.handleRequest(ClientHandler.java:55)
+	at server.ClientHandler.run(ClientHandler.java:37)
+	at java.base/java.lang.Thread.run(Thread.java:1474)

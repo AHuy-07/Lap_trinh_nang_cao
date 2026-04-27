@@ -6,8 +6,8 @@ public class Bidder extends User {
     private int balance = 0;
     private ArrayList<String> bidHistory = new ArrayList<>();
 
-    public Bidder(String loginUsername, String password) {
-        super(loginUsername, password);
+    public Bidder(int id, String loginUsername, double balance) {
+        super(id, loginUsername, "BIDDER", balance);
     }
 
     //Begin: Nap/rut tien

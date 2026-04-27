@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.loginAndSignUp.SignUpController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="48.0" prefHeight="17.0" prefWidth="210.0" text="Sign Up">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="32.0" prefHeight="17.0" prefWidth="210.0" text="Sign Up">
          <font>
             <Font size="24.0" />
          </font>
@@ -36,5 +36,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </TextField>
+      <Label fx:id="signUpStatusFail" alignment="CENTER" layoutX="146.0" layoutY="73.0" prefHeight="39.0" prefWidth="303.0" textFill="#dd1717" />
+      <Label fx:id="signUpStatusSuccess" alignment="CENTER" layoutX="178.0" layoutY="76.0" prefHeight="35.0" prefWidth="240.0" textFill="#24d74b" />
    </children>
 </AnchorPane>
