@@ -1,3 +1,4 @@
+
 package server;
 
 import java.io.*;
@@ -6,7 +7,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class AppServer {
-    private static final int PORT = 8080;
+    private static final int PORT = 8010;
     private static final ConcurrentHashMap<String, Set<PrintWriter>> chatRooms = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
@@ -122,3 +123,4 @@ public class AppServer {
 }
 
 // mvn exec:java -Dexec.mainClass="server.AppServer"
+
