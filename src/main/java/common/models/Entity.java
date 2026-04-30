@@ -1,16 +1,15 @@
 package common.models;
-public class Entity {
-    protected String id;
-    protected String type;
-    protected String name;
-    protected Details details;
 
-    public Entity(String id,String type, String name){
+abstract class Entity {
+    private String id;
+    private String name;
+
+    public Entity(String id, String name) {
         this.id = id;
-        this.type = type;
         this.name = name;
     }
-    
+
+    // Begin: Setter/getter
     public void setId(String id) {
         this.id = id;
     }
@@ -26,12 +25,5 @@ public class Entity {
     public String getName() {
         return this.name;
     }
-    public String getType(){
-        return type;
-    }
-
-    public void setDetails(Details details){
-        this.details = details;
-    }
-
-}   
+    // End: Setter/Getter
+}

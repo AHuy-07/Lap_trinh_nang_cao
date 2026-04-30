@@ -1,3 +1,4 @@
+
 package server;
 
 import java.io.*;
@@ -6,7 +7,7 @@ import java.util.Scanner;
 
 public class AppClient {
     private static final String SERVER_ADDRESS = "localhost";
-    private static final int SERVER_PORT = 8080;
+    private static final int SERVER_PORT = 8010;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -46,12 +47,12 @@ public class AppClient {
 
             while (true) {
                 String input = scanner.nextLine();
-
+                
                 if (input.startsWith("/create ") && !isAdmin) {
                     System.out.println("Loi: Chi Admin moi co quyen tao nhom chat.");
                     continue;
                 }
-
+                
                 if (input.equalsIgnoreCase("exit")) {
                     break;
                 }
@@ -64,4 +65,4 @@ public class AppClient {
     }
 }
 
-// mvn exec:java -Dexec.mainClass="server.ChatClient"
+// mvn exec:java -Dexec.mainClass="server.AppClient"
