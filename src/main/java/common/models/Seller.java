@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Seller extends User{
     Map<String, Integer> sellingItemList = new HashMap<>();
-    int balance = 0;
+    double balance = 0;
 
     public Seller(int id, String loginUsername, double balance) {
         super(id, loginUsername, "SELLER", balance);

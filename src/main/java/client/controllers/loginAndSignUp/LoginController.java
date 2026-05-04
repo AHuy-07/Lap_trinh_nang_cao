@@ -11,10 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-
 public class LoginController {
     private static final int SERVER_PORT = 8080;
     private static final String SERVER_ADDRESS = "localhost";

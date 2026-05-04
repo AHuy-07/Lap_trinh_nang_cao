@@ -46,6 +46,10 @@ public class ClientApp extends Application {
         // Khởi tạo scene, đây là cái sẽ chỉ đạo mọi thứ
         Scene scene = new Scene(root, BASE_WIDTH, BASE_HEIGHT);
 
+
+//        String css = this.getClass().getResource("/style.css").toExternalForm();
+//        scene.getStylesheets().add(css);
+
         // Listener cập nhật scale khi kích thước scene thay đổi
         // Định nghĩa hàm phương thức scaler
         ChangeListener<Number> scaler = (observableValue, number, t1) -> {

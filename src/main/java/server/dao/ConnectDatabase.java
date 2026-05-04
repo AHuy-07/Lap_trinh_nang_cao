@@ -18,12 +18,10 @@ public class ConnectDatabase {
             synchronized (ConnectDatabase.class) {
                 if (connection == null) {
                     try {
-                        Class.forName("org.sqlite.JDBC");
-
                         String url = "jdbc:sqlite:myDatabase.db";
                         connection = DriverManager.getConnection(url);
                         logger.info("Kết nối database thành công");
-                    } catch (ClassNotFoundException | SQLException e) {
+                    } catch (SQLException e) {
                         logger.error("Lỗi khi khởi tạo kết nối database: {}", e.getMessage(), e);
                     }
                 }
