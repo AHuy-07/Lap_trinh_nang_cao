@@ -7,36 +7,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.loginAndSignUp.SignUpController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.loginAndSignUp.SignUpController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="32.0" prefHeight="17.0" prefWidth="210.0" text="Sign Up">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="101.0" prefHeight="53.0" prefWidth="249.0" text="Sign Up">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <PasswordField fx:id="re_passwordSignUp" layoutX="183.0" layoutY="278.0" promptText="Re-enter password">
+      <PasswordField fx:id="re_passwordSignUp" layoutX="372.0" layoutY="442.0" prefHeight="53.0" prefWidth="340.0" promptText="Re-enter password">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="passwordSignUp" layoutX="183.0" layoutY="226.0" promptText="Password">
+      <PasswordField fx:id="passwordSignUp" layoutX="372.0" layoutY="358.0" prefHeight="53.0" prefWidth="340.0" promptText="Password">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="usernameSignUp" layoutX="180.0" layoutY="122.0" promptText="Username">
+      <TextField fx:id="usernameSignUp" layoutX="370.0" layoutY="201.0" prefHeight="53.0" prefWidth="340.0" promptText="Username">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="274.0" layoutY="347.0" mnemonicParsing="false" onAction="#SignUp" text="Sign Up" />
+      <Button layoutX="481.0" layoutY="549.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="39.0" prefWidth="121.0" text="Sign Up" />
       <Label fx:id="signUpError" alignment="CENTER" layoutX="183.0" layoutY="330.0" prefHeight="17.0" prefWidth="240.0" textFill="#e11b1b" />
-      <TextField fx:id="roleSignUp" layoutX="180.0" layoutY="174.0" prefHeight="39.0" prefWidth="240.0" promptText="Role (BIDDER, SELLER)">
+      <TextField fx:id="roleSignUp" layoutX="371.0" layoutY="277.0" prefHeight="53.0" prefWidth="340.0" promptText="Role (BIDDER, SELLER)">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </TextField>
-      <Label fx:id="signUpStatusFail" alignment="CENTER" layoutX="146.0" layoutY="73.0" prefHeight="39.0" prefWidth="303.0" textFill="#dd1717" />
-      <Label fx:id="signUpStatusSuccess" alignment="CENTER" layoutX="178.0" layoutY="76.0" prefHeight="35.0" prefWidth="240.0" textFill="#24d74b" />
+      <Label fx:id="signUpStatusFail" alignment="CENTER" layoutX="389.0" layoutY="152.0" prefHeight="39.0" prefWidth="303.0" textFill="#dd1717" />
+      <Label fx:id="signUpStatusSuccess" alignment="CENTER" layoutX="420.0" layoutY="154.0" prefHeight="35.0" prefWidth="240.0" textFill="#24d74b" />
    </children>
 </AnchorPane>

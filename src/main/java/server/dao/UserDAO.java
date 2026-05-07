@@ -1,5 +1,6 @@
 package server.dao;
 
+import common.models.Admin;
 import common.models.Bidder;
 import common.models.Seller;
 import common.models.User;
@@ -39,6 +40,8 @@ public class UserDAO {
                     return new Bidder(id, username, balance);
                 } else if (role.equals("SELLER")) {
                     return new Seller(id, username, balance);
+                } else if (role.equals("ADMIN")) {
+                    return new Admin(id, username);
                 }
             }
         } catch (SQLException e) {
