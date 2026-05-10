@@ -71,9 +71,17 @@ public class ClientHandler implements Runnable{
             case "REJECTED_ROOM":
                 handleAdminDecision(req, "CLOSED");
                 break;
+            case "GET_MY_ROOMS":
+                handleGetMyRooms();
+                break;
             default:
                 logger.warn("Hành động không xác định {}", action);
         }
+    }
+
+    private void handleGetMyRooms() {
+        List<Room> list = RoomDAO.getRoomsBySeller(this.username);
+        sendResponse(new Request("GET_MY_ROOMS_SUCCESS", list));
     }
 
     private void handleGetPendingRooms(Request req) {
@@ -126,8 +134,9 @@ public class ClientHandler implements Runnable{
             Room roomResponse = RoomDAO.createRoom(roomRequest);
 
             if (roomResponse != null) {
+                sendResponse(new Request("SEND_CREATE_ROOM_SUCCESS", null));
                 AppServer.pendingSellers.put(roomResponse.getRoomId(), this);
-
+                ProductDAO.updateProductStatus(roomRequest.getProductId(), 1);
                 AppServer.sendToSpecificUser("admin", new Request("NEW_PENDING_ROOM", roomResponse));
             } else {
                 sendResponse(new Request("CREATE_ROOM_FAIL", "Trùng mã phòng"));
@@ -136,7 +145,9 @@ public class ClientHandler implements Runnable{
     }
 
     private void handleAdminDecision(Request req, String newStatus) {
-        String roomId = (String) req.getData();
+        Room room = (Room) req.getData();
+        String roomId = room.getRoomId();
+        String productId = room.getProductId();
 
         boolean success = RoomDAO.updateRoomStatus(roomId, newStatus);
 
@@ -146,21 +157,16 @@ public class ClientHandler implements Runnable{
                 String responseAction = newStatus.equals("ACTIVE") ? "CREATE_ROOM_SUCCESS" : "CREATE_ROOM_REJECTED";
                 String responseData = "Phòng" + roomId + " đã được " + (newStatus.equals("ACTIVE") ? "Duyệt" : "Từ chối");
                 handler.sendResponse(new Request(responseAction, responseData));
-
+                int status = newStatus.equals("ACTIVE") ? 2 : 0;
+                ProductDAO.updateProductStatus(productId, status);
+                if (newStatus.equals("ACTIVE")) {
+                    ProductDAO.updateRoomId(productId, roomId);
+                }
                 AppServer.pendingSellers.remove(roomId);
             }
         }
 
         sendResponse(new Request("SUCCESS", "Đã thực hiện quyết định " + newStatus));
-    }
-
-    private void handleGetPendingRooms() {
-        List<Room> pendingList = RoomDAO.getPendingRooms();
-        if (pendingList.isEmpty()) {
-            sendResponse(new Request("NOT_EXIST_PENDING_ROOM", null));
-        } else {
-            sendResponse(new Request("GET_PENDING_ROOMS_SUCCESS", pendingList));
-        }
     }
 
     public String getUserRole() {
