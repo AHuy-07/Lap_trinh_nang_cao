@@ -1,9 +1,12 @@
 package client.controllers;
 
+import client.controllers.sellerController.SellerDashboardController;
 import common.Request;
 import common.models.User;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -19,6 +22,12 @@ public class Session {
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
 
+    // Biến để lưu callback của yêu cầu hiện tại (Ví dụ: Login, CreateRoom)
+    private Consumer<Request> currentResponseCallback;
+
+    // Tham chiếu đến đối tượng để dùng In-app Notifi
+    private SellerDashboardController sellerDashboardController;
+
     private Session() {}
 
     public static Session getInstance() {
@@ -32,37 +41,66 @@ public class Session {
         return instance;
     }
 
-    public void sendRequest(Request request, Consumer<Request> onSuccess, Consumer<Throwable> onFailed) {
-        Task<Request> task = new Task<Request>() {
-            @Override
-            protected Request call() throws Exception {
-                // 1. Mở kết nối nếu đây là lần đầu
-                if (socket == null || socket.isClosed()) {
-                    socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
-                    oos = new ObjectOutputStream(socket.getOutputStream());
-                    ois = new ObjectInputStream(socket.getInputStream());
+    public void setSellerDashboardController(SellerDashboardController controller) {
+        this.sellerDashboardController = controller;
+    }
+
+    public void sendRequest(Request request, Consumer<Request> callback) {
+        try {
+            connectIfNeeded();
+            this.currentResponseCallback = callback; // lưu lại để dùng khi có tin về
+            oos.writeObject(request);
+            oos.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private synchronized void connectIfNeeded() throws Exception {
+        if (socket == null || socket.isClosed()) {
+            socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+            oos = new ObjectOutputStream(socket.getOutputStream());
+            oos.flush();
+            ois = new ObjectInputStream(socket.getInputStream());
+            startListening();
+        }
+
+    }
+
+    private void startListening() {
+        new Thread(() -> {
+            try {
+                while (socket != null && !socket.isClosed()) {
+                    Object received = ois.readObject();
+                    if (received instanceof Request) {
+                        Request response = (Request) received;
+                        handleResponse(response);
+                    }
                 }
-
-                // 2. Gửi Request đi
-                oos.writeObject(request);
-                oos.flush();
-
-                // 3. Đợi và trả về
-                return (Request) ois.readObject();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        };
+        }).start();
+    }
 
-        task.setOnSucceeded(e -> {
-            Request response = task.getValue();
-            onSuccess.accept(response);
-        });
+    private void handleResponse(Request response) {
+        String action = response.getAction();
 
-        task.setOnFailed(e -> {
-            Throwable error = task.getException();
-            onFailed.accept(error);
-        });
+        if (action.equals("CREATE_ROOM_SUCCESS") || action.equals("CREATE_ROOM_REJECTED")) {
+            Platform.runLater(() -> {
+                if (sellerDashboardController != null) {
+                    String msg = action.equals("CREATE_ROOM_SUCCESS") ? "Phòng của bạn đã được duyệt!" : "Phòng của bạn bị từ chối!";
+                    String color = action.equals("CREATE_ROOM_SUCCESS") ? "#2ecc71" : "#e74c3c";
 
-        new Thread(task).start();
+                    sellerDashboardController.showInAppNotification(msg, color);
+                    sellerDashboardController.loadMyRooms();
+                }
+            });
+        } else if (currentResponseCallback != null) {
+            Platform.runLater(() -> {
+                currentResponseCallback.accept(response);
+            });
+        }
     }
 
     public void setConnection(Socket socket, ObjectOutputStream oos, ObjectInputStream ois) {
@@ -73,5 +111,9 @@ public class Session {
 
     public void setCurrentUser(User user) {
         this.currentUser = user;
+    }
+
+    public String getCurrentUsername() {
+        return currentUser.getUsername();
     }
 }
