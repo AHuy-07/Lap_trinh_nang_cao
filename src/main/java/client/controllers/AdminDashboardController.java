@@ -64,8 +64,6 @@ public class AdminDashboardController {
                     } else if (response.getAction().equals("NOT_EXIST_PENDING_ROOM")) {
                         pendingRooms.clear();
                     }
-                },
-                error -> {
                 }
         );
     }
@@ -104,7 +102,7 @@ public class AdminDashboardController {
 
     // Hàm xử lí gửi quyết định của Admin lên Server
     private void handleDecision(Room room, String actionType) {
-        Request req = new Request(actionType, room.getRoomId());
+        Request req = new Request(actionType, room);
 
         Session.getInstance().sendRequest(
                 req,
@@ -114,9 +112,6 @@ public class AdminDashboardController {
                             pendingRooms.remove(room);
                         });
                     }
-                },
-                error -> {
-
                 }
         );
     }
