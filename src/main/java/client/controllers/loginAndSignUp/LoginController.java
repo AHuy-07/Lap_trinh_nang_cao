@@ -5,7 +5,6 @@ import client.controllers.Session;
 import common.Request;
 import common.models.User;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -50,19 +49,16 @@ public class LoginController {
                             Session.getInstance().setCurrentUser(user);
                             // Phần này sẽ có SceneController
                             if (user.getRole().equals("SELLER")) {
-                                SceneController.switchScene("/client/views/seller/createRoom.fxml");
+                                SceneController.switchScene("/client/views/seller/SellerDashboard.fxml");
                             } else if (user.getRole().equals("ADMIN")) {
                                 SceneController.switchScene("/client/views/admin/AdminDashboard.fxml");
                             } else {
                                 loginStatusLabel.setText("Vai trò " + user.getRole() + " không được hỗ trợ!");
                             }
+                        } else if (response.getAction().equals("LOGIN_FAIL")) {
+                            loginStatusLabel.setText((String) response.getData());
                         }
                     });
-
-                },
-                error -> {
-                    lockUI(false);
-                    loginStatusLabel.setText("Không thể đăng nhập. Vui lòng thử lại sau");
                 }
         );
     }
