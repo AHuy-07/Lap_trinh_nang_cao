@@ -9,6 +9,7 @@ public class Room implements Serializable {
     private String roomName;
     private String status; // PENDING, ACTIVE, CLOSED
     private String productId;
+    private String sellerName;
     private long startingPrice;
     private String beginTime;
     private String endTime;
@@ -17,12 +18,14 @@ public class Room implements Serializable {
 
     public Room() {}
 
-    public Room(String roomId, String roomName, String productId, long startingPrice) {
+    public Room(String roomId, String roomName, String productId, String sellerName, long startingPrice, String beginTime) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.productId = productId;
+        this.sellerName = sellerName;
         this.startingPrice = startingPrice;
         this.status = "PENDING"; // Mặc định khi mới tạo
+        this.beginTime = beginTime;
     }
 
     public String getRoomId() {
@@ -31,6 +34,14 @@ public class Room implements Serializable {
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
     }
 
     public String getRoomName() {
