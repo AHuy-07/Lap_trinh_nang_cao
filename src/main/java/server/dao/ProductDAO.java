@@ -22,6 +22,11 @@ public class ProductDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+                /*
+                - Số 0 là chưa được động vào
+                - Số 1 là đã được kiểu lấy vào phòng. Trường hợp này sẽ không được lấy ra nữa
+                - Số 2 là đã bán
+                 */
                 int isSold = resultSet.getInt("isSold");
                 if (isSold == 0) return true;
             }
@@ -29,5 +34,29 @@ public class ProductDAO {
             logger.error("Lỗi SQL khi tìm thông tin sản phẩm", e);
         }
         return false;
+    }
+
+    public static void updateProductStatus(String productId, int status) {
+        String query = "UPDATE Product SET idSold = ? WHERE productId = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            preparedStatement.setString(2, productId);
+            preparedStatement.setInt(1, status);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi cập nhật trạng thái sản phẩm", e);
+        }
+    }
+
+    public static void updateRoomId(String productId, String roomId) {
+        String query = "UPDATE Product SET roomId = ? WHERE productId = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            preparedStatement.setString(2, productId);
+            preparedStatement.setString(1, roomId);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi cập nhật trạng thái sản phẩm", e);
+        }
     }
 }

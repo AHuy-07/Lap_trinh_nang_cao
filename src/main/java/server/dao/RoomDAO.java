@@ -20,7 +20,7 @@ public class RoomDAO {
 
     public static Room createRoom (Room room) {
         String queryFindRoomId = "SELECT 1 FROM Room WHERE roomId = ? LIMIT 1";
-        String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, startingPrice, beginTime) VALUES(?, ?, ?, ?, ?, ?)";
+        String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, sellerName, startingPrice, beginTime) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(queryFindRoomId)) {
             preparedStatement.setString(1, room.getRoomId());
@@ -35,8 +35,9 @@ public class RoomDAO {
                 insertInfo.setString(2, room.getRoomName());
                 insertInfo.setString(3, "PENDING");
                 insertInfo.setString(4, room.getProductId());
-                insertInfo.setLong(5, room.getStartingPrice());
-                insertInfo.setString(6, room.getBeginTime());
+                insertInfo.setString(5, room.getSellerName());
+                insertInfo.setLong(6, room.getStartingPrice());
+                insertInfo.setString(7, room.getBeginTime());
 
                 int insertStatus = insertInfo.executeUpdate();
 
@@ -62,7 +63,9 @@ public class RoomDAO {
                         resultSet.getString("roomId"),
                         resultSet.getString("roomName"),
                         resultSet.getString("productId"),
-                        resultSet.getLong("startingPrice")
+                        resultSet.getString("sellerName"),
+                        resultSet.getLong("startingPrice"),
+                        resultSet.getString("beginTime")
                 );
                 room.setStatus(resultSet.getString("status"));
                 list.add(room);
@@ -74,10 +77,10 @@ public class RoomDAO {
     }
 
     public static boolean updateRoomStatus(String roomId, String newStatus) {
-        String query = "UPDATE Room WHERE roomId = ? SET status = ?";
+        String query = "UPDATE Room SET status = ? WHERE roomId = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, roomId);
-            preparedStatement.setString(2, newStatus);
+            preparedStatement.setString(2, roomId);
+            preparedStatement.setString(1, newStatus);
 
             int result = preparedStatement.executeUpdate();
             return result > 0;
@@ -85,5 +88,38 @@ public class RoomDAO {
             logger.error("Lỗi SQL khi cập nhật trạng thái phòng {}: {}", roomId, e.getMessage());
             return false;
         }
+    }
+
+    public static List<Room> getRoomsBySeller(String username) {
+        List<Room> list = new ArrayList<>();
+
+        String query = "SELECT * FROM Room where sellerName = ? " +
+                       "ORDER BY " +
+                           "CASE status " +
+                               "WHEN 'PENDING' THEN 1 " +
+                               "ELSE 2 " +
+                           "END ASC, " +
+                           "roomId DESC";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Room room = new Room(
+                        resultSet.getString("roomId"),
+                        resultSet.getString("roomName"),
+                        resultSet.getString("productId"),
+                        username,
+                        resultSet.getLong("startingPrice"),
+                        resultSet.getString("beginTime")
+                );
+                room.setStatus(resultSet.getString("status"));
+                list.add(room);
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy phòng của {}: {}", username, e.getMessage());
+        }
+        return list;
     }
 }
