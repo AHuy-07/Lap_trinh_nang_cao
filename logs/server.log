@@ -24,3 +24,69 @@ java.sql.SQLException: no such column: 'userId'
 	at server.ClientHandler.run(ClientHandler.java:37)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
 2026-04-28 00:08:30 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-05-10 19:05:14 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-10 19:05:14 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-10 19:05:14 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-10 19:05:39 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-10 19:05:39 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-10 19:05:39 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-10 19:05:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng LAH2 xác thực thành công
+2026-05-10 19:09:52 [Thread-0] ERROR server.dao.ProductDAO - Lỗi SQL khi cập nhật trạng thái sản phẩm
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: idSold)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.throwex(DB.java:1153)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:135)
+	at org.sqlite.core.DB.prepare(DB.java:265)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:46)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:33)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:28)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:34)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:225)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
+	at server.dao.ProductDAO.updateProductStatus(ProductDAO.java:41)
+	at server.ClientHandler.handleCreateRoom(ClientHandler.java:139)
+	at server.ClientHandler.handleRequest(ClientHandler.java:63)
+	at server.ClientHandler.run(ClientHandler.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-10 19:09:52 [Thread-0] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-10 19:23:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-10 19:23:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-10 19:23:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-10 19:23:37 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-10 19:24:48 [Thread-1] INFO  server.dao.UserDAO - Người dùng LAH2 xác thực thành công
+2026-05-10 19:26:09 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:11 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:11 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:11 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:11 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:11 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:12 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:12 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:12 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:12 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:26:12 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-10 19:57:33 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-10 19:57:33 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-10 19:57:33 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-10 19:57:39 [Thread-0] INFO  server.dao.UserDAO - Người dùng LAH2 xác thực thành công
+2026-05-10 21:58:33 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-10 21:58:33 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-10 21:58:33 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-10 21:59:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-10 22:00:15 [Thread-1] INFO  server.dao.UserDAO - Người dùng seller1 xác thực thành công
+2026-05-10 22:00:32 [Thread-2] INFO  server.dao.UserDAO - Người dùng bidder1 xác thực thành công
+2026-05-10 22:00:49 [Thread-3] INFO  server.dao.UserDAO - Người dùng bidder2 xác thực thành công
+2026-05-10 22:08:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-10 22:08:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-10 22:08:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-10 22:08:34 [Thread-0] INFO  server.dao.UserDAO - Người dùng seller1 xác thực thành công
+2026-05-10 22:08:36 [Thread-1] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-10 22:09:29 [Thread-2] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-10 22:10:09 [Thread-3] INFO  server.dao.UserDAO - Người dùng bidder1 xác thực thành công
+2026-05-10 22:10:17 [Thread-4] INFO  server.dao.UserDAO - Người dùng bidder2 xác thực thành công
+2026-05-10 22:12:24 [Thread-4] WARN  server.ClientHandler - Không parse được thời gian phòng R_001: Text '2026-12-05 11:00' could not be parsed at index 10
+2026-05-10 22:12:31 [Thread-3] WARN  server.ClientHandler - Không parse được thời gian phòng R_001: Text '2026-12-05 11:00' could not be parsed at index 10
+2026-05-10 22:12:37 [Thread-4] WARN  server.ClientHandler - Không parse được thời gian phòng R_001: Text '2026-12-05 11:00' could not be parsed at index 10
+2026-05-10 22:12:44 [Thread-4] WARN  server.ClientHandler - Không parse được thời gian phòng R_001: Text '2026-12-05 11:00' could not be parsed at index 10

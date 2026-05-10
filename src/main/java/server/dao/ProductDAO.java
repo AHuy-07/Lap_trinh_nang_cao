@@ -37,7 +37,7 @@ public class ProductDAO {
     }
 
     public static void updateProductStatus(String productId, int status) {
-        String query = "UPDATE Product SET idSold = ? WHERE productId = ?";
+        String query = "UPDATE Product SET isSold = ? WHERE productId = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
             preparedStatement.setString(2, productId);
             preparedStatement.setInt(1, status);

@@ -22,6 +22,8 @@ public class AppServer {
     // Quản lí các roomId đang PENDING. String: RoomId. ClientHandler: như trên
     public static final Map<String, ClientHandler> pendingSellers = new ConcurrentHashMap<>();
 
+    public static final Map<String, Set<ClientHandler>> roomSubscribers = new ConcurrentHashMap<>();
+
     public static void main(String[] args) {
         if (ConnectDatabase.getConnection() != null) {
             logger.info("[SERVER] Kết nối database thành công");
@@ -60,6 +62,28 @@ public class AppServer {
             handler.sendResponse(request);
         } else {
             logger.warn("[SERVER] Không tìm thấy {} để gửi thông báo", targetUsername);
+        }
+    }
+
+    public static void subscribeRoom(String roomId, ClientHandler handler) {
+        roomSubscribers
+                .computeIfAbsent(roomId, key -> ConcurrentHashMap.newKeySet())
+                .add(handler);
+    }
+
+    public static void unsubscribeFromAllRooms(ClientHandler handler) {
+        roomSubscribers.values().forEach(handlers -> handlers.remove(handler));
+    }
+
+    public static void broadcastToRoom(String roomId, Request request) {
+        Set<ClientHandler> handlers = roomSubscribers.get(roomId);
+
+        if (handlers == null || handlers.isEmpty()) {
+            return;
+        }
+
+        for (ClientHandler handler : handlers) {
+            handler.sendResponse(request);
         }
     }
 }

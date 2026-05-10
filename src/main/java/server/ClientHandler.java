@@ -1,10 +1,12 @@
 package server;
 
 import common.Request;
+import common.models.BidTransaction;
 import common.models.Room;
 import common.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.dao.BidDAO;
 import server.dao.ProductDAO;
 import server.dao.RoomDAO;
 import server.dao.UserDAO;
@@ -13,10 +15,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ClientHandler implements Runnable{
     private static final Logger logger = LoggerFactory.getLogger(ClientHandler.class);
+    private static final Map<String, Object> roomBidLocks = new ConcurrentHashMap<>();
+
     private Socket socket;
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
@@ -74,9 +81,164 @@ public class ClientHandler implements Runnable{
             case "GET_MY_ROOMS":
                 handleGetMyRooms();
                 break;
+            case "GET_ACTIVE_ROOMS":
+                handleGetActiveRooms();
+                break;
+            case "JOIN_ROOM":
+                handleJoinRoom(req);
+                break;
+            case "PLACE_BID":
+                handlePlaceBid(req);
+                break;
+            case "LEAVE_ROOM":
+                handleLeaveRoom(req);
+                break;
             default:
                 logger.warn("Hành động không xác định {}", action);
         }
+    }
+
+    private void handleGetActiveRooms() {
+        List<Room> activeRooms = RoomDAO.getActiveRooms();
+        sendResponse(new Request("GET_ACTIVE_ROOMS_SUCCESS", activeRooms));
+    }
+
+    private void handleJoinRoom(Request req) {
+        if (this.username == null) {
+            sendResponse(new Request("JOIN_ROOM_FAIL", "Bạn cần đăng nhập trước khi vào phòng"));
+            return;
+        }
+
+        if (!"BIDDER".equalsIgnoreCase(this.userRole)) {
+            sendResponse(new Request("JOIN_ROOM_FAIL", "Chỉ bidder mới được vào phòng đấu giá"));
+            return;
+        }
+
+        String roomId = (String) req.getData();
+        Room room = RoomDAO.getRoomById(roomId);
+
+        if (room == null) {
+            sendResponse(new Request("JOIN_ROOM_FAIL", "Phòng không tồn tại"));
+            return;
+        }
+
+        if (!"ACTIVE".equals(room.getStatus())) {
+            sendResponse(new Request("JOIN_ROOM_FAIL", "Phòng chưa được mở đấu giá"));
+            return;
+        }
+
+        AppServer.subscribeRoom(roomId, this);
+        sendResponse(new Request("JOIN_ROOM_SUCCESS", room));
+    }
+
+    private void handlePlaceBid(Request req) {
+        BidTransaction bidRequest = (BidTransaction) req.getData();
+        String roomId = bidRequest.getRoomId();
+        long bidAmount = bidRequest.getBidAmount();
+
+        Room room = RoomDAO.getRoomById(roomId);
+
+        if (room == null) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Phòng không tồn tại"));
+            return;
+        }
+
+        if (!"ACTIVE".equals(room.getStatus())) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Phòng không còn hoạt động"));
+            return;
+        }
+
+        if (this.username == null) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Bạn cần đăng nhập trước khi đấu giá"));
+            return;
+        }
+
+        if (!"BIDDER".equalsIgnoreCase(this.userRole)) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Chỉ bidder mới được tham gia đấu giá"));
+            return;
+        }
+
+        if (this.username.equals(room.getSellerName())) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Seller không được đấu giá phòng của chính mình"));
+            return;
+        }
+
+        if (!isRoomInAuctionTime(room)) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Hiện không nằm trong thời gian đấu giá"));
+            return;
+        }
+
+        Object roomLock = roomBidLocks.computeIfAbsent(roomId, key -> new Object());
+
+        synchronized (roomLock) {
+            Room latestRoom = RoomDAO.getRoomById(roomId);
+
+            if (latestRoom == null) {
+                sendResponse(new Request("PLACE_BID_FAIL", "Phòng không tồn tại"));
+                return;
+            }
+
+            if (!"ACTIVE".equals(latestRoom.getStatus())) {
+                sendResponse(new Request("PLACE_BID_FAIL", "Phòng không còn hoạt động"));
+                return;
+            }
+
+            long bidStep = Room.calculateDefaultBidStep(latestRoom.getStartingPrice());
+            long currentPrice = BidDAO.getCurrentPrice(roomId);
+            long minimumNextPrice = currentPrice + bidStep;
+
+            if (bidAmount < minimumNextPrice) {
+                sendResponse(new Request(
+                        "PLACE_BID_FAIL",
+                        "Giá phải tối thiểu là " + minimumNextPrice
+                ));
+                return;
+            }
+
+            boolean success = BidDAO.placeBid(latestRoom, this.username, bidAmount);
+
+            if (!success) {
+                sendResponse(new Request("PLACE_BID_FAIL", "Không thể đặt giá, vui lòng thử lại"));
+                return;
+            }
+
+            BidTransaction latestBid = BidDAO.getLatestBid(roomId);
+
+            sendResponse(new Request("PLACE_BID_SUCCESS", latestBid));
+            AppServer.broadcastToRoom(roomId, new Request("NEW_BID", latestBid));
+        }
+    }
+
+    private boolean isRoomInAuctionTime(Room room) {
+        try {
+            LocalDateTime now = LocalDateTime.now();
+
+            if (room.getBeginTime() != null && !room.getBeginTime().isBlank()) {
+                LocalDateTime beginTime = LocalDateTime.parse(room.getBeginTime());
+
+                if (now.isBefore(beginTime)) {
+                    return false;
+                }
+            }
+
+            if (room.getEndTime() != null && !room.getEndTime().isBlank()) {
+                LocalDateTime endTime = LocalDateTime.parse(room.getEndTime());
+
+                if (now.isAfter(endTime)) {
+                    return false;
+                }
+            }
+
+            return true;
+        } catch (Exception e) {
+            logger.warn("Không parse được thời gian phòng {}: {}", room.getRoomId(), e.getMessage());
+            return true;
+        }
+    }
+
+    private void handleLeaveRoom(Request req) {
+        AppServer.unsubscribeFromAllRooms(this);
+        sendResponse(new Request("LEAVE_ROOM_SUCCESS", null));
     }
 
     private void handleGetMyRooms() {
@@ -178,6 +340,7 @@ public class ClientHandler implements Runnable{
         AppServer.removeOnlineUser(this.username);
 
         AppServer.pendingSellers.values().removeIf(handler -> handler.equals(this));
+        AppServer.unsubscribeFromAllRooms(this);
 
         try {
             if (ois != null) ois.close();
@@ -188,7 +351,7 @@ public class ClientHandler implements Runnable{
         }
     }
 
-    public void sendResponse(Request response) {
+    public synchronized void sendResponse(Request response) {
         try {
             oos.writeObject(response);
             oos.flush();

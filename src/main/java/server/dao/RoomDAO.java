@@ -19,6 +19,8 @@ public class RoomDAO {
     private static final Connection connection = ConnectDatabase.getConnection();
 
     public static Room createRoom (Room room) {
+        room.setBidStep(Room.calculateDefaultBidStep(room.getStartingPrice()));
+
         String queryFindRoomId = "SELECT 1 FROM Room WHERE roomId = ? LIMIT 1";
         String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, sellerName, startingPrice, beginTime) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
@@ -94,12 +96,12 @@ public class RoomDAO {
         List<Room> list = new ArrayList<>();
 
         String query = "SELECT * FROM Room where sellerName = ? " +
-                       "ORDER BY " +
-                           "CASE status " +
-                               "WHEN 'PENDING' THEN 1 " +
-                               "ELSE 2 " +
-                           "END ASC, " +
-                           "roomId DESC";
+                "ORDER BY " +
+                "CASE status " +
+                "WHEN 'PENDING' THEN 1 " +
+                "ELSE 2 " +
+                "END ASC, " +
+                "roomId DESC";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, username);
@@ -121,5 +123,66 @@ public class RoomDAO {
             logger.error("Lỗi SQL khi lấy phòng của {}: {}", username, e.getMessage());
         }
         return list;
+    }
+
+    public static List<Room> getActiveRooms() {
+        List<Room> list = new ArrayList<>();
+
+        String query = "SELECT * FROM Room WHERE status = 'ACTIVE' ORDER BY roomId DESC";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Room room = mapResultSetToRoom(resultSet);
+                list.add(room);
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy danh sách phòng ACTIVE", e);
+        }
+
+        return list;
+    }
+
+    public static Room getRoomById(String roomId) {
+        String query = "SELECT * FROM Room WHERE roomId = ? LIMIT 1";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, roomId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return mapResultSetToRoom(resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy phòng {}", roomId, e);
+        }
+
+        return null;
+    }
+
+    private static Room mapResultSetToRoom(ResultSet resultSet) throws SQLException {
+        Room room = new Room(
+                resultSet.getString("roomId"),
+                resultSet.getString("roomName"),
+                resultSet.getString("productId"),
+                resultSet.getString("sellerName"),
+                resultSet.getLong("startingPrice"),
+                resultSet.getString("beginTime")
+        );
+
+        room.setStatus(resultSet.getString("status"));
+        room.setEndTime(resultSet.getString("endTime"));
+        room.setWinPrice(resultSet.getLong("winPrice"));
+        room.setWinnerUsername(resultSet.getString("winnerUsername"));
+
+        try {
+            room.setBidStep(resultSet.getLong("bidStep"));
+        } catch (SQLException ignored) {
+            room.setBidStep(10000);
+        }
+
+        return room;
     }
 }

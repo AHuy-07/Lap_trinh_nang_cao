@@ -1,0 +1,126 @@
+package server.dao;
+
+import common.models.BidTransaction;
+import common.models.Room;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.UUID;
+
+public class BidDAO {
+    private static final Logger logger = LoggerFactory.getLogger(BidDAO.class);
+    private static final Connection connection = ConnectDatabase.getConnection();
+
+    public static synchronized boolean placeBid(Room room, String bidderUsername, long bidAmount) {
+        String transactionId = UUID.randomUUID().toString();
+        String bidTime = java.time.LocalDateTime.now().toString();
+
+        String insertBid = """
+                INSERT INTO BidTransaction(transactionId, roomId, bidderUsername, bidAmount, bidTime)
+                VALUES (?, ?, ?, ?, ?)
+                """;
+
+        String updateRoom = """
+                UPDATE Room
+                SET winPrice = ?, winnerUsername = ?
+                WHERE roomId = ?
+                """;
+
+        try {
+            connection.setAutoCommit(false);
+
+            try (PreparedStatement insertStatement = connection.prepareStatement(insertBid);
+                 PreparedStatement updateStatement = connection.prepareStatement(updateRoom)) {
+
+                insertStatement.setString(1, transactionId);
+                insertStatement.setString(2, room.getRoomId());
+                insertStatement.setString(3, bidderUsername);
+                insertStatement.setLong(4, bidAmount);
+                insertStatement.setString(5, bidTime);
+                insertStatement.executeUpdate();
+
+                updateStatement.setLong(1, bidAmount);
+                updateStatement.setString(2, bidderUsername);
+                updateStatement.setString(3, room.getRoomId());
+                updateStatement.executeUpdate();
+
+                connection.commit();
+                return true;
+            }
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException rollbackException) {
+                logger.error("Lỗi rollback khi đặt giá", rollbackException);
+            }
+
+            logger.error("Lỗi SQL khi đặt giá", e);
+            return false;
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                logger.error("Lỗi bật lại auto commit", e);
+            }
+        }
+    }
+
+    public static long getCurrentPrice(String roomId) {
+        String query = """
+                SELECT startingPrice, winPrice
+                FROM Room
+                WHERE roomId = ?
+                """;
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, roomId);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    long startingPrice = resultSet.getLong("startingPrice");
+                    long winPrice = resultSet.getLong("winPrice");
+
+                    return Math.max(startingPrice, winPrice);
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy giá hiện tại của phòng {}", roomId, e);
+        }
+
+        return 0;
+    }
+
+    public static BidTransaction getLatestBid(String roomId) {
+        String query = """
+                SELECT *
+                FROM BidTransaction
+                WHERE roomId = ?
+                ORDER BY bidAmount DESC, bidTime DESC
+                LIMIT 1
+                """;
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, roomId);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return new BidTransaction(
+                            resultSet.getString("transactionId"),
+                            resultSet.getString("roomId"),
+                            resultSet.getString("bidderUsername"),
+                            resultSet.getLong("bidAmount"),
+                            resultSet.getString("bidTime")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy bid mới nhất của phòng {}", roomId, e);
+        }
+
+        return null;
+    }
+}

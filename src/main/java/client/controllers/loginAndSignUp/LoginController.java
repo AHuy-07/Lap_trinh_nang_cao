@@ -52,6 +52,8 @@ public class LoginController {
                                 SceneController.switchScene("/client/views/seller/SellerDashboard.fxml");
                             } else if (user.getRole().equals("ADMIN")) {
                                 SceneController.switchScene("/client/views/admin/AdminDashboard.fxml");
+                            } else if (user.getRole().equals("BIDDER")) {
+                                SceneController.switchScene("/client/views/bidder/BidderDashboard.fxml");
                             } else {
                                 loginStatusLabel.setText("Vai trò " + user.getRole() + " không được hỗ trợ!");
                             }
@@ -62,8 +64,6 @@ public class LoginController {
                 }
         );
     }
-
-
 
     private void lockUI(boolean type) {
         txtUsername.setDisable(type);
