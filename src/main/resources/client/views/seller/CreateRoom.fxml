@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dcdde1;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.sellerController.createRoomController">
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dcdde1;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.sellerController.CreateRoomController">
     <padding>
         <Insets bottom="25.0" left="35.0" right="35.0" top="25.0" />
     </padding>
@@ -82,7 +82,13 @@
         </Label>
         <TextField fx:id="txtDetails" prefHeight="90.0" promptText="Quy định thêm của phòng (nếu có)..." style="-fx-control-inner-background: #f8f9fa; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ced4da;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
+        <Label text="Thời gian bắt đầu:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <font><Font name="System Bold" size="14.0" /></font>
+        </Label>
+        <TextField fx:id="txtBeginTime" promptText="Định dạng: yyyy-MM-dd HH:mm (VD: 2026-05-20 15:30)" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
         <rowConstraints>
+            <RowConstraints />
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
@@ -103,15 +109,14 @@
       </Label>
 
         <!-- Nút Hủy -->
-        <Button fx:id="btnCancel" cancelButton="true" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;" text="Hủy bỏ">
+        <Button fx:id="btnCancel" cancelButton="true" onAction="#returnFromCreateRoom" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;" text="Hủy bỏ">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Button mnemonicParsing="false" onAction="#checkRoom" prefHeight="25.0" prefWidth="132.0" text="Kiểm tra phòng" />
 
         <!-- Nút Gửi yêu cầu -->
-        <Button fx:id="btnSubmit" defaultButton="true" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Gửi yêu cầu">
+        <Button fx:id="btnSubmit" defaultButton="true" onAction="#checkRoom" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Gửi yêu cầu">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
