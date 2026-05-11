@@ -7,10 +7,7 @@ import common.models.Room;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 
 import javax.swing.*;
@@ -29,12 +26,23 @@ public class CreateRoomController {
     @FXML private TextField txtProductId;
     @FXML private TextField txtStartingPrice;
     @FXML private TextField txtDetails;
-    @FXML private TextField txtBeginTime;
+    @FXML private DatePicker beginDate;
+    @FXML private ComboBox<String> beginHour;
+    @FXML private ComboBox<String> beginMinute;
     @FXML private Label status;
     @FXML private Button btnSubmit;
 
     @FXML
     public void initialize() {
+        for (int i = 0; i <= 23; i++) {
+            beginHour.getItems().add(String.format("%02d", i));
+        }
+        for (int i = 0; i <= 59; i++) {
+            beginMinute.getItems().add(String.format("%02d", i));
+        }
+        beginHour.setValue("12");
+        beginMinute.setValue("00");
+
         txtRoomId.textProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue.isEmpty() || !newValue.startsWith("R_")) {
                 txtRoomId.setStyle("-fx-border-color: red; -fx-border-width: 2px");
@@ -59,18 +67,7 @@ public class CreateRoomController {
             }
         });
 
-        txtBeginTime.textProperty().addListener((obs, oldVal, newVal) -> {
-            String regrex = "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}";
-            if (!newVal.trim().matches(regrex)) {
-                txtBeginTime.setStyle("-fx-border-color: red; -fx-border-width: 2px");
-                status.setText("Lỗi! Định dạng phải là yyyy-MM-dd HH:mm");
-                btnSubmit.setDisable(true);
-            } else {
-                txtBeginTime.setStyle("-fx-border-color: green;");
-                status.setText("");
-                btnSubmit.setDisable(false);
-            }
-        });
+
 
         // Tạo bộ lọc: Chỉ cho phép các ký tự là số
         UnaryOperator<TextFormatter.Change> filter = change -> {
@@ -114,12 +111,11 @@ public class CreateRoomController {
         switchKey(txtStartingPrice, txtDetails);
     }
 
-    private boolean check(String roomId, String roomName, String productId, String startingPrice, String beginTime) {
+    private boolean check(String roomId, String roomName, String productId, String startingPrice) {
         if (roomId == null || roomId.trim().isEmpty()) return false;
         if (roomName == null || roomName.trim().isEmpty()) return false;
         if (productId == null || productId.trim().isEmpty()) return false;
         if (startingPrice == null || startingPrice.trim().isEmpty()) return false;
-        if (beginTime == null || beginTime.trim().isEmpty()) return false;
 
         return true;
     }
@@ -143,18 +139,24 @@ public class CreateRoomController {
 
     // Xử lí phần gửi yêu cầu
     public void checkRoom(ActionEvent event) {
+        if (beginDate.getValue() == null || beginHour.getValue() == null || beginMinute.getValue() == null) {
+            status.setText("Vui lòng chọn đầy đủ ngày và giờ!");
+            return;
+        }
         String roomId = txtRoomId.getText();
         String roomName = txtRoomName.getText();
         String productId = txtProductId.getText();
         String sellerName = Session.getInstance().getCurrentUsername();
         String startingPrice = txtStartingPrice.getText();
-        String beginTime = txtBeginTime.getText().trim();
-        if (!check(roomId, roomName, productId, startingPrice, beginTime)) {
+        String dateStr = beginDate.getValue().toString();
+        String beginTime = dateStr + " " + beginHour.getValue() + ":" + beginMinute.getValue();
+        if (!check(roomId, roomName, productId, startingPrice)) {
             status.setText("Hãy nhập đầy đủ thông tin cần thiết!");
             return;
         }
 
         if (!isValidDateTime(beginTime)) {
+            status.setText("Thời gian không hợp lệ!");
             return;
         }
         Room roomRequest = new Room(roomId, roomName, productId, sellerName, Long.parseLong(startingPrice), beginTime);

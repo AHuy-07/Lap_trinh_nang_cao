@@ -25,6 +25,8 @@ public class Session {
     // Biến để lưu callback của yêu cầu hiện tại (Ví dụ: Login, CreateRoom)
     private Consumer<Request> currentResponseCallback;
 
+    private Consumer<Request> realtimeBidCallback;
+
     // Tham chiếu đến đối tượng để dùng In-app Notifi
     private SellerDashboardController sellerDashboardController;
 
@@ -54,6 +56,14 @@ public class Session {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setRealtimeBidCallback(Consumer<Request> realtimeBidCallback) {
+        this.realtimeBidCallback = realtimeBidCallback;
+    }
+
+    public void clearRealtimeBidCallback() {
+        this.realtimeBidCallback = null;
     }
 
     private synchronized void connectIfNeeded() throws Exception {
@@ -96,6 +106,12 @@ public class Session {
                     sellerDashboardController.loadMyRooms();
                 }
             });
+        } else if (action.equals("NEW_BID") || action.equals("AUCTION_ENDED")) {
+            Platform.runLater(() -> {
+                if (realtimeBidCallback != null) {
+                    realtimeBidCallback.accept(response);
+                }
+            });
         } else if (currentResponseCallback != null) {
             Platform.runLater(() -> {
                 currentResponseCallback.accept(response);
@@ -112,6 +128,8 @@ public class Session {
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
+
+    public User getCurrentUser() { return currentUser; }
 
     public String getCurrentUsername() {
         return currentUser.getUsername();

@@ -1,0 +1,49 @@
+/* Giao diện chung */
+.root {
+    -fx-background-color: #f4f7f6;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Các ô nhập liệu */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 5;
+    -fx-padding: 8 12;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2;
+}
+
+/* Nút bấm chính */
+.button-primary {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+}
+
+.button-primary:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Nút bấm phụ (Sign Up / Back) */
+.button-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3498db;
+    -fx-cursor: hand;
+}
+
+.button-secondary:hover {
+    -fx-underline: true;
+}
+
+/* Nhãn thông báo */
+.status-label {
+    -fx-font-size: 12px;
+}

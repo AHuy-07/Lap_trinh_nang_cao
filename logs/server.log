@@ -1,26 +1,248 @@
-2026-04-28 00:05:35 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:05:36 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:05:36 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:06:12 [Thread-0] INFO  server.dao.UserDAO - Người dùng hungg xác thực thành công
-2026-04-28 00:06:14 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client hungg: Connection reset
-2026-04-28 00:06:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:06:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:06:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:06:47 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
-2026-04-28 00:07:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:07:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:07:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:07:42 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
-2026-04-28 00:08:11 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:08:11 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:08:11 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:08:28 [Thread-0] ERROR server.dao.UserDAO - Lỗi SQL khi đăng kí
-java.sql.SQLException: no such column: 'userId'
-	at org.sqlite.jdbc3.JDBC3ResultSet.findColumn(JDBC3ResultSet.java:51)
-	at org.sqlite.jdbc3.JDBC3ResultSet.getInt(JDBC3ResultSet.java:336)
-	at server.dao.UserDAO.signUp(UserDAO.java:70)
-	at server.ClientHandler.handleSignUp(ClientHandler.java:84)
-	at server.ClientHandler.handleRequest(ClientHandler.java:55)
-	at server.ClientHandler.run(ClientHandler.java:37)
+2026-05-11 08:58:38 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 08:58:38 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 08:58:38 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 08:58:52 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-11 08:59:18 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 09:00:25 [Thread-2] INFO  server.dao.UserDAO - Người dùng John1 xác thực thành công
+2026-05-11 10:17:25 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 10:17:25 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 10:17:25 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 10:22:09 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-11 10:23:04 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-11 10:24:24 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-11 10:26:03 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 10:26:03 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 10:26:03 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 10:29:00 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-11 10:29:14 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 10:30:29 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client admin: Connection reset
+2026-05-11 10:30:31 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-11 10:30:46 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 10:31:44 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-04-28 00:08:30 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-05-11 10:31:44 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:31:46 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:31:46 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:31:46 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:31:46 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:31:49 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:31:49 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:32:04 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:32:04 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:32:05 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:32:05 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:32:06 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:32:06 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:32:09 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:32:09 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:32:10 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:32:10 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 10:32:20 [Thread-2] ERROR server.dao.ProductDAO - Lỗi SQL thêm sản phẩm
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Product.sellerUsername)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1057)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:130)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:464)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:125)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:106)
+	at server.dao.ProductDAO.additems(ProductDAO.java:81)
+	at server.ClientHandler.handleAddItems(ClientHandler.java:375)
+	at server.ClientHandler.handleRequest(ClientHandler.java:98)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-11 10:32:20 [Thread-2] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 15:30:56 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 15:30:56 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 15:30:56 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 15:31:18 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 15:40:32 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 15:40:32 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 15:40:32 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 15:41:50 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 15:42:06 [Thread-0] WARN  server.ClientHandler - Hành động không xác định ADD_ITEMS
+2026-05-11 16:51:22 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 16:51:22 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 16:51:22 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 16:52:01 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 16:52:04 [Thread-0] ERROR server.dao.ProductDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-11 16:52:07 [Thread-0] ERROR server.dao.ProductDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-11 16:52:18 [Thread-0] ERROR server.dao.ProductDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-11 16:58:03 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 16:58:03 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 16:58:03 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 16:58:13 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 16:58:15 [Thread-0] ERROR server.dao.ProductDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-11 20:09:27 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:09:27 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:09:27 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:09:40 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:10:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:10:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:10:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:10:41 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:11:47 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:11:47 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:11:47 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:11:57 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:15:38 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:15:38 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:15:38 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:15:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:15:51 [Thread-0] WARN  server.ClientHandler - Hành động không xác định GET_MY_ITEMS
+2026-05-11 20:15:56 [Thread-0] WARN  server.ClientHandler - Hành động không xác định GET_MY_ITEMS
+2026-05-11 20:27:55 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:27:55 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:27:55 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:28:07 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:28:09 [Thread-0] WARN  server.ClientHandler - Hành động không xác định GET_MY_ITEMS
+2026-05-11 20:28:16 [Thread-0] WARN  server.ClientHandler - Hành động không xác định GET_MY_ITEMS
+2026-05-11 20:32:33 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:32:33 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:32:33 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:32:43 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:32:45 [Thread-0] ERROR server.dao.ProductDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-11 20:38:41 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:38:41 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:38:41 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:38:52 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:39:32 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:39:32 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:39:32 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:40:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-11 20:40:11 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-11 20:40:43 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-11 20:44:28 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-11 20:44:36 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client admin: Connection reset
+2026-05-11 20:47:01 [Thread-3] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-11 20:49:35 [Thread-4] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-11 20:52:46 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-11 20:52:46 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-11 20:52:46 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-11 20:52:55 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công

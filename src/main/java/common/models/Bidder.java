@@ -27,15 +27,15 @@ public class Bidder extends User {
     //End: Nap/rut tien
 
     //Them san pham vao bidHistory
-    public void addBidHistory(String item) {
-        bidHistory.add(item);
+    public void addBidHistory(String Product) {
+        bidHistory.add(Product);
     }
 
     //Xem san pham trong bidHistory
     public void viewBidHistory() {
         System.out.println("Lich su mua hang:");
-        for (String item : bidHistory) {
-            System.out.println(item);
+        for (String Product : bidHistory) {
+            System.out.println(Product);
         }
     }
 }

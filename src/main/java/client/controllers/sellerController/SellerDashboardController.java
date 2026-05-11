@@ -146,6 +146,6 @@ public class SellerDashboardController {
 
     @FXML
     public void switchToProductView(ActionEvent event) {
-        // Chuyển sang phần sản phẩm
+        SceneController.switchScene("/client/views/seller/SellerManageProducts.fxml");
     }
 }

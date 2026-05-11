@@ -1,0 +1,5 @@
+2026-05-04 14:45:22 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-04 14:45:22 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-04 14:45:22 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-04 14:45:40 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-04 14:45:41 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset

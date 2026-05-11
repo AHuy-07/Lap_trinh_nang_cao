@@ -4,6 +4,7 @@ import common.Request;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import common.models.Room;
 import javafx.scene.control.*;
@@ -11,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
-import java.awt.event.ActionEvent;
 import java.util.List;
 
 public class AdminDashboardController {
@@ -92,8 +92,8 @@ public class AdminDashboardController {
 
             // Cập nhật các phòng mới liên tục
             @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
+            protected void updateItem(Void Product, boolean empty) {
+                super.updateItem(Product, empty);
                 setGraphic(empty ? null : hbox);
             }
         };
@@ -114,5 +114,11 @@ public class AdminDashboardController {
                     }
                 }
         );
+    }
+
+
+    @FXML
+    public void reload(ActionEvent event) {
+        refreshData();
     }
 }
