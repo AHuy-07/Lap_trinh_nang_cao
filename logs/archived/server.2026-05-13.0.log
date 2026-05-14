@@ -1,0 +1,143 @@
+2026-05-13 00:06:44 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-13 00:06:44 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-13 00:06:44 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-13 00:07:44 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-13 00:07:53 [Thread-1] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-13 00:08:19 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:08:19 [Thread-1] ERROR server.dao.BidDAO - Lỗi SQL khi đặt giá
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: BidTransaction)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.throwex(DB.java:1153)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:135)
+	at org.sqlite.core.DB.prepare(DB.java:265)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:46)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:33)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:28)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:34)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:225)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
+	at server.dao.BidDAO.placeBid(BidDAO.java:36)
+	at server.ClientHandler.handlePlaceBid(ClientHandler.java:210)
+	at server.ClientHandler.handleRequest(ClientHandler.java:92)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-13 00:08:20 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:08:20 [Thread-1] ERROR server.dao.BidDAO - Lỗi SQL khi đặt giá
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: BidTransaction)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.throwex(DB.java:1153)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:135)
+	at org.sqlite.core.DB.prepare(DB.java:265)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:46)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:33)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:28)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:34)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:225)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
+	at server.dao.BidDAO.placeBid(BidDAO.java:36)
+	at server.ClientHandler.handlePlaceBid(ClientHandler.java:210)
+	at server.ClientHandler.handleRequest(ClientHandler.java:92)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-13 00:08:26 [Thread-0] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:08:26 [Thread-0] ERROR server.dao.BidDAO - Lỗi SQL khi đặt giá
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: BidTransaction)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.throwex(DB.java:1153)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:135)
+	at org.sqlite.core.DB.prepare(DB.java:265)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:46)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:33)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:28)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:34)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:225)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
+	at server.dao.BidDAO.placeBid(BidDAO.java:36)
+	at server.ClientHandler.handlePlaceBid(ClientHandler.java:210)
+	at server.ClientHandler.handleRequest(ClientHandler.java:92)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-13 00:08:51 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-13 00:08:51 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-13 00:08:51 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-13 00:09:10 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-13 00:09:18 [Thread-1] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-13 00:10:46 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-13 00:11:11 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:11:11 [Thread-1] ERROR server.dao.BidDAO - Lỗi SQL khi đặt giá
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: BidTransaction)
+	at org.sqlite.core.DB.newSQLException(DB.java:1182)
+	at org.sqlite.core.DB.newSQLException(DB.java:1193)
+	at org.sqlite.core.DB.throwex(DB.java:1153)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:135)
+	at org.sqlite.core.DB.prepare(DB.java:265)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:46)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:33)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:28)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:34)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:225)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
+	at server.dao.BidDAO.placeBid(BidDAO.java:36)
+	at server.ClientHandler.handlePlaceBid(ClientHandler.java:210)
+	at server.ClientHandler.handleRequest(ClientHandler.java:92)
+	at server.ClientHandler.run(ClientHandler.java:50)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-13 00:25:56 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-13 00:25:57 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-13 00:25:57 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-13 00:26:14 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-13 00:26:19 [Thread-0] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:26:51 [Thread-1] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-13 00:27:04 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:27:25 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:27:28 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 00:27:28 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 11:15:50 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-13 11:15:50 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-13 11:15:50 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-13 11:16:01 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-13 11:16:11 [Thread-1] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-13 11:16:15 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 11:16:18 [Thread-0] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 11:16:58 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 11:17:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:03:02 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-13 14:03:02 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-13 14:03:02 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-13 14:03:15 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-13 14:03:43 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-13 14:03:59 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-13 14:04:04 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:05 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:05 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:05 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:06 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:07 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:07 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:07 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:07 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:07 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:08 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:08 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:08 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:08 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:08 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:08 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:09 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 14:04:09 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-13 15:03:07 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-13 15:03:07 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-13 15:03:07 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-13 15:03:17 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
