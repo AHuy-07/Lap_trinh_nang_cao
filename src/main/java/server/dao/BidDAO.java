@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class BidDAO {
@@ -122,5 +124,34 @@ public class BidDAO {
         }
 
         return null;
+    }
+
+    public static List<BidTransaction> getBidHistory(Room room) {
+        List<BidTransaction> list = new ArrayList<>();
+        String query = """
+                SELECT bidderUsername, bidAmount, bidTime\s
+                FROM BidTransaction\s
+                WHERE roomId = ?\s
+                ORDER BY bidTime DESC;
+                """;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, room.getRoomId());
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    BidTransaction bid = new BidTransaction(
+                            null,
+                            null,
+                            resultSet.getString("bidderUsername"),
+                            resultSet.getLong("bidAmount"),
+                            resultSet.getString("bidTime")
+                    );
+                    list.add(bid);
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy lịch sử đấu giá của phòng {}", room.getRoomId(), e);
+        }
+        return list;
     }
 }
