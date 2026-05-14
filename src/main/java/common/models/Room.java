@@ -14,7 +14,7 @@ public class Room implements Serializable {
     private long bidStep;
     private String beginTime;
     private String endTime;
-    private long winPrice;
+    private long winPrice = 0;
     private String winnerUsername;
 
 
@@ -31,7 +31,10 @@ public class Room implements Serializable {
         this.beginTime = beginTime;
     }
 
-    public static long calculateDefaultBidStep(long startingPrice) { return Math.max(1, startingPrice * 2 / 100); }
+    public static long calculateDefaultBidStep(long startingPrice) {
+        double defaultBidStep = startingPrice * 0.02;
+        return (long) Math.ceil(defaultBidStep);
+    }
 
     public String getRoomId() {
         return roomId;
