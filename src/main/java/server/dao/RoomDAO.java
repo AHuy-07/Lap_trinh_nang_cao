@@ -22,7 +22,7 @@ public class RoomDAO {
         room.setBidStep(Room.calculateDefaultBidStep(room.getStartingPrice()));
 
         String queryFindRoomId = "SELECT 1 FROM Room WHERE roomId = ? LIMIT 1";
-        String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, sellerName, startingPrice, beginTime) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, sellerName, startingPrice, beginTime, winPrice) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(queryFindRoomId)) {
             preparedStatement.setString(1, room.getRoomId());
@@ -40,6 +40,7 @@ public class RoomDAO {
                 insertInfo.setString(5, room.getSellerName());
                 insertInfo.setLong(6, room.getStartingPrice());
                 insertInfo.setString(7, room.getBeginTime());
+                insertInfo.setLong(8, room.getWinPrice());
 
                 int insertStatus = insertInfo.executeUpdate();
 
