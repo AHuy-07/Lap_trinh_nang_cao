@@ -17,32 +17,15 @@ import java.io.IOException;
 import java.util.List;
 
 public class BidderDashboardController {
-    @FXML
-    private Label statusLabel;
-
-    @FXML
-    private TableView<Room> activeRoomsTable;
-
-    @FXML
-    private TableColumn<Room, String> roomIdColumn;
-
-    @FXML
-    private TableColumn<Room, String> roomNameColumn;
-
-    @FXML
-    private TableColumn<Room, String> productIdColumn;
-
-    @FXML
-    private TableColumn<Room, String> sellerNameColumn;
-
-    @FXML
-    private TableColumn<Room, Number> currentPriceColumn;
-
-    @FXML
-    private TableColumn<Room, Number> bidStepColumn;
-
-    @FXML
-    private TableColumn<Room, String> winnerColumn;
+    @FXML private Label statusLabel;
+    @FXML private TableView<Room> activeRoomsTable;
+    @FXML private TableColumn<Room, String> roomIdColumn;
+    @FXML private TableColumn<Room, String> roomNameColumn;
+    @FXML private TableColumn<Room, String> productIdColumn;
+    @FXML private TableColumn<Room, String> sellerNameColumn;
+    @FXML private TableColumn<Room, Number> currentPriceColumn;
+    @FXML private TableColumn<Room, Number> bidStepColumn;
+    @FXML private TableColumn<Room, String> winnerColumn;
 
     @FXML
     private void initialize() {
@@ -134,6 +117,14 @@ public class BidderDashboardController {
             controller.initRoom(room);
 
             client.controllers.SceneController.contentGroup.getChildren().setAll(auctionRoomRoot);
+            /*
+            - Phần Parent auctionRoomRoot là để lấy khung cây của file fxml, bao gồm các thuộc
+            tính như AnchorPane, hay các thành phần javafx
+            - AuctionRoomController controller = loader.getController(); là để lấy về phần
+            controller của file fxml đó. Sau đó controller đó sẽ thêm các giá trị vào
+            - Hiểu Parent auctionRoomRoot là 1 cái cây, còn controller sẽ giúp thêm phần
+            nội dung vào
+             */
         } catch (IOException e) {
             statusLabel.setText("Không thể mở phòng đấu giá");
             e.printStackTrace();
