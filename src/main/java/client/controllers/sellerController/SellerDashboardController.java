@@ -9,15 +9,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import javafx.util.Duration;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.io.IOException;
 import java.util.List;
 
 public class SellerDashboardController {
+    private static final Logger logger = LoggerFactory.getLogger(SellerDashboardController.class);
     @FXML private TableView<Room> tableMyRooms;
     @FXML private TableColumn<Room, String> colRoomId;
     @FXML private TableColumn<Room, String> colRoomName;
@@ -132,6 +137,16 @@ public class SellerDashboardController {
 
     private void handleEnterRoom(Room room) {
         // Vao phong dau gia
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/client/views/seller/SellerAuctionRoom.fxml"));
+
+            Parent autionRoomRoot = loader.load();
+            SellerAuctionRoomController controller = loader.getController();
+            controller.initRoom(room);
+            SceneController.contentGroup.getChildren().setAll(autionRoomRoot);
+        } catch (IOException e) {
+            logger.error("Lỗi khi seller {} vào phòng {}", room.getSellerName(), room.getRoomId(), e);
+        }
     }
 
     @FXML
