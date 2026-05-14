@@ -17,6 +17,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -100,9 +101,18 @@ public class ClientHandler implements Runnable{
             case "GET_MY_PRODUCTS":
                 handleGetMyProducts(req);
                 break;
+            case "GET_BID_HISTORY":
+                handleGetBidHistory(req);
+                break;
             default:
                 logger.warn("Hành động không xác định {}", action);
         }
+    }
+
+    private void handleGetBidHistory(Request req) {
+        Room room = (Room) req.getData();
+        List<BidTransaction> list = BidDAO.getBidHistory(room);
+        sendResponse(new Request("GET_BID_HISTORY_SUCCESS", list));
     }
 
     private void handleGetMyProducts(Request req) {
@@ -118,11 +128,6 @@ public class ClientHandler implements Runnable{
     private void handleJoinRoom(Request req) {
         if (this.username == null) {
             sendResponse(new Request("JOIN_ROOM_FAIL", "Bạn cần đăng nhập trước khi vào phòng"));
-            return;
-        }
-
-        if (!"BIDDER".equalsIgnoreCase(this.userRole)) {
-            sendResponse(new Request("JOIN_ROOM_FAIL", "Chỉ bidder mới được vào phòng đấu giá"));
             return;
         }
 
@@ -150,33 +155,7 @@ public class ClientHandler implements Runnable{
 
         Room room = RoomDAO.getRoomById(roomId);
 
-        if (room == null) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Phòng không tồn tại"));
-            return;
-        }
-
-        if (!"ACTIVE".equals(room.getStatus())) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Phòng không còn hoạt động"));
-            return;
-        }
-
-        if (this.username == null) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Bạn cần đăng nhập trước khi đấu giá"));
-            return;
-        }
-
-        if (!"BIDDER".equalsIgnoreCase(this.userRole)) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Chỉ bidder mới được tham gia đấu giá"));
-            return;
-        }
-
-        if (this.username.equals(room.getSellerName())) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Seller không được đấu giá phòng của chính mình"));
-            return;
-        }
-
-        if (!isRoomInAuctionTime(room)) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Hiện không nằm trong thời gian đấu giá"));
+        if (!checkBidCondition(room)) {
             return;
         }
 
@@ -221,12 +200,49 @@ public class ClientHandler implements Runnable{
         }
     }
 
+    private boolean checkBidCondition(Room room) {
+        if (room == null) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Phòng không tồn tại"));
+            return false;
+        }
+
+        if (!"ACTIVE".equals(room.getStatus())) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Phòng không còn hoạt động"));
+            return false;
+        }
+
+        if (this.username == null) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Bạn cần đăng nhập trước khi đấu giá"));
+            return false;
+        }
+
+        if (!"BIDDER".equalsIgnoreCase(this.userRole)) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Chỉ bidder mới được tham gia đấu giá"));
+            return false;
+        }
+
+        if (this.username.equals(room.getSellerName())) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Seller không được đấu giá phòng của chính mình"));
+            return false;
+        }
+
+        if (!isRoomInAuctionTime(room)) {
+            sendResponse(new Request("PLACE_BID_FAIL", "Hiện không nằm trong thời gian đấu giá"));
+            return false;
+        }
+        return true;
+    }
+
     private boolean isRoomInAuctionTime(Room room) {
+        /*
+        Formatter giúp định nghĩa beginTime sang đúng chuẩn ISO của localdateTime
+         */
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         try {
             LocalDateTime now = LocalDateTime.now();
 
             if (room.getBeginTime() != null && !room.getBeginTime().isBlank()) {
-                LocalDateTime beginTime = LocalDateTime.parse(room.getBeginTime());
+                LocalDateTime beginTime = LocalDateTime.parse(room.getBeginTime(), formatter);
 
                 if (now.isBefore(beginTime)) {
                     return false;
