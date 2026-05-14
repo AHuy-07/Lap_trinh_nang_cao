@@ -11,35 +11,16 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class AuctionRoomController {
-    @FXML
-    private Label roomNameLabel;
-
-    @FXML
-    private Label roomIdLabel;
-
-    @FXML
-    private Label sellerNameLabel;
-
-    @FXML
-    private Label startingPriceLabel;
-
-    @FXML
-    private Label currentPriceLabel;
-
-    @FXML
-    private Label bidStepLabel;
-
-    @FXML
-    private Label winnerLabel;
-
-    @FXML
-    private Label statusLabel;
-
-    @FXML
-    private TextField bidAmountField;
-
-    @FXML
-    private TextArea bidHistoryArea;
+    @FXML private Label roomNameLabel;
+    @FXML private Label roomIdLabel;
+    @FXML private Label sellerNameLabel;
+    @FXML private Label startingPriceLabel;
+    @FXML private Label currentPriceLabel;
+    @FXML private Label bidStepLabel;
+    @FXML private Label winnerLabel;
+    @FXML private Label statusLabel;
+    @FXML private TextField bidAmountField;
+    @FXML private TextArea bidHistoryArea;
 
     private Room currentRoom;
     private long currentPrice;
@@ -50,9 +31,13 @@ public class AuctionRoomController {
         this.currentPrice = Math.max(room.getStartingPrice(), room.getWinPrice());
         this.bidStep = Room.calculateDefaultBidStep(room.getStartingPrice());
 
+        /*
         renderRoomInfo();
         registerRealtimeBidCallback();
         joinRoom();
+        */
+        joinRoom();
+        registerRealtimeBidCallback();
     }
 
     private void renderRoomInfo() {
