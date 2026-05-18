@@ -2,6 +2,7 @@ package client.controllers;
 
 import client.controllers.sellerController.SellerDashboardController;
 import common.Request;
+import common.models.Product;
 import common.models.User;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -17,6 +18,7 @@ public class Session {
     private static final int SERVER_PORT = 8080;
     private static volatile Session instance;
 
+    private Product currentProduct;
     private User currentUser;
     private Socket socket;
     private ObjectInputStream ois;
@@ -133,5 +135,12 @@ public class Session {
 
     public String getCurrentUsername() {
         return currentUser.getUsername();
+    }
+
+    public void setCurrentProduct(Product currnetproduct){
+        this.currentProduct = currnetproduct;
+    }
+    public Product getCurrentProduct(){
+        return currentProduct;
     }
 }

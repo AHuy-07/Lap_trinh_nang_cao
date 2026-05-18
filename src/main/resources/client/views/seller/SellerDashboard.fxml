@@ -20,6 +20,7 @@
         <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="DANH SÁCH PHÒNG ĐẤU GIÁ CỦA TÔI" />
 
         <HBox alignment="CENTER_RIGHT" spacing="10">
+            <Button onAction="#switchToWalletView" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" text="💳 Ví Nạp/Rút" />
             <Button onAction="#switchToProductView" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-cursor: hand;" text="Quản lý Sản phẩm" />
             <Button onAction="#reload" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-cursor: hand;" text="Làm mới" />
             <Button onAction="#switchToCreateRoom" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="+ Tạo phòng mới" />

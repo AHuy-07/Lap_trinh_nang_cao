@@ -25,6 +25,7 @@ public class AppServer {
     public static final Map<String, Set<ClientHandler>> roomSubscribers = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
+        java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
         if (ConnectDatabase.getConnection() != null) {
             logger.info("[SERVER] Kết nối database thành công");
         } else {

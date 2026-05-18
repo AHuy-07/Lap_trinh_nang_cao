@@ -61,7 +61,7 @@ public class AddProductsController {
         String details = descInput.getText();
 
         String[] info = {ProductName, type, details};
-        Request addProductRequest = new Request("ADD_ProductS", info);
+        Request addProductRequest = new Request("ADD_PRODUCTS", info);
 
         Session.getInstance().sendRequest(addProductRequest,
                 response -> {

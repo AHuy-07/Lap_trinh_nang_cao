@@ -163,4 +163,10 @@ public class SellerDashboardController {
     public void switchToProductView(ActionEvent event) {
         SceneController.switchScene("/client/views/seller/SellerManageProducts.fxml");
     }
+
+    @FXML
+    public void switchToWalletView(ActionEvent event){
+        SceneController.switchScene("/client/views/Wallet.fxml");
+    }
+
 }

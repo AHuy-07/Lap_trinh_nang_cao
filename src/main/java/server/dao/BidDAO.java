@@ -17,58 +17,80 @@ public class BidDAO {
     private static final Logger logger = LoggerFactory.getLogger(BidDAO.class);
     private static final Connection connection = ConnectDatabase.getConnection();
 
-    public static synchronized boolean placeBid(Room room, String bidderUsername, long bidAmount) {
-        String transactionId = UUID.randomUUID().toString();
-        String bidTime = java.time.LocalDateTime.now().toString();
+    public static boolean placeBid(Room room, String oldBidderUsername, String newBidderUsername, long bidAmount, long oldBidderBalance, long newBidderBalance) {
+        synchronized (connection) {
+            String transactionId = UUID.randomUUID().toString();
+            String bidTime = java.time.LocalDateTime.now().toString();
 
-        String insertBid = """
+            String insertBid = """
                 INSERT INTO BidTransaction(transactionId, roomId, bidderUsername, bidAmount, bidTime)
                 VALUES (?, ?, ?, ?, ?)
                 """;
 
-        String updateRoom = """
+            String updateRoom = """
                 UPDATE Room
                 SET winPrice = ?, winnerUsername = ?
                 WHERE roomId = ?
                 """;
 
-        try {
-            connection.setAutoCommit(false);
+            String updateBalanceWinner = """
+                UPDATE User
+                SET balance = ?
+                WHERE username = ?
+                """;
 
-            try (PreparedStatement insertStatement = connection.prepareStatement(insertBid);
-                 PreparedStatement updateStatement = connection.prepareStatement(updateRoom)) {
 
-                insertStatement.setString(1, transactionId);
-                insertStatement.setString(2, room.getRoomId());
-                insertStatement.setString(3, bidderUsername);
-                insertStatement.setLong(4, bidAmount);
-                insertStatement.setString(5, bidTime);
-                insertStatement.executeUpdate();
-
-                updateStatement.setLong(1, bidAmount);
-                updateStatement.setString(2, bidderUsername);
-                updateStatement.setString(3, room.getRoomId());
-                updateStatement.executeUpdate();
-
-                connection.commit();
-                return true;
-            }
-        } catch (SQLException e) {
             try {
-                connection.rollback();
-            } catch (SQLException rollbackException) {
-                logger.error("Lỗi rollback khi đặt giá", rollbackException);
-            }
+                connection.setAutoCommit(false);
 
-            logger.error("Lỗi SQL khi đặt giá", e);
-            return false;
-        } finally {
-            try {
-                connection.setAutoCommit(true);
+                try (PreparedStatement insertStatement = connection.prepareStatement(insertBid);
+                     PreparedStatement updateStatement = connection.prepareStatement(updateRoom);
+                     PreparedStatement updateBalanceOldWinner = connection.prepareStatement(updateBalanceWinner);
+                     PreparedStatement updateBalanceNewWinner = connection.prepareStatement(updateBalanceWinner)) {
+
+                    insertStatement.setString(1, transactionId);
+                    insertStatement.setString(2, room.getRoomId());
+                    insertStatement.setString(3, newBidderUsername);
+                    insertStatement.setLong(4, bidAmount);
+                    insertStatement.setString(5, bidTime);
+                    insertStatement.executeUpdate();
+
+                    updateStatement.setLong(1, bidAmount);
+                    updateStatement.setString(2, newBidderUsername);
+                    updateStatement.setString(3, room.getRoomId());
+                    updateStatement.executeUpdate();
+
+                    if (oldBidderUsername != null && !oldBidderUsername.isBlank()) {
+                        updateBalanceOldWinner.setLong(1, oldBidderBalance);
+                        updateBalanceOldWinner.setString(2, oldBidderUsername);
+                        updateBalanceOldWinner.executeUpdate();
+                    }
+
+                    updateBalanceNewWinner.setLong(1, newBidderBalance);
+                    updateBalanceNewWinner.setString(2, newBidderUsername);
+                    updateBalanceNewWinner.executeUpdate();
+
+                    connection.commit();
+                    return true;
+                }
             } catch (SQLException e) {
-                logger.error("Lỗi bật lại auto commit", e);
+                try {
+                    connection.rollback();
+                } catch (SQLException rollbackException) {
+                    logger.error("Lỗi rollback khi đặt giá", rollbackException);
+                }
+
+                logger.error("Lỗi SQL khi đặt giá", e);
+                return false;
+            } finally {
+                try {
+                    connection.setAutoCommit(true);
+                } catch (SQLException e) {
+                    logger.error("Lỗi bật lại auto commit", e);
+                }
             }
         }
+
     }
 
     public static long getCurrentPrice(String roomId) {

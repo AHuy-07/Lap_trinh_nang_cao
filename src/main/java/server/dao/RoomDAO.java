@@ -19,10 +19,13 @@ public class RoomDAO {
     private static final Connection connection = ConnectDatabase.getConnection();
 
     public static Room createRoom (Room room) {
+        String newId = RoomDAO.generateNewId();
+        room.setRoomId(newId);
+
         room.setBidStep(Room.calculateDefaultBidStep(room.getStartingPrice()));
 
         String queryFindRoomId = "SELECT 1 FROM Room WHERE roomId = ? LIMIT 1";
-        String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, sellerName, startingPrice, beginTime, winPrice) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        String queryInsertValue = "INSERT INTO Room (roomId, roomName, status, productId, sellerName, startingPrice, beginTime, endTime, winPrice) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(queryFindRoomId)) {
             preparedStatement.setString(1, room.getRoomId());
@@ -40,7 +43,8 @@ public class RoomDAO {
                 insertInfo.setString(5, room.getSellerName());
                 insertInfo.setLong(6, room.getStartingPrice());
                 insertInfo.setString(7, room.getBeginTime());
-                insertInfo.setLong(8, room.getWinPrice());
+                insertInfo.setString(8, room.getEndTime());
+                insertInfo.setLong(9, room.getWinPrice());
 
                 int insertStatus = insertInfo.executeUpdate();
 
@@ -68,7 +72,8 @@ public class RoomDAO {
                         resultSet.getString("productId"),
                         resultSet.getString("sellerName"),
                         resultSet.getLong("startingPrice"),
-                        resultSet.getString("beginTime")
+                        resultSet.getString("beginTime"),
+                        resultSet.getString("endTime")
                 );
                 room.setStatus(resultSet.getString("status"));
                 list.add(room);
@@ -115,7 +120,8 @@ public class RoomDAO {
                         resultSet.getString("productId"),
                         username,
                         resultSet.getLong("startingPrice"),
-                        resultSet.getString("beginTime")
+                        resultSet.getString("beginTime"),
+                        resultSet.getString("endTime")
                 );
                 room.setStatus(resultSet.getString("status"));
                 list.add(room);
@@ -170,7 +176,8 @@ public class RoomDAO {
                 resultSet.getString("productId"),
                 resultSet.getString("sellerName"),
                 resultSet.getLong("startingPrice"),
-                resultSet.getString("beginTime")
+                resultSet.getString("beginTime"),
+                resultSet.getString("endTime")
         );
 
         room.setStatus(resultSet.getString("status"));
@@ -185,5 +192,41 @@ public class RoomDAO {
         }
 
         return room;
+    }
+
+    //lấy id cuối cùng của 1 phòng
+    public static String getLastRoomId(){
+        String sql = "SELECT roomId FROM Room ORDER BY LENGTH(roomId) DESC, roomId DESC LIMIT 1";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            if (resultSet.next()) {
+                return resultSet.getString("roomId");
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy ID cuối cùng", e);
+        }
+        return null;
+    }
+    // tự dộng thêm id vào cho phòng
+    public static String generateNewId() {
+        String lastId = RoomDAO.getLastRoomId();
+
+        if (lastId == null || lastId.isEmpty()) {
+            return "R_001";
+        }
+
+        try {
+            String numberPart = lastId.substring(2);
+
+            int number = Integer.parseInt(numberPart);
+            number++;
+            return String.format("R_%03d", number);
+
+        } catch (NumberFormatException e) {
+
+            System.err.println("Lỗi định dạng không hợp lệ: " + lastId);
+            return "R_ERROR";
+        }
     }
 }

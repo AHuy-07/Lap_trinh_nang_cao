@@ -3,10 +3,10 @@ package common.models;
 import java.util.ArrayList;
 
 public class Bidder extends User {
-    private double balance = 0;
+    private long balance = 0;
     private ArrayList<String> bidHistory = new ArrayList<>();
 
-    public Bidder(int id, String loginUsername, double balance) {
+    public Bidder(int id, String loginUsername, long balance) {
         super(id, loginUsername, "BIDDER", balance);
     }
 

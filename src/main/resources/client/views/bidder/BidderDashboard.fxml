@@ -42,6 +42,7 @@
             <Button text="Vào phòng đã chọn"
                     onAction="#handleJoinSelectedRoom"
                     style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+            <Button onAction="#switchToWalletView" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" text="💳 Ví Nạp/Rút" />
         </HBox>
 
         <TableView fx:id="activeRoomsTable" VBox.vgrow="ALWAYS">

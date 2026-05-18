@@ -1,22 +1,17 @@
 package server;
 
 import common.Request;
-import common.models.BidTransaction;
-import common.models.Product;
-import common.models.Room;
-import common.models.User;
+import common.models.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import server.dao.BidDAO;
-import server.dao.ProductDAO;
-import server.dao.RoomDAO;
-import server.dao.UserDAO;
+import server.dao.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
@@ -104,6 +99,19 @@ public class ClientHandler implements Runnable{
             case "GET_BID_HISTORY":
                 handleGetBidHistory(req);
                 break;
+            // xử lý ví tiền
+            case "GET_WALLET_INFO":
+                handleGetWalletInfo(req);
+                break;
+            case "DEPOSIT":
+                handleDepositWallet(req);
+                break;
+            case "WITHDRAW":
+                handleWithdrawWallet(req);
+                break;
+            case "GET_HISTORY":
+                handleGetWalletHistory();
+                break;
             default:
                 logger.warn("Hành động không xác định {}", action);
         }
@@ -164,13 +172,7 @@ public class ClientHandler implements Runnable{
         synchronized (roomLock) {
             Room latestRoom = RoomDAO.getRoomById(roomId);
 
-            if (latestRoom == null) {
-                sendResponse(new Request("PLACE_BID_FAIL", "Phòng không tồn tại"));
-                return;
-            }
-
-            if (!"ACTIVE".equals(latestRoom.getStatus())) {
-                sendResponse(new Request("PLACE_BID_FAIL", "Phòng không còn hoạt động"));
+            if (!checkBidCondition(latestRoom)) {
                 return;
             }
 
@@ -186,7 +188,35 @@ public class ClientHandler implements Runnable{
                 return;
             }
 
-            boolean success = BidDAO.placeBid(latestRoom, this.username, bidAmount);
+            long currentBalance = WalletDAO.getBalance(this.username);
+            if (currentBalance < bidAmount) {
+                sendResponse(new Request(
+                        "PLACE_BID_FAIL",
+                        "Số dư ví không đủ!"
+                ));
+                return;
+            }
+
+            // Lấy thông tin của người thắng cũ ra
+            String oldWinner = latestRoom.getWinnerUsername();
+            Long oldWinPrice = 0L;
+            Long oldBidderBalance = 0L;
+
+            if (oldWinner != null) {
+                oldWinPrice = latestRoom.getWinPrice();
+                oldBidderBalance = WalletDAO.getBalance(oldWinner);
+                if (oldWinner.equals(this.username)) {
+                    sendResponse(new Request(
+                            "PLACE_BID_FAIL",
+                            "Bạn phải chờ người khác đấu giá đã!"
+                    ));
+                    return;
+                }
+            }
+
+
+
+            boolean success = BidDAO.placeBid(latestRoom, oldWinner, this.username, bidAmount, oldBidderBalance + oldWinPrice, currentBalance - bidAmount);
 
             if (!success) {
                 sendResponse(new Request("PLACE_BID_FAIL", "Không thể đặt giá, vui lòng thử lại"));
@@ -211,20 +241,6 @@ public class ClientHandler implements Runnable{
             return false;
         }
 
-        if (this.username == null) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Bạn cần đăng nhập trước khi đấu giá"));
-            return false;
-        }
-
-        if (!"BIDDER".equalsIgnoreCase(this.userRole)) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Chỉ bidder mới được tham gia đấu giá"));
-            return false;
-        }
-
-        if (this.username.equals(room.getSellerName())) {
-            sendResponse(new Request("PLACE_BID_FAIL", "Seller không được đấu giá phòng của chính mình"));
-            return false;
-        }
 
         if (!isRoomInAuctionTime(room)) {
             sendResponse(new Request("PLACE_BID_FAIL", "Hiện không nằm trong thời gian đấu giá"));
@@ -241,6 +257,13 @@ public class ClientHandler implements Runnable{
         try {
             LocalDateTime now = LocalDateTime.now();
 
+//            System.out.println(">>> [DEBUG TIME] Now: " + now
+//                    + " | Room Begin: " + room.getBeginTime()
+//                    + " | Room End: " + room.getEndTime());
+            logger.info(">>> [DEBUG TIME] Now: " + now
+                    + " | Room Begin: " + room.getBeginTime()
+                    + " | Room End: " + room.getEndTime());
+
             if (room.getBeginTime() != null && !room.getBeginTime().isBlank()) {
                 LocalDateTime beginTime = LocalDateTime.parse(room.getBeginTime(), formatter);
 
@@ -250,7 +273,7 @@ public class ClientHandler implements Runnable{
             }
 
             if (room.getEndTime() != null && !room.getEndTime().isBlank()) {
-                LocalDateTime endTime = LocalDateTime.parse(room.getEndTime());
+                LocalDateTime endTime = LocalDateTime.parse(room.getEndTime(), formatter);
 
                 if (now.isAfter(endTime)) {
                     return false;
@@ -357,6 +380,72 @@ public class ClientHandler implements Runnable{
         }
 
         sendResponse(new Request("SUCCESS", "Đã thực hiện quyết định " + newStatus));
+    }
+
+    //hàm xử lý tiền
+    private void handleGetWalletInfo(Request req) {
+        String reqUsername = (String) req.getData(); // Client gửi lên username
+
+        // Bảo mật: Kiểm tra xem client có đang request đúng tài khoản của mình không
+        if (this.username == null || !this.username.equals(reqUsername)) {
+            sendResponse(new Request("GET_WALLET_FAIL", "Không có quyền truy cập!"));
+            return;
+        }
+
+        long balance = server.dao.WalletDAO.getBalance(this.username);
+
+        if (balance != -1) {
+            sendResponse(new Request("GET_WALLET_SUCCESS", String.valueOf(balance)));
+        } else {
+            sendResponse(new Request("GET_WALLET_FAIL", "Lỗi khi tải số dư từ CSDL!"));
+        }
+    }
+
+    private void handleDepositWallet(Request req) {
+        String[] data = (String[]) req.getData();
+        String reqUsername = data[0];
+        long amount = Long.parseLong(data[1]);
+        String method = data[2];
+
+        if (this.username == null || !this.username.equals(reqUsername)) {
+            sendResponse(new Request("DEPOSIT_FAIL", "Yêu cầu không hợp lệ!"));
+            return;
+        }
+
+        boolean success = server.dao.WalletDAO.processTransaction(this.username, amount, "DEPOSIT", method);
+
+        if (success) {
+
+            sendResponse(new Request("DEPOSIT_SUCCESS", ""));
+        } else {
+            sendResponse(new Request("DEPOSIT_FAIL", "Lỗi ghi nhận giao dịch vào CSDL!"));
+        }
+    }
+
+    private void handleWithdrawWallet(Request req) {
+        String[] data = (String[]) req.getData();
+        String reqUsername = data[0];
+        long amount = Long.parseLong(data[1]);
+        String method = data[2];
+
+        if (this.username == null || !this.username.equals(reqUsername)) {
+            sendResponse(new Request("WITHDRAW_FAIL", "Yêu cầu không hợp lệ!"));
+            return;
+        }
+
+        boolean success = server.dao.WalletDAO.processTransaction(this.username, amount, "WITHDRAW", method);
+
+        if (success) {
+            sendResponse(new Request("WITHDRAW_SUCCESS", ""));
+        } else {
+            sendResponse(new Request("WITHDRAW_FAIL", "Số dư không đủ hoặc lỗi hệ thống!"));
+        }
+    }
+
+    private void handleGetWalletHistory() {
+        if (this.username == null) return;
+        List<TransactionRecord> history = server.dao.WalletDAO.getHistory(this.username);
+        sendResponse(new Request("GET_HISTORY_SUCCESS", history));
     }
 
     public String getUserRole() {

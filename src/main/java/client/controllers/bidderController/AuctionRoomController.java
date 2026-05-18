@@ -5,12 +5,20 @@ import client.controllers.Session;
 import common.Request;
 import common.models.BidTransaction;
 import common.models.Room;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class AuctionRoomController {
+    private static final Logger logger = LoggerFactory.getLogger(AuctionRoomController.class);
     @FXML private Label roomNameLabel;
     @FXML private Label roomIdLabel;
     @FXML private Label sellerNameLabel;
@@ -21,6 +29,10 @@ public class AuctionRoomController {
     @FXML private Label statusLabel;
     @FXML private TextField bidAmountField;
     @FXML private TextArea bidHistoryArea;
+    @FXML private Label countdownLabel;
+
+    private javafx.animation.Timeline countdownTimeline;
+    private long remainingSeconds;
 
     private Room currentRoom;
     private long currentPrice;
@@ -38,6 +50,29 @@ public class AuctionRoomController {
         */
         joinRoom();
         registerRealtimeBidCallback();
+    }
+
+    private void joinRoom() {
+        statusLabel.setText("Đang vào phòng đấu giá...");
+
+        Session.getInstance().sendRequest(
+                new Request("JOIN_ROOM", currentRoom.getRoomId()),
+                response -> {
+                    if ("JOIN_ROOM_SUCCESS".equals(response.getAction())) {
+                        Room latestRoom = (Room) response.getData();
+
+                        currentRoom = latestRoom;
+                        currentPrice = Math.max(latestRoom.getStartingPrice(), latestRoom.getWinPrice());
+                        bidStep = Room.calculateDefaultBidStep(latestRoom.getStartingPrice());
+
+                        renderRoomInfo();
+                        appendBidHistory("Bạn đã vào phòng đấu giá " + latestRoom.getRoomName());
+                        statusLabel.setText("Đã vào phòng. Bạn có thể bắt đầu đấu giá.");
+                    } else if ("JOIN_ROOM_FAIL".equals(response.getAction())) {
+                        statusLabel.setText(String.valueOf(response.getData()));
+                    }
+                }
+        );
     }
 
     private void renderRoomInfo() {
@@ -58,6 +93,54 @@ public class AuctionRoomController {
 
         long recommendedPrice = currentPrice + bidStep;
         bidAmountField.setText(String.valueOf(recommendedPrice));
+
+        if (currentRoom.getEndTime() != null && !currentRoom.getEndTime().isBlank()) {
+            initCountdown(currentRoom.getEndTime());
+        }
+    }
+
+    private void initCountdown(String endTimeStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        try {
+            LocalDateTime endTime = LocalDateTime.parse(endTimeStr, formatter);
+            LocalDateTime now = LocalDateTime.now();
+
+            remainingSeconds = java.time.Duration.between(now, endTime).toSeconds();
+
+            if (remainingSeconds <= 0) {
+                countdownLabel.setText("00:00:00");
+                statusLabel.setText("Phiên đấu giá đã kết thúc");
+                bidAmountField.setDisable(true); // Khóa ô nhập giá
+                return;
+            }
+
+            if (countdownTimeline != null) {
+                countdownTimeline.stop();
+            }
+
+            countdownTimeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), event -> {
+                remainingSeconds--;
+                if (remainingSeconds <= 0) {
+                    countdownTimeline.stop();
+                    countdownLabel.setText("00:00:00");
+                    statusLabel.setText("Phiên đấu giá đã kết thúc");
+                    bidAmountField.setDisable(true); // Khóa ô nhập giá khi hết giờ real-time
+                } else {
+                    long hours = remainingSeconds / 3600;
+                    long minutes = (remainingSeconds % 3600) / 60;
+                    long seconds = remainingSeconds % 60;
+
+                    countdownLabel.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
+                }
+            }));
+
+            countdownTimeline.setCycleCount(Timeline.INDEFINITE);
+            countdownTimeline.play();
+        } catch (Exception e) {
+            countdownLabel.setText("--:--:--");
+            logger.error("Lỗi khi hiển thị thời gian", e);
+        }
     }
 
     private void registerRealtimeBidCallback() {
@@ -85,28 +168,7 @@ public class AuctionRoomController {
         });
     }
 
-    private void joinRoom() {
-        statusLabel.setText("Đang vào phòng đấu giá...");
 
-        Session.getInstance().sendRequest(
-                new Request("JOIN_ROOM", currentRoom.getRoomId()),
-                response -> {
-                    if ("JOIN_ROOM_SUCCESS".equals(response.getAction())) {
-                        Room latestRoom = (Room) response.getData();
-
-                        currentRoom = latestRoom;
-                        currentPrice = Math.max(latestRoom.getStartingPrice(), latestRoom.getWinPrice());
-                        bidStep = Room.calculateDefaultBidStep(latestRoom.getStartingPrice());
-
-                        renderRoomInfo();
-                        appendBidHistory("Bạn đã vào phòng đấu giá " + latestRoom.getRoomName());
-                        statusLabel.setText("Đã vào phòng. Bạn có thể bắt đầu đấu giá.");
-                    } else if ("JOIN_ROOM_FAIL".equals(response.getAction())) {
-                        statusLabel.setText(String.valueOf(response.getData()));
-                    }
-                }
-        );
-    }
 
     @FXML
     private void handleRecommendedBid() {
@@ -167,6 +229,10 @@ public class AuctionRoomController {
 
     @FXML
     private void handleBackToDashboard() {
+        if (countdownTimeline != null) {
+            countdownTimeline.stop();
+        }
+
         Session.getInstance().clearRealtimeBidCallback();
 
         Session.getInstance().sendRequest(

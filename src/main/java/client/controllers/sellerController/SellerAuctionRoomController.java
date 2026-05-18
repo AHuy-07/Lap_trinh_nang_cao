@@ -5,6 +5,8 @@ import client.controllers.Session;
 import common.Request;
 import common.models.BidTransaction;
 import common.models.Room;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,10 +15,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class SellerAuctionRoomController {
+    private static final Logger logger = LoggerFactory.getLogger(SellerAuctionRoomController.class);
     @FXML private Label roomNameLabel;
     @FXML private Label roomIdLabel;
     @FXML private Label sellerNameLabel;
@@ -28,9 +36,12 @@ public class SellerAuctionRoomController {
     @FXML private TableColumn<BidTransaction, String> bidTimeCol;
     @FXML private TableColumn<BidTransaction, String> bidNameCol;
     @FXML private TableColumn<BidTransaction, Number> bidAmountCol;
+    @FXML private Label countdownLabel;
 
     private Room currentRoom;
     private long currentPrice;
+    private Timeline countdownTimeline;
+    private long remainingSeconds;
 
     private ObservableList<BidTransaction> bidHistoryList = FXCollections.observableArrayList();
 
@@ -90,7 +101,62 @@ public class SellerAuctionRoomController {
         }
 
         winnerLabel.setText(winner);
+
+        // Kích hoạt đồng hồ
+        if (currentRoom.getEndTime() != null && !currentRoom.getEndTime().isBlank()) {
+            initCountdown(currentRoom.getEndTime());
+        }
+
         setupBidHistory(currentRoom);
+    }
+
+    // Đồng hồ hiển thị thời gian còn lại
+    private void initCountdown(String endTimeStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        try {
+            LocalDateTime endTime = LocalDateTime.parse(endTimeStr, formatter);
+            LocalDateTime now = LocalDateTime.now();
+
+            remainingSeconds = Duration.between(now, endTime).toSeconds();
+
+            if (remainingSeconds <= 0) {
+                countdownLabel.setText("00:00:00");
+                statusLabel.setText("Đã kết thúc");
+                statusLabel.setStyle("-fx-text-fill: #7f8c8d;");
+                return;
+            }
+
+            // Nếu có đồng hồ cũ đang chạy (đề phòng lỗi lặp luồng), dừng nó lại trước
+            if (countdownTimeline != null) {
+                countdownTimeline.stop();
+            }
+
+            countdownTimeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), event -> {
+                remainingSeconds--;
+                if (remainingSeconds <= 0) {
+                    countdownTimeline.stop(); // Dừng đồng hồ khi về 0
+                    countdownLabel.setText("00:00:00");
+                    statusLabel.setText("Đã kết thúc");
+                    statusLabel.setStyle("-fx-text-fill: #7f8c8d;");
+                    // Gửi request tự động khóa phòng
+                    //
+                    //
+                } else {
+                    long hours = remainingSeconds / 3600;
+                    long minutes = (remainingSeconds % 3600) / 60;
+                    long seconds = remainingSeconds % 60;
+
+                    countdownLabel.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
+                }
+            }));
+
+            countdownTimeline.setCycleCount(Timeline.INDEFINITE);
+            countdownTimeline.play();
+        } catch (Exception e) {
+            countdownLabel.setText("--:--:--");
+            logger.error("Lỗi khi hiển thị thời gian", e);
+        }
     }
 
     private void setupBidHistory(Room room) {
@@ -125,6 +191,13 @@ public class SellerAuctionRoomController {
 
     @FXML
     public void switchToDashboard(ActionEvent event) {
+        // Dừng đồng hồ đếm ngược
+        if (countdownTimeline != null) {
+            countdownTimeline.stop();
+        }
+
+        Session.getInstance().clearRealtimeBidCallback();
+
         SceneController.switchScene("/client/views/seller/SellerDashboard.fxml");
     }
 }
