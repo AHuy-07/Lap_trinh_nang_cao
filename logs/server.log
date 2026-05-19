@@ -1,26 +1,180 @@
-2026-04-28 00:05:35 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:05:36 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:05:36 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:06:12 [Thread-0] INFO  server.dao.UserDAO - Người dùng hungg xác thực thành công
-2026-04-28 00:06:14 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client hungg: Connection reset
-2026-04-28 00:06:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:06:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:06:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:06:47 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
-2026-04-28 00:07:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:07:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:07:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:07:42 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
-2026-04-28 00:08:11 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-04-28 00:08:11 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-04-28 00:08:11 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-04-28 00:08:28 [Thread-0] ERROR server.dao.UserDAO - Lỗi SQL khi đăng kí
-java.sql.SQLException: no such column: 'userId'
+2026-05-19 00:05:19 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:05:19 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:05:19 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:17:22 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:17:22 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:17:22 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:17:40 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:17:50 [Thread-0] INFO  server.dao.WalletDAO - Giao dịch thành công: User Hung | Type: DEPOSIT | Amount: 100000
+2026-05-19 00:17:56 [Thread-0] INFO  server.dao.WalletDAO - Giao dịch thành công: User Hung | Type: DEPOSIT | Amount: 200000
+2026-05-19 00:18:17 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:26:23 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:26:23 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:26:23 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:26:57 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:27:02 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:27:02 [JavaFX Application Thread] ERROR server.dao.UserDAO - Lỗi SQL khi lấy role
+java.sql.SQLException: no such column: 'role'
 	at org.sqlite.jdbc3.JDBC3ResultSet.findColumn(JDBC3ResultSet.java:51)
-	at org.sqlite.jdbc3.JDBC3ResultSet.getInt(JDBC3ResultSet.java:336)
-	at server.dao.UserDAO.signUp(UserDAO.java:70)
-	at server.ClientHandler.handleSignUp(ClientHandler.java:84)
-	at server.ClientHandler.handleRequest(ClientHandler.java:55)
-	at server.ClientHandler.run(ClientHandler.java:37)
+	at org.sqlite.jdbc3.JDBC3ResultSet.getString(JDBC3ResultSet.java:366)
+	at server.dao.UserDAO.getUserRole(UserDAO.java:99)
+	at client.controllers.WalletController.goBack(WalletController.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1845)
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-04-28 00:08:30 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-05-19 00:27:04 [JavaFX Application Thread] ERROR server.dao.UserDAO - Lỗi SQL khi lấy role
+java.sql.SQLException: no such column: 'role'
+	at org.sqlite.jdbc3.JDBC3ResultSet.findColumn(JDBC3ResultSet.java:51)
+	at org.sqlite.jdbc3.JDBC3ResultSet.getString(JDBC3ResultSet.java:366)
+	at server.dao.UserDAO.getUserRole(UserDAO.java:99)
+	at client.controllers.WalletController.goBack(WalletController.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1845)
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-19 00:29:46 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:29:46 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:29:46 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:29:55 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:29:59 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:30:26 [Thread-1] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-19 00:30:36 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-19 00:39:54 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-19 00:39:56 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client admin: Connection reset
+2026-05-19 00:40:06 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:40:06 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:40:06 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:40:17 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:43:15 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-19 00:43:31 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:44:28 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:44:28 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:44:28 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:44:38 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:45:53 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:45:53 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:45:53 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:46:03 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:46:09 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:46:09.967535700 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-19 00:47:40 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:47:40 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-19 00:47:40 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-19 00:47:51 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-19 00:48:05 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-19 00:49:00 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:51:24 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:51:24.361687 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:51:24 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:51:24.369662800 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:51:38 [Thread-2] INFO  server.dao.WalletDAO - Giao dịch thành công: User Hung | Type: DEPOSIT | Amount: 500000
+2026-05-19 00:51:39 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:51:46 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:51:46.298553200 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:51:46 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:51:46.300546600 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:51:48 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:51:48.973722900 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:51:48 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:51:48.973722900 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:51:58 [Thread-2] INFO  server.dao.WalletDAO - Giao dịch thành công: User Hung | Type: DEPOSIT | Amount: 1000000
+2026-05-19 00:52:02 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:52:02.536327200 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:52:02 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:52:02.537353900 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-19 00:53:14 [Thread-3] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-19 00:53:20 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-19 00:54:46 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:54:46.146572400 | Room Begin: 2026-05-19 12:54 | Room End: 2026-05-20 12:00
+2026-05-19 00:55:46 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:55:46.482702700 | Room Begin: 2026-05-19 00:56 | Room End: 2026-05-20 12:00
+2026-05-19 00:56:37 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:56:37.798102900 | Room Begin: 2026-05-19 00:56 | Room End: 2026-05-20 12:00
+2026-05-19 00:56:37 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:56:37.799100200 | Room Begin: 2026-05-19 00:56 | Room End: 2026-05-20 12:00
+2026-05-19 00:56:41 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:56:41.753987400 | Room Begin: 2026-05-19 00:56 | Room End: 2026-05-20 12:00
+2026-05-19 00:56:41 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-19T00:56:41.755000800 | Room Begin: 2026-05-19 00:56 | Room End: 2026-05-20 12:00

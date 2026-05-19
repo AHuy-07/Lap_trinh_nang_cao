@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="client.controllers.bidderController.AuctionRoomController"
+            prefHeight="768.0"
+            prefWidth="1024.0">
+
+    <VBox spacing="18.0"
+          AnchorPane.topAnchor="24.0"
+          AnchorPane.leftAnchor="24.0"
+          AnchorPane.rightAnchor="24.0"
+          AnchorPane.bottomAnchor="24.0">
+
+        <HBox spacing="12.0">
+            <Button text="Quay lại"
+                    onAction="#handleBackToDashboard"
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
+
+            <Label fx:id="roomNameLabel"
+                   text="Tên phòng đấu giá">
+                <font>
+                    <Font size="28.0"/>
+                </font>
+            </Label>
+        </HBox>
+
+        <Label fx:id="statusLabel"
+               text="Đang kết nối phòng đấu giá..."
+               style="-fx-text-fill: #34495e;"/>
+
+        <GridPane hgap="16.0" vgap="12.0">
+            <Label text="Mã phòng:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="roomIdLabel" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Seller:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="sellerNameLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Giá khởi điểm:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="startingPriceLabel" text="0" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Giá hiện tại:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="currentPriceLabel"
+                   text="0"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #e67e22;"
+                   GridPane.rowIndex="3"
+                   GridPane.columnIndex="1"/>
+
+            <Label text="Bước giá:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="bidStepLabel" text="0" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Người giữ giá:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <Label fx:id="winnerLabel"
+                   text="Chưa có"
+                   style="-fx-font-weight: bold; -fx-text-fill: #2980b9;"
+                   GridPane.rowIndex="5"
+                   GridPane.columnIndex="1"/>
+
+            <Label text="Thời gian còn lại:"
+                   style="-fx-font-weight: bold;"
+                   GridPane.rowIndex="6"
+                   GridPane.columnIndex="0"/>
+            <Label fx:id="countdownLabel"
+                   text="00:00:00"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"
+                   GridPane.rowIndex="6"
+                   GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <HBox spacing="12.0">
+            <TextField fx:id="bidAmountField"
+                       promptText="Nhập giá muốn đấu"
+                       prefWidth="240.0"/>
+
+            <Button text="+1 bước"
+                    onAction="#handleRecommendedBid"
+                    style="-fx-background-color: #f1c40f;"/>
+
+            <Button text="+2 bước"
+                    onAction="#handleBidStep2"
+                    style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+
+            <Button text="+5 bước"
+                    onAction="#handleBidStep5"
+                    style="-fx-background-color: #d35400; -fx-text-fill: white;"/>
+
+            <Button text="Đặt giá"
+                    onAction="#handlePlaceBid"
+                    style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+        </HBox>
+
+        <Label text="Lịch sử realtime:"/>
+
+        <TextArea fx:id="bidHistoryArea"
+                  editable="false"
+                  VBox.vgrow="ALWAYS"
+                  promptText="Các lượt đấu giá mới sẽ hiển thị ở đây..."/>
+
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,39 @@
+2026-05-14 21:10:12 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-14 21:10:12 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-14 21:10:12 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-14 21:11:57 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-14 21:12:26 [Thread-1] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-14 21:12:33 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh1 xác thực thành công
+2026-05-14 21:12:45 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 21:13:21 [Thread-0] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 21:13:24 [Thread-2] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 21:13:25 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 22:19:20 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-14 22:19:20 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-14 22:19:20 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-14 22:19:36 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-14 22:20:06 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-14 22:20:13 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 22:20:20 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 22:20:37 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-14 22:20:50 [Thread-2] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
+2026-05-14 22:32:26 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-14 22:32:26 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-14 22:32:26 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-14 22:32:47 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-14 22:34:26 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-14 22:37:14 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-14 22:39:39 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-14 22:39:39 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-14 22:39:39 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-14 22:39:51 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-14 22:40:17 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-14 22:40:17 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-14 22:40:17 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-14 22:40:27 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-14 22:42:04 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-14 22:42:04 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-14 22:42:04 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-14 22:42:15 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-14 22:42:44 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-14 22:43:13 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công

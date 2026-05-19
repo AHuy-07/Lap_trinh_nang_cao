@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="client.controllers.bidderController.BidderDashboardController"
+            prefHeight="768.0"
+            prefWidth="1024.0">
+
+    <VBox spacing="16.0"
+          AnchorPane.topAnchor="24.0"
+          AnchorPane.leftAnchor="24.0"
+          AnchorPane.rightAnchor="24.0"
+          AnchorPane.bottomAnchor="24.0">
+
+        <HBox spacing="12.0">
+            <Label text="Bidder Dashboard">
+                <font>
+                    <Font size="28.0"/>
+                </font>
+            </Label>
+        </HBox>
+
+        <Label fx:id="statusLabel"
+               text="Danh sách phòng đấu giá đang hoạt động"
+               style="-fx-text-fill: #34495e;"/>
+
+        <HBox spacing="12.0">
+            <Button text="Tải lại danh sách"
+                    onAction="#handleRefreshRooms"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+
+            <Button text="Vào phòng đã chọn"
+                    onAction="#handleJoinSelectedRoom"
+                    style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+            <Button onAction="#switchToWalletView" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" text="💳 Ví Nạp/Rút" />
+        </HBox>
+
+        <TableView fx:id="activeRoomsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="roomIdColumn"
+                             text="Mã phòng"
+                             prefWidth="120.0"/>
+
+                <TableColumn fx:id="roomNameColumn"
+                             text="Tên phòng"
+                             prefWidth="180.0"/>
+
+                <TableColumn fx:id="productIdColumn"
+                             text="Mã sản phẩm"
+                             prefWidth="130.0"/>
+
+                <TableColumn fx:id="sellerNameColumn"
+                             text="Seller"
+                             prefWidth="130.0"/>
+
+                <TableColumn fx:id="currentPriceColumn"
+                             text="Giá hiện tại"
+                             prefWidth="140.0"/>
+
+                <TableColumn fx:id="bidStepColumn"
+                             text="Bước giá"
+                             prefWidth="120.0"/>
+
+                <TableColumn fx:id="winnerColumn"
+                             text="Người giữ giá"
+                             prefWidth="150.0"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+
+</AnchorPane>

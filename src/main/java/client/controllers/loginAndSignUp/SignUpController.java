@@ -3,8 +3,10 @@ package client.controllers.loginAndSignUp;
 import client.controllers.SceneController;
 import client.controllers.Session;
 import common.Request;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -24,13 +26,13 @@ public class SignUpController {
     private PasswordField passwordSignUp, re_passwordSignUp;
 
     @FXML
-    private TextField roleSignUp;
+    private ChoiceBox roleSignUp;
 
     public void SignUp(ActionEvent event) throws Exception {
         String username = usernameSignUp.getText();
         String pwdSignUp = passwordSignUp.getText();
         String re_pwdSignUp = re_passwordSignUp.getText();
-        String role = roleSignUp.getText();
+        String role = roleSignUp.getValue().toString();
         role = role.toUpperCase();
 
         if (!checkSpecialCase(username, pwdSignUp, re_pwdSignUp, role)) {
@@ -45,17 +47,15 @@ public class SignUpController {
         Session.getInstance().sendRequest(
                 signUpReq,
                 response -> { // tham chiếu respone là đối tượng Request
-                    lockUI(false);
-                    if (response.getAction().equals("SIGN_UP_SUCCESS")) {
-                        signUpStatusSuccess.setText("Đăng ký thành công!");
-                        SceneController.switchScene("/client/views/Login.fxml");
-                    } else if (response.getAction().equals("SIGN_UP_FAIL")) {
-                        signUpStatusFail.setText("Tên tài khoản đã tồn tại. Hãy thử tên đăng nhập khác!");
-                    }
-                },
-                error -> {
-                    lockUI(false);
-                    signUpStatusFail.setText("Không thể kết nối với Server");
+                    Platform.runLater(() -> {
+                        lockUI(false);
+                        if (response.getAction().equals("SIGN_UP_SUCCESS")) {
+                            signUpStatusSuccess.setText("Đăng ký thành công!");
+                            SceneController.switchScene("/client/views/Login.fxml");
+                        } else if (response.getAction().equals("SIGN_UP_FAIL")) {
+                            signUpStatusFail.setText("Tên tài khoản đã tồn tại. Hãy thử tên đăng nhập khác!");
+                        }
+                    });
                 }
         );
     }

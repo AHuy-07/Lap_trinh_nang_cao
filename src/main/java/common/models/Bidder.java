@@ -3,10 +3,10 @@ package common.models;
 import java.util.ArrayList;
 
 public class Bidder extends User {
-    private int balance = 0;
+    private long balance = 0;
     private ArrayList<String> bidHistory = new ArrayList<>();
 
-    public Bidder(int id, String loginUsername, double balance) {
+    public Bidder(int id, String loginUsername, long balance) {
         super(id, loginUsername, "BIDDER", balance);
     }
 
@@ -27,15 +27,15 @@ public class Bidder extends User {
     //End: Nap/rut tien
 
     //Them san pham vao bidHistory
-    public void addBidHistory(String item) {
-        bidHistory.add(item);
+    public void addBidHistory(String Product) {
+        bidHistory.add(Product);
     }
 
     //Xem san pham trong bidHistory
     public void viewBidHistory() {
         System.out.println("Lich su mua hang:");
-        for (String item : bidHistory) {
-            System.out.println(item);
+        for (String Product : bidHistory) {
+            System.out.println(Product);
         }
     }
 }

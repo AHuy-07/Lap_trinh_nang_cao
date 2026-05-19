@@ -13,8 +13,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class ClientApp extends Application {
-    private static final double BASE_WIDTH = 600;
-    private static final double BASE_HEIGHT = 400;
+    private static final double BASE_WIDTH = 1024;
+    private static final double BASE_HEIGHT = 768;
     public void start(Stage primaryStage) throws Exception {
 
 
@@ -45,6 +45,10 @@ public class ClientApp extends Application {
 
         // Khởi tạo scene, đây là cái sẽ chỉ đạo mọi thứ
         Scene scene = new Scene(root, BASE_WIDTH, BASE_HEIGHT);
+
+
+//        String css = this.getClass().getResource("/style.css").toExternalForm();
+//        scene.getStylesheets().add(css);
 
         // Listener cập nhật scale khi kích thước scene thay đổi
         // Định nghĩa hàm phương thức scaler

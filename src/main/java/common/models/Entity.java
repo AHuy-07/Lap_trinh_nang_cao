@@ -1,15 +1,18 @@
 package common.models;
+import java.io.Serializable;
 
-abstract class Entity {
-    private String id;
-    private String name;
+public class Entity implements Serializable{
+    protected String id;
+    protected String type;
+    protected String name;
 
-    public Entity(String id, String name) {
+    public Entity(){};
+    public Entity(String id,String type, String name){
         this.id = id;
+        this.type = type;
         this.name = name;
     }
 
-    // Begin: Setter/getter
     public void setId(String id) {
         this.id = id;
     }
@@ -25,5 +28,7 @@ abstract class Entity {
     public String getName() {
         return this.name;
     }
-    // End: Setter/Getter
+    public String getType(){
+        return type;
+    }
 }
