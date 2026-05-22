@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Seller extends User{
     Map<String, Integer> sellingProductList = new HashMap<>();
-    double balance = 0;
+    long balance = 0;
 
-    public Seller(int id, String loginUsername, double balance) {
+    public Seller(int id, String loginUsername, long balance) {
         super(id, loginUsername, "SELLER", balance);
     }
 

@@ -1,15 +1,20 @@
 package server;
 
 import common.Request;
+import common.models.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import server.dao.ConnectDatabase;
+import server.dao.ProductDAO;
+import server.dao.RoomDAO;
+import server.dao.WalletDAO;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Map;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class AppServer {
@@ -25,12 +30,15 @@ public class AppServer {
     public static final Map<String, Set<ClientHandler>> roomSubscribers = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
+        java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
         if (ConnectDatabase.getConnection() != null) {
             logger.info("[SERVER] Kết nối database thành công");
         } else {
             logger.error("[SERVER] Không thể kết nối database. Dừng chương trình!");
             return;
         }
+
+        manageActiveRoom();
 
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             logger.info("[SERVER] Server đấu giá đang chạy trên port {}...", PORT);
@@ -45,6 +53,57 @@ public class AppServer {
             logger.error("[SERVER] Lỗi ServerSocket: ", e);
         } finally {
             ConnectDatabase.closeConnection();
+        }
+    }
+    
+    public static void manageActiveRoom() {
+        Timer timer = new Timer(true);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    LocalDateTime now = LocalDateTime.now();
+
+                    List<Room> avtiveRooms = RoomDAO.getActiveRooms();
+                    for (Room room : avtiveRooms) {
+                        LocalDateTime endTime = LocalDateTime.parse(room.getEndTime(), formatter);
+
+                        if (now.isAfter(endTime)) {
+                            handleEndRoom(room);
+                        }
+                    }
+                } catch (Exception e) {
+                    logger.error("Lỗi ở manageActiveRoom", e);
+                }
+            }
+        }, 0, 1000);
+    }
+
+    private static void handleEndRoom(Room room) {
+        String roomId = room.getRoomId();
+
+        boolean success = RoomDAO.updateRoomStatus(roomId, "CLOSED");
+
+        if (success) {
+            String winner = room.getWinnerUsername();
+            long winPrice = room.getWinPrice();
+
+            if (winner != null) {
+                String seller = room.getSellerName();
+                long sellerBalance = WalletDAO.getBalance(seller);
+                WalletDAO.updateBalance(seller, sellerBalance);
+                String[] winData = new String[]{winner, Long.toString(winPrice), room.getRoomName(), room.getRoomId()};
+                Request req = new Request("AUCTION_ENDED_WITH_WINNER", winData);
+
+                broadcastToRoom(roomId, req);
+            } else { // Nếu không có ai bid
+                String[] data = new String[]{room.getRoomName(), room.getRoomId()};
+                Request req = new Request("AUCTION_ENDED_WITH_NO_BID", data);
+                ProductDAO.updateProductStatus(room.getProductId(), 0); // Cập nhật trạng thái sản phẩm về sẵn sàng
+                broadcastToRoom(roomId, req);
+            }
         }
     }
 

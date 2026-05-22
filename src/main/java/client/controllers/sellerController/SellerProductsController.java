@@ -9,9 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
@@ -67,6 +65,30 @@ public class SellerProductsController {
 
         tableMyProducts.setItems(myProductsList);
         loadMyProducts();
+
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem createRoom = new MenuItem("Tạo phòng với sản phẩm");
+
+        createRoom.setOnAction(event -> {
+            Product selected = tableMyProducts.getSelectionModel().getSelectedItem();
+            if (selected != null) {
+                Session.getInstance().setCurrentProduct(selected);
+                SceneController.switchScene("/client/views/seller/CreateRoom.fxml");
+            } else {
+                System.out.println("Vui lòng chọn 1 sản phẩm trước!");
+            }
+
+        });
+        contextMenu.getItems().addAll(createRoom);
+        tableMyProducts.setRowFactory(tv -> {
+            javafx.scene.control.TableRow<Product> row = new javafx.scene.control.TableRow<>();
+            row.contextMenuProperty().bind(
+                    javafx.beans.binding.Bindings.when(row.emptyProperty())
+                            .then((ContextMenu) null)
+                            .otherwise(contextMenu)
+            );
+            return row;
+        });
     }
 
     public void loadMyProducts() {

@@ -1,39 +1,109 @@
-2026-05-14 21:10:12 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-05-14 21:10:12 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-05-14 21:10:12 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-05-14 21:11:57 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
-2026-05-14 21:12:26 [Thread-1] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
-2026-05-14 21:12:33 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh1 xác thực thành công
-2026-05-14 21:12:45 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 21:13:21 [Thread-0] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 21:13:24 [Thread-2] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 21:13:25 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 22:19:20 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-05-14 22:19:20 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-05-14 22:19:20 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-05-14 22:19:36 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
-2026-05-14 22:20:06 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
-2026-05-14 22:20:13 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 22:20:20 [Thread-1] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 22:20:37 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
-2026-05-14 22:20:50 [Thread-2] WARN  server.ClientHandler - Không parse được thời gian phòng R_01: Text '2026-05-20 15:30' could not be parsed at index 10
-2026-05-14 22:32:26 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-05-14 22:32:26 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-05-14 22:32:26 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-05-14 22:32:47 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
-2026-05-14 22:34:26 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
-2026-05-14 22:37:14 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
-2026-05-14 22:39:39 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-05-14 22:39:39 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-05-14 22:39:39 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-05-14 22:39:51 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
-2026-05-14 22:40:17 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-05-14 22:40:17 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-05-14 22:40:17 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-05-14 22:40:27 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
-2026-05-14 22:42:04 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-05-14 22:42:04 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-05-14 22:42:04 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-05-14 22:42:15 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
-2026-05-14 22:42:44 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
-2026-05-14 22:43:13 [Thread-2] INFO  server.dao.UserDAO - Người dùng hh xác thực thành công
+2026-05-21 22:12:56 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-21 22:12:56 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-21 22:12:56 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-21 22:13:06 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-21 22:14:02 [Thread-2] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-21 22:14:22 [Thread-3] INFO  server.dao.UserDAO - Người dùng y xác thực thành công
+2026-05-21 22:14:33 [Thread-4] INFO  server.dao.UserDAO - Người dùng t xác thực thành công
+2026-05-21 22:21:13 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:21:13.056429 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:21:13 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:21:13.063725500 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:21:16 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:21:16.313523700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:21:16 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:21:16.313523700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:21:16 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:21:16.977126200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:21:16 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:21:16.977126200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:24:09 [Thread-3] INFO  server.dao.WalletDAO - Giao dịch thành công: User y | Type: DEPOSIT | Amount: 100000000
+2026-05-21 22:24:15 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-21 22:24:20 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:24:20.299231700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 22:24:20 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T22:24:20.299231700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:03:53 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-21 23:03:53 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-21 23:03:53 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-21 23:04:02 [Thread-1] INFO  server.dao.UserDAO - Người dùng t xác thực thành công
+2026-05-21 23:26:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-21 23:26:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-21 23:26:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-21 23:26:34 [Thread-1] INFO  server.dao.UserDAO - Người dùng t xác thực thành công
+2026-05-21 23:26:46 [Thread-2] INFO  server.dao.UserDAO - Người dùng y xác thực thành công
+2026-05-21 23:27:03 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:03.604629800 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:03 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:03.605629700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:05 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:05.982685300 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:05 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:05.982685300 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:06 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:06.550079500 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:06 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:06.551060400 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:07 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:07.710201200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:07 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:07.710201200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:08 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:08.645473300 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:08 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:08.646473100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:22 [Thread-3] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-21 23:27:32 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:32.429081400 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:32 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:32.429081400 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:33 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:33.609486200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:33 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:33.610499200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:34 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:34.507370 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:34 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:34.508371100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:48 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:48.166295100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:48 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:48.167296700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:49 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:49.254229200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:49 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:49.254229200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:49 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:49.772330400 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:49 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:27:49.773331700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:27:58 [Thread-3] INFO  server.dao.WalletDAO - Giao dịch thành công: User Hung | Type: DEPOSIT | Amount: 10000000
+2026-05-21 23:28:01 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-21 23:28:05 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:05.523864200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:05 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:05.524865 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:06 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:06.823622700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:06 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:06.823622700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:07 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:07.441169200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:07 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:07.442421700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:18 [Thread-3] INFO  server.dao.WalletDAO - Giao dịch thành công: User Hung | Type: DEPOSIT | Amount: 100000000
+2026-05-21 23:28:23 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:23.703612500 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:23 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:23.703612500 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:51 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:51.879798200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:28:51 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:28:51.880800100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:27 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:27.108830900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:27 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:27.109887700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:29 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:29.204588100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:29 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:29.204588100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:30 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:30.403666600 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:30 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:30.403666600 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:33 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:33.785087 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:32:33 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:32:33.785087 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:04 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:04.084253300 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:04 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:04.084253300 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:20 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:20.630760700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:20 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:20.631760300 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:21 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:21.447803600 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:21 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:21.447803600 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:40 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:40.362373200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:40 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:40.363736800 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:42 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:42.984231800 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-21 23:33:42 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-21T23:33:42.984231800 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:13:06 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-22 07:13:06 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-22 07:13:06 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-22 07:13:59 [Thread-1] INFO  server.dao.UserDAO - Người dùng t xác thực thành công
+2026-05-22 07:14:37 [Thread-2] INFO  server.dao.UserDAO - Người dùng y xác thực thành công
+2026-05-22 07:15:19 [Thread-3] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-22 07:16:31 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:16:31.306471200 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:16:31 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:16:31.309475900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:17:36 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:17:36.500717800 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:17:36 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:17:36.501715700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:12 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:12.916079900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:12 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:12.917090 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:13 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:13.891218500 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:13 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:13.892243900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:14 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:14.071057900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:14 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:14.072057900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:14 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:14.255581400 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:14 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:14.256580900 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:14 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:14.474310100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:14 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:14.474310100 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:16 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:16.162388 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:18:16 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:18:16.163391700 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:19:07 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:19:07.459080400 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:19:07 [Thread-2] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-22T07:19:07.460078500 | Room Begin: 2026-05-21 22:21 | Room End: 2026-05-26 12:00
+2026-05-22 07:20:43 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-22 08:26:21 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-22 08:26:21 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-22 08:26:21 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-22 08:26:28 [Thread-1] INFO  server.dao.UserDAO - Người dùng y xác thực thành công

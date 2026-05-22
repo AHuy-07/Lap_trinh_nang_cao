@@ -1,17 +1,21 @@
 package client.controllers.bidderController;
 
+import client.controllers.SceneController;
 import client.controllers.Session;
 import common.Request;
 import common.models.Room;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +30,8 @@ public class BidderDashboardController {
     @FXML private TableColumn<Room, Number> currentPriceColumn;
     @FXML private TableColumn<Room, Number> bidStepColumn;
     @FXML private TableColumn<Room, String> winnerColumn;
+    @FXML private TableColumn<Room, String> beginTimeColumn;
+    @FXML private TableColumn<Room, String> endTimeColumn;
 
     @FXML
     private void initialize() {
@@ -37,38 +43,66 @@ public class BidderDashboardController {
         roomIdColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getRoomId())
         );
-
         roomNameColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getRoomName())
         );
-
         productIdColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getProductId())
         );
-
         sellerNameColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getSellerName())
         );
-
         currentPriceColumn.setCellValueFactory(cellData -> {
             Room room = cellData.getValue();
             long currentPrice = Math.max(room.getStartingPrice(), room.getWinPrice());
             return new SimpleLongProperty(currentPrice);
         });
-
         bidStepColumn.setCellValueFactory(cellData ->
                 new SimpleLongProperty(Room.calculateDefaultBidStep(cellData.getValue().getStartingPrice()))
         );
-
         winnerColumn.setCellValueFactory(cellData -> {
             String winner = cellData.getValue().getWinnerUsername();
-
             if (winner == null || winner.isBlank()) {
                 winner = "Chưa có";
             }
-
             return new SimpleStringProperty(winner);
         });
+        beginTimeColumn.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getBeginTime())
+        );
+
+        endTimeColumn.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getEndTime())
+        );
+
+        // Tô màu xám các phòng chưa đến giờ bắt đầu
+        activeRoomsTable.setRowFactory(tv -> new javafx.scene.control.TableRow<Room>() {
+            @Override
+            protected void updateItem(Room room, boolean empty) {
+                super.updateItem(room, empty);
+                if (empty || room == null) {
+                    setStyle("");
+                    setTooltip(null);
+                } else if (!isRoomStarted(room)) {
+                    setStyle("-fx-text-fill: #95a5a6;");
+                    setTooltip(new javafx.scene.control.Tooltip("Phòng bắt đầu lúc: " + room.getBeginTime()));
+                } else {
+                    setStyle("");
+                    setTooltip(null);
+                }
+            }
+        });
+    }
+
+    private boolean isRoomStarted(Room room) {
+        if (room.getBeginTime() == null || room.getBeginTime().isBlank()) return true;
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime beginTime = LocalDateTime.parse(room.getBeginTime(), formatter);
+            return !LocalDateTime.now().isBefore(beginTime);
+        } catch (Exception e) {
+            return true;
+        }
     }
 
     private void loadActiveRooms() {
@@ -88,6 +122,7 @@ public class BidderDashboardController {
         );
     }
 
+
     @FXML
     private void handleRefreshRooms() {
         loadActiveRooms();
@@ -96,12 +131,15 @@ public class BidderDashboardController {
     @FXML
     private void handleJoinSelectedRoom() {
         Room selectedRoom = activeRoomsTable.getSelectionModel().getSelectedItem();
-
         if (selectedRoom == null) {
             statusLabel.setText("Vui lòng chọn một phòng để vào đấu giá");
             return;
         }
-
+        // Cảnh báo nếu phòng chưa đến giờ
+        if (!isRoomStarted(selectedRoom)) {
+            statusLabel.setText("⚠ Phòng chưa đến giờ bắt đầu! Bắt đầu lúc: " + selectedRoom.getBeginTime());
+            return;
+        }
         openAuctionRoom(selectedRoom);
     }
 
@@ -114,9 +152,10 @@ public class BidderDashboardController {
             Parent auctionRoomRoot = loader.load();
 
             AuctionRoomController controller = loader.getController();
-            controller.initRoom(room);
+
 
             client.controllers.SceneController.contentGroup.getChildren().setAll(auctionRoomRoot);
+            controller.initRoom(room);
             /*
             - Phần Parent auctionRoomRoot là để lấy khung cây của file fxml, bao gồm các thuộc
             tính như AnchorPane, hay các thành phần javafx
@@ -129,5 +168,10 @@ public class BidderDashboardController {
             statusLabel.setText("Không thể mở phòng đấu giá");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void switchToWalletView(ActionEvent event){
+        SceneController.switchScene("/client/views/Wallet.fxml");
     }
 }

@@ -32,7 +32,7 @@ public class UserDAO {
             if (resultSet.next()) {
                 int id = resultSet.getInt("userId");
                 String role = resultSet.getString("role");
-                double balance = resultSet.getDouble("balance");
+                long balance = resultSet.getLong("balance");
 
                 logger.info("Người dùng {} xác thực thành công", username);
 
@@ -76,9 +76,9 @@ public class UserDAO {
                              */
 
                             if (role.equals("BIDDER")) {
-                                return new Bidder(id, username, 0.0);
+                                return new Bidder(id, username, 0);
                             }else if (role.equals("SELLER")) {
-                                return new Seller(id, username, 0.0);
+                                return new Seller(id, username, 0);
                             }
                         }
                     }
@@ -86,6 +86,21 @@ public class UserDAO {
             }
         } catch (SQLException e) {
             logger.error("Lỗi SQL khi đăng kí", e);
+        }
+        return null;
+    }
+
+    public static String getUserRole(String username) {
+        String sql = "SELECT * FROM User WHERE username = ? LIMIT 1";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getString("role");
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Lỗi SQL khi lấy role", e);
         }
         return null;
     }

@@ -1,0 +1,349 @@
+2026-05-20 09:40:59 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 09:40:59 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 09:40:59 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 09:41:10 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 09:41:15 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:41:22 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_003' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:41:24 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_002' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:41:30 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_002' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:41:37 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T09:41:37.525271600 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-20 09:41:37 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T09:41:37.528332100 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-20 09:41:38 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T09:41:38.703901600 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-20 09:41:38 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T09:41:38.704901400 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-20 09:41:40 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T09:41:40.658655 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-20 09:41:40 [Thread-0] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T09:41:40.658655 | Room Begin: 2026-05-19 12:33 | Room End: 2026-05-20 12:00
+2026-05-20 09:41:49 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:41:51 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_004' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:42:35 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_004' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:43:41 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:50:17 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_004' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:50:23 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_002' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:50:34 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 09:50:42 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 09:50:45 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_005' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 09:50:49 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 09:50:58 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 09:53:49 [Thread-3] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 09:55:42 [Thread-2] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-20 09:56:05 [Thread-4] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-20 09:56:30 [Thread-5] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 09:56:34 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - Lỗi khi hiển thị thời gian
+java.time.format.DateTimeParseException: Text 'R_006' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:496)
+	at client.controllers.bidderController.AuctionRoomController.initCountdown(AuctionRoomController.java:130)
+	at client.controllers.bidderController.AuctionRoomController.renderRoomInfo(AuctionRoomController.java:98)
+	at client.controllers.bidderController.AuctionRoomController.lambda$joinRoom$0(AuctionRoomController.java:68)
+	at client.controllers.Session.lambda$handleResponse$2(Session.java:119)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-20 10:18:19 [Thread-6] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 10:18:30 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:18:30.514873400 | Room Begin: 2026-05-20 11:00 | Room End: 2026-05-20 12:30
+2026-05-20 10:19:30 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:19:30.462323200 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:19:36 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:19:36.039605700 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:20:35 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:20:35.823131800 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:20:37 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:20:37.727838900 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:20:38 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:20:38.376207100 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:20:38 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:20:38.527870700 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:20:38 [Thread-6] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T10:20:38.673936700 | Room Begin: 2026-05-19 00:00 | Room End: 2026-05-19 00:21
+2026-05-20 10:22:42 [Thread-7] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 10:23:52 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-20 10:23:54 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-20 10:23:55 [Thread-7] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 10:23:57 [Thread-6] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 10:23:58 [Thread-5] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 10:24:00 [Thread-4] ERROR server.ClientHandler - Lỗi kết nối với Client admin: Connection reset
+2026-05-20 10:24:05 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 10:24:05 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 10:24:05 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 10:26:11 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 10:31:13 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 10:31:22 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 10:55:33 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 10:55:33 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 10:55:33 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 10:55:39 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 10:57:16 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 10:57:16 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 10:57:16 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 10:57:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:04:13 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 11:04:28 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 11:04:28 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 11:04:28 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 11:04:36 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:07:02 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 11:07:09 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:10:19 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 11:10:19 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 11:10:19 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 11:10:31 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:11:23 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 11:11:29 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:21:31 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 11:25:35 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T11:25:35.990900600 | Room Begin: 2026-05-20 11:00 | Room End: 2026-05-20 12:30
+2026-05-20 11:25:35 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T11:25:35.998408600 | Room Begin: 2026-05-20 11:00 | Room End: 2026-05-20 12:30
+2026-05-20 11:30:23 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 11:30:31 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:39 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 11:30:39 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 11:30:39 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 11:30:47 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:48 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:30:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:31:01 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:31:01 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:31:01 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:31:01 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:32:02 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung: Connection reset
+2026-05-20 11:32:11 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:35:16 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 11:35:16 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 11:35:16 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 11:35:22 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 11:35:33 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 14:51:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 14:51:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 14:51:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 14:51:33 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 14:52:33 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 14:56:49 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 14:56:49 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 14:56:49 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 14:57:02 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 14:57:22 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 14:57:22 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 14:57:22 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 14:58:38 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 15:54:54 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 15:54:54 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 15:54:54 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 15:55:04 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 15:55:35 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 16:07:25 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 16:07:25 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 16:07:25 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 16:07:37 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 16:23:45 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 16:23:45 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 16:23:45 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 16:23:58 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 16:24:39 [Thread-1] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-20 16:24:58 [Thread-2] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-20 16:25:14 [Thread-3] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 16:25:20 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T16:25:20.405218 | Room Begin: 2026-05-20 16:25 | Room End: 2026-05-20 16:35
+2026-05-20 16:25:20 [Thread-3] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T16:25:20.414196700 | Room Begin: 2026-05-20 16:25 | Room End: 2026-05-20 16:35
+2026-05-20 16:25:26 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 16:25:54 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-20 16:26:02 [Thread-4] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz | Type: DEPOSIT | Amount: 600000
+2026-05-20 16:26:04 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 16:26:09 [Thread-4] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T16:26:09.462162700 | Room Begin: 2026-05-20 16:25 | Room End: 2026-05-20 16:35
+2026-05-20 16:26:09 [Thread-4] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T16:26:09.462162700 | Room Begin: 2026-05-20 16:25 | Room End: 2026-05-20 16:35
+2026-05-20 17:02:51 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 17:02:51 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 17:02:51 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 17:03:05 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 17:03:20 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T17:03:20.879337700 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 17:03:20 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T17:03:20.882330200 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 17:03:35 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 17:05:34 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 17:05:34 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 17:05:34 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 17:05:44 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 17:05:44 [Thread-1] ERROR server.dao.RoomDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-20 17:05:57 [Thread-1] ERROR server.dao.RoomDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-20 17:05:57 [Thread-1] ERROR server.dao.RoomDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-20 17:06:25 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-20 17:06:38 [Thread-2] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 17:06:38 [Thread-2] ERROR server.dao.RoomDAO - Lỗi SQL khi lấy phòng của John: [SQLITE_ERROR] SQL error or missing database (unrecognized token: "2ELSE")
+2026-05-20 17:07:19 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 17:07:19 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 17:07:19 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 17:07:30 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 17:08:32 [Thread-1] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-20 17:12:18 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 17:12:18 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 17:12:18 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 17:12:30 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 17:13:28 [Thread-1] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-20 17:13:41 [Thread-2] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-20 17:15:58 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 17:15:58 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 17:15:58 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 17:16:09 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-20 22:31:28 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 22:31:28 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-20 22:31:28 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-20 22:32:03 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-20 22:34:30 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:30.756796300 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:30 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:30.758945500 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:33 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:33.151900300 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:33 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:33.152990 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:37 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:37.369084900 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:37 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:37.369084900 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:38 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:38.167385 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:38 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:38.167385 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:39 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:39.149508700 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:39 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:39.150504500 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:40 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:40.147507200 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:40 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:40.148395200 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:45 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:45.640858600 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:34:45 [Thread-1] INFO  server.ClientHandler - >>> [DEBUG TIME] Now: 2026-05-20T22:34:45.642181 | Room Begin: 2026-05-19 00:50 | Room End: 2026-05-21 12:00
+2026-05-20 22:43:52 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 22:44:27 [Thread-2] INFO  server.dao.UserDAO - Người dùng t xác thực thành công
+2026-05-20 22:44:37 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-20 22:45:34 [Thread-2] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-20 22:46:15 [Thread-3] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
