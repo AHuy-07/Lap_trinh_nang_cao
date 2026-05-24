@@ -51,48 +51,53 @@
             <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
         </columnConstraints>
 
-        <!-- Mã phòng (Row 0) -->
-        <Label text="Mã phòng:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="0">
-            <font><Font name="System Bold" size="14.0" /></font>
-        </Label>
-        <TextField fx:id="txtRoomId" promptText="Nhập theo định dạng R_" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
         <!-- Tên phòng (Row 1) -->
-        <Label text="Tên phòng:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Label text="Tên phòng:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <font><Font name="System Bold" size="14.0" /></font>
         </Label>
-        <TextField fx:id="txtRoomName" promptText="VD: Đấu giá xe máy Honda Wave..." style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="txtRoomName" promptText="VD: Đấu giá xe máy Honda Wave..." style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
         <!-- Mã sản phẩm (Row 2) -->
-        <Label text="Mã sản phẩm:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Label text="Mã sản phẩm:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <font><Font name="System Bold" size="14.0" /></font>
         </Label>
-        <TextField fx:id="txtProductId" promptText="Ví dụ: P_01, P_02..." style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="txtProductId" promptText="Ví dụ: P_01, P_02..." style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
         <!-- Giá khởi điểm (Row 3) -->
-        <Label text="Giá khởi điểm (VNĐ):" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <Label text="Giá khởi điểm (VNĐ):" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="2">
             <font><Font name="System Bold" size="14.0" /></font>
         </Label>
-        <TextField fx:id="txtStartingPrice" promptText="Nhập số tiền (VD: 500000)" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField fx:id="txtStartingPrice" promptText="Nhập số tiền (VD: 500000)" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
         <!-- Thông tin phòng (Row 4) -->
-        <Label text="Thông tin phòng:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.valignment="TOP">
+        <Label text="Thông tin phòng:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.valignment="TOP">
             <font><Font name="System Bold" size="14.0" /></font>
             <GridPane.margin>
                 <Insets top="8.0" />
             </GridPane.margin>
         </Label>
-        <TextField fx:id="txtDetails" prefHeight="90.0" promptText="Quy định thêm của phòng (nếu có)..." style="-fx-control-inner-background: #f8f9fa; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ced4da;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <TextField fx:id="txtDetails" prefHeight="90.0" promptText="Quy định thêm của phòng (nếu có)..." style="-fx-control-inner-background: #f8f9fa; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ced4da;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-        <Label text="Thời gian bắt đầu:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="5">
+        <Label text="Thời gian bắt đầu:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="4">
             <font><Font name="System Bold" size="14.0" /></font>
         </Label>
 
-        <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <DatePicker fx:id="beginDate" prefWidth="150.0" promptText="Chọn ngày" style="-fx-background-color: #f8f9fa;" />
             <ComboBox fx:id="beginHour" prefWidth="85.0" promptText="Giờ" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5;" />
             <Label text=":" textFill="#34495e"><font><Font name="System Bold" size="16.0" /></font></Label>
             <ComboBox fx:id="beginMinute" prefWidth="85.0" promptText="Phút" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5;" />
+        </HBox>
+
+        <Label text="Thời gian kết thúc:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <font><Font name="System Bold" size="14.0" /></font>
+        </Label>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <DatePicker fx:id="endDate" prefWidth="150.0" promptText="Chọn ngày" style="-fx-background-color: #f8f9fa;" />
+            <ComboBox fx:id="endHour" prefWidth="85.0" promptText="Giờ" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5;" />
+            <Label text=":" textFill="#34495e"><font><Font name="System Bold" size="16.0" /></font></Label>
+            <ComboBox fx:id="endMinute" prefWidth="85.0" promptText="Phút" style="-fx-background-color: #f8f9fa; -fx-border-color: #ced4da; -fx-border-radius: 5;" />
         </HBox>
 
         <rowConstraints>

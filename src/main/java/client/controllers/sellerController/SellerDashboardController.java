@@ -28,6 +28,8 @@ public class SellerDashboardController {
     @FXML private TableColumn<Room, String> colRoomName;
     @FXML private TableColumn<Room, String> colStatus;
     @FXML private TableColumn<Room, Void> colAction;
+    @FXML private TableColumn<Room, String> colBeginTime;
+    @FXML private TableColumn<Room, String> colEndTime;
 
     // Thành phần cho In-App Notification
     @FXML private HBox notificationBox;
@@ -37,19 +39,18 @@ public class SellerDashboardController {
 
     @FXML
     public void initialize() {
-        // Đăng kí Controller với Session để nhận thông báo
         Session.getInstance().setSellerDashboardController(this);
 
-        // Thiết lập các cột cho TableView
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colRoomName.setCellValueFactory(new PropertyValueFactory<>("roomName"));
 
-        setupStatusCol(); // Tô màu trạng thái
-        setupActionButtons(); // Tạo nút "Vào phòng"
+        // Thêm 2 cột mới
+        colBeginTime.setCellValueFactory(new PropertyValueFactory<>("beginTime"));
+        colEndTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
 
+        setupStatusCol();
+        setupActionButtons();
         tableMyRooms.setItems(myRoomsList);
-
-        // Load dữ liệu lần đầu từ Database;
         loadMyRooms();
     }
 
@@ -163,4 +164,10 @@ public class SellerDashboardController {
     public void switchToProductView(ActionEvent event) {
         SceneController.switchScene("/client/views/seller/SellerManageProducts.fxml");
     }
+
+    @FXML
+    public void switchToWalletView(ActionEvent event){
+        SceneController.switchScene("/client/views/Wallet.fxml");
+    }
+
 }

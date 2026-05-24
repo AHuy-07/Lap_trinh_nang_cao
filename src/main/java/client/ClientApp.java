@@ -24,6 +24,7 @@ public class ClientApp extends Application {
         // Set up trước Width và Height của cửa sổ khi chạy chương trình
         ui.setPrefWidth(BASE_WIDTH);
         ui.setPrefHeight(BASE_HEIGHT);
+        primaryStage.setFullScreen(true);
 
         /*
         - Tạo một Group để bao trọn tất cả vật con ở trong
@@ -65,7 +66,7 @@ public class ClientApp extends Application {
         scene.widthProperty().addListener(scaler);
 
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
+        primaryStage.setTitle("Auction System");
         primaryStage.show();
     }
 

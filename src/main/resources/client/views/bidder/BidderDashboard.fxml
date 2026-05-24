@@ -34,45 +34,55 @@
                text="Danh sách phòng đấu giá đang hoạt động"
                style="-fx-text-fill: #34495e;"/>
 
+        <!-- Cụm nút chức năng -->
         <HBox spacing="12.0">
             <Button text="Tải lại danh sách"
                     onAction="#handleRefreshRooms"
-                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-cursor: hand;"/>
 
             <Button text="Vào phòng đã chọn"
                     onAction="#handleJoinSelectedRoom"
-                    style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+                    style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-cursor: hand;"/>
+
+            <Button onAction="#switchToWalletView"
+                    style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;"
+                    text="💳 Ví Nạp/Rút" />
+
+            <Button onAction="#switchToWonProductsView"
+                    style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;"
+                    text=" SP đã đấu giá thành công" />
         </HBox>
 
         <TableView fx:id="activeRoomsTable" VBox.vgrow="ALWAYS">
             <columns>
-                <TableColumn fx:id="roomIdColumn"
-                             text="Mã phòng"
-                             prefWidth="120.0"/>
-
                 <TableColumn fx:id="roomNameColumn"
-                             text="Tên phòng"
+                             text="RoomName"
                              prefWidth="180.0"/>
 
-                <TableColumn fx:id="productIdColumn"
-                             text="Mã sản phẩm"
-                             prefWidth="130.0"/>
+                <TableColumn fx:id="productNameColumn"
+                             text="ProductName"
+                             prefWidth="180.0"/>
 
                 <TableColumn fx:id="sellerNameColumn"
                              text="Seller"
                              prefWidth="130.0"/>
 
-                <TableColumn fx:id="currentPriceColumn"
-                             text="Giá hiện tại"
-                             prefWidth="140.0"/>
+                <TableColumn fx:id="beginTimeColumn"
+                             text="BeginTime"
+                             prefWidth="130"/>
 
-                <TableColumn fx:id="bidStepColumn"
-                             text="Bước giá"
+                <TableColumn fx:id="statusColumn"
+                             text="Status"
                              prefWidth="120.0"/>
 
+                <TableColumn fx:id="winPriceColumn"
+                             text="WinPrice"
+                             prefWidth="140.0"/>
+
                 <TableColumn fx:id="winnerColumn"
-                             text="Người giữ giá"
+                             text="WinnerUsername"
                              prefWidth="150.0"/>
+
             </columns>
         </TableView>
 

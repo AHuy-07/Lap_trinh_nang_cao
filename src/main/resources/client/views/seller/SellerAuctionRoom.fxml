@@ -2,8 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -122,7 +121,7 @@
 
                         <VBox VBox.vgrow="ALWAYS" />
 
-                        <Button fx:id="btnEndAuction" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;" text="KẾT THÚC PHIÊN">
+                        <Button fx:id="btnEndAuction" maxWidth="1.7976931348623157E308" onAction="#forceEndRoom" prefHeight="45.0" style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;" text="KẾT THÚC PHIÊN">
                             <cursor><Cursor fx:constant="HAND" /></cursor>
                         </Button>
                     </children>
@@ -130,19 +129,19 @@
 
                 <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <VBox prefHeight="280.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                        <VBox prefHeight="400.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);">
                             <children>
                                 <Label text="BIẾN ĐỘNG GIÁ THEO THỜI GIAN" textFill="#34495e">
                                     <font><Font name="System Bold" size="14.0" /></font>
                                 </Label>
-                                <LineChart fx:id="priceChart" animated="true" createSymbols="true" legendVisible="false" VBox.vgrow="ALWAYS">
+                                <AreaChart fx:id="priceChart" animated="true" createSymbols="true" legendVisible="false" VBox.vgrow="ALWAYS">
                                     <xAxis>
-                                        <CategoryAxis label="Thời gian" side="BOTTOM" />
+                                        <NumberAxis autoRanging="false" label="Thời gian (phút)" lowerBound="0" side="BOTTOM" tickUnit="10" upperBound="30" fx:id="xAxis" />
                                     </xAxis>
                                     <yAxis>
                                         <NumberAxis label="Giá (VNĐ)" side="LEFT" />
                                     </yAxis>
-                                </LineChart>
+                                </AreaChart>
                             </children>
                         </VBox>
 
