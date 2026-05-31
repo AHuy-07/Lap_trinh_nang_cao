@@ -1,0 +1,154 @@
+2026-05-06 00:40:22 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 00:40:22 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 00:40:22 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 00:40:43 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:40:44 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:42:07 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 00:42:07 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 00:42:07 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 00:42:19 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:43:25 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:43:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:43:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:43:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:43:27 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-06 00:43:59 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 00:43:59 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 00:43:59 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 00:44:09 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:46:56 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 00:46:56 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 00:46:56 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 00:47:07 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:55:08 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 00:55:08 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 00:55:08 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 00:55:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 00:55:47 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-06 01:03:05 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:03:22 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 01:03:53 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 01:03:53 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 01:03:53 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 01:04:02 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:14 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:14 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:14 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:04:52 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 01:05:04 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:05:05 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:05:06 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:05:08 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 01:08:37 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:10:33 [Thread-3] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 01:10:37 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 08:38:55 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 08:38:55 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 08:38:55 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 08:39:07 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 08:39:30 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 08:40:36 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 08:41:14 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 08:41:29 [Thread-2] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 08:42:09 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 08:42:30 [Thread-3] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 08:43:07 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 08:43:51 [Thread-4] INFO  server.dao.UserDAO - Người dùng Hung1 xác thực thành công
+2026-05-06 08:44:03 [Thread-4] ERROR server.ClientHandler - Lỗi kết nối với Client Hung1: Connection reset
+2026-05-06 15:14:57 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:14:57 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:14:57 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:15:12 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:15:20 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:15:20 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:15:20 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:15:20 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:15:55 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-05-06 15:16:49 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:16:49 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:16:49 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:17:04 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-06 15:17:15 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:18:14 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:18:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:19:00 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:19:16 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:19:20 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-06 15:19:37 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:21:49 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:21:49 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:21:49 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:22:02 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:24:20 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:24:20 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:24:20 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:24:54 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:24:58 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-06 15:25:09 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:25:09 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:25:09 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:25:18 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:25:18 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:25:18 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:25:31 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:29:46 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:29:46 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:29:46 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:30:16 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:34:42 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:34:42 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:34:42 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:35:06 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:35:10 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-05-06 15:36:36 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:36:36 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:36:36 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:36:47 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:36:50 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:36:50 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:36:50 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:50 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:37:50 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:39:36 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:39:36 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:39:36 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:39:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:39:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:39:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:39:49 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:44:10 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:44:10 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:44:10 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:44:26 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:46:07 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:46:07 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:46:07 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:46:21 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client null: Connection reset
+2026-05-06 15:46:41 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-06 15:46:45 [Thread-1] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-06 15:46:56 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-06 15:47:00 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client John: Connection reset
+2026-05-06 15:47:57 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:47:57 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:47:57 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:48:11 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:48:25 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:48:28 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:48:28 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:48:28 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:48:28 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:48:28 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:50:08 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-06 15:50:08 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-06 15:50:08 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-06 15:50:19 [Thread-0] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-06 15:50:39 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client admin: Connection reset

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox spacing="15" style="-fx-background-color: white; -fx-padding: 30; -fx-font-family: 'Segoe UI', Arial, sans-serif;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.sellerController.AddProductsController">
+
+    <!-- Tiêu đề -->
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Thêm sản phẩm mới" />
+
+    <Button onAction="#handleBackToDashboard" text="Back">
+        <graphic>
+            <SVGPath content="M 10 2 L 2 10 L 10 18" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="2.5" />
+        </graphic>
+    </Button>
+
+    <!-- Dòng thông báo lỗi (Mặc định ẩn) -->
+    <Label fx:id="status" managed="false" style="-fx-text-fill: #DC3545; -fx-font-style: italic; -fx-font-size: 13px;" text="" visible="false" />
+
+    <!-- Hàng chứa Tên sản phẩm và Danh mục (ChoiceBox) -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <TextField fx:id="nameInput" promptText="Tên vật phẩm..." style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #CED4DA; -fx-border-radius: 5;" HBox.hgrow="ALWAYS" />
+
+        <!-- ChoiceBox Thể loại -->
+        <ChoiceBox fx:id="categoryBox" prefHeight="38.0" prefWidth="120.0" style="-fx-background-radius: 5; -fx-border-color: #CED4DA; -fx-border-radius: 5; -fx-background-color: white;" value="art">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Art" />
+                    <String fx:value="Electronic" />
+                    <String fx:value="Jewelry" />
+                    <String fx:value="Vehicle" />
+                    <String fx:value="Artifact" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
+
+    <!-- Mô tả -->
+    <TextArea fx:id="descInput" prefRowCount="3" promptText="Mô tả ngắn gọn..." style="-fx-background-radius: 5; -fx-border-color: #CED4DA; -fx-border-radius: 5;" wrapText="true" />
+
+    <!-- Hàng chứa Giá khởi điểm và Bước giá -->
+    <HBox spacing="15" />
+
+    <!-- Nút Đăng Bán -->
+    <Button maxWidth="Infinity" onAction="#handleAddProducts" style="-fx-background-color: #0D6EFD; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px; -fx-padding: 12; -fx-background-radius: 5; -fx-cursor: hand;" text="Thêm sản phẩm" />
+
+</VBox>
