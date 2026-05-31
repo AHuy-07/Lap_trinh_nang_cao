@@ -82,4 +82,8 @@ public class SignUpController {
         re_passwordSignUp.setDisable(type);
         roleSignUp.setDisable(type);
     }
+
+    public void switchToLogin(ActionEvent event) {
+        SceneController.switchScene("/client/views/Login.fxml");
+    }
 }

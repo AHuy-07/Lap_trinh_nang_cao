@@ -1,0 +1,17 @@
+2026-05-15 00:27:08 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-15 00:27:08 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-15 00:27:08 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-15 00:27:27 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-15 20:53:17 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-15 20:53:17 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-15 20:53:17 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-15 20:53:29 [Thread-0] INFO  server.dao.UserDAO - Người dùng Hung xác thực thành công
+2026-05-15 22:30:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-15 22:30:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-15 22:30:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-15 22:30:45 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-15 22:32:15 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-15 22:32:15 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-15 22:32:15 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-15 22:33:23 [Thread-0] INFO  server.dao.UserDAO - Người dùng John xác thực thành công
+2026-05-15 22:38:55 [Thread-1] INFO  server.dao.UserDAO - Người dùng John xác thực thành công

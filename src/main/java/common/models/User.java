@@ -8,10 +8,10 @@ public class User implements Serializable {
     private int id;
     private String username;
     private String role;
-    private double balance;
+    private long balance;
 
     public User() {};
-    public User(int id, String username, String role, double balance) {
+    public User(int id, String username, String role, long balance) {
         this.id = id;
         this.username = username;
         this.role = role;
@@ -36,11 +36,11 @@ public class User implements Serializable {
     public String getRole() {return role;}
     public void setRole(String role) {this.role = role;}
 
-    public double getBalance() {
+    public long getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(long balance) {
         this.balance = balance;
     }
 }

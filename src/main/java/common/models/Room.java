@@ -16,11 +16,12 @@ public class Room implements Serializable {
     private String endTime;
     private long winPrice = 0;
     private String winnerUsername;
+    private String productName;
 
 
     public Room() {}
 
-    public Room(String roomId, String roomName, String productId, String sellerName, long startingPrice, String beginTime) {
+    public Room(String roomId, String roomName, String productId, String sellerName, long startingPrice, String beginTime, String endTime) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.productId = productId;
@@ -29,6 +30,7 @@ public class Room implements Serializable {
         this.bidStep = calculateDefaultBidStep(startingPrice);
         this.status = "PENDING"; // Mặc định khi mới tạo
         this.beginTime = beginTime;
+        this.endTime = endTime;
     }
 
     public static long calculateDefaultBidStep(long startingPrice) {
@@ -118,5 +120,13 @@ public class Room implements Serializable {
 
     public void setWinnerUsername(String winnerUsername) {
         this.winnerUsername = winnerUsername;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

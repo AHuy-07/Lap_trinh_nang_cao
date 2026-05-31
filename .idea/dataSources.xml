@@ -8,7 +8,21 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/myDatabase.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="myDatabase.db [2]" uuid="a7fae820-5c7e-4478-999f-62876ae46d63">
+    <data-source source="LOCAL" name="myDatabase.db [2]" uuid="e3cb9362-f75d-42d3-8394-9c7ff2ef542f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/myDatabase.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="myDatabase.db [3]" uuid="8ffd7b88-8ea8-4628-b67b-8809fdfcf1e0">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/myDatabase.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="myDatabase.db [4]" uuid="99abaf4e-cc2f-4d48-96b6-635b0da35d52">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

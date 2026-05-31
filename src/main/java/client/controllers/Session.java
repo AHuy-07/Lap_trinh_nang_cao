@@ -2,9 +2,12 @@ package client.controllers;
 
 import client.controllers.sellerController.SellerDashboardController;
 import common.Request;
+import common.models.Product;
+import common.models.Room;
 import common.models.User;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,6 +20,7 @@ public class Session {
     private static final int SERVER_PORT = 8080;
     private static volatile Session instance;
 
+    private Product currentProduct;
     private User currentUser;
     private Socket socket;
     private ObjectInputStream ois;
@@ -106,13 +110,43 @@ public class Session {
                     sellerDashboardController.loadMyRooms();
                 }
             });
-        } else if (action.equals("NEW_BID") || action.equals("AUCTION_ENDED")) {
+        } else if (action.equals("NEW_BID")
+                  || action.equals("AUCTION_ENDED_WITH_WINNER")
+                  || action.equals("AUCTION_ENDED_WITH_NO_BID")
+                  || action.equals("END_TIME_EXTENDED")) {
             Platform.runLater(() -> {
                 if (realtimeBidCallback != null) {
                     realtimeBidCallback.accept(response);
                 }
             });
-        } else if (currentResponseCallback != null) {
+        } else if (action.equals("AUTO_BID_DISABLED_NO_MONEY")) {
+            Room room = (Room)response.getData();
+            Platform.runLater(() -> {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Thông báo hệ thống");
+                alert.setHeaderText("Tự động hủy ủy quyền đặt giá!");
+                alert.setContentText("Số dư tài khoản ví của bạn không đủ ở phòng [" + room.getRoomName() + "']. Hệ thống đã tự động gỡ cài đặt Auto-bid.");
+                alert.showAndWait();
+            });
+
+            if (realtimeBidCallback != null) {
+                realtimeBidCallback.accept(response);
+            }
+        } else if (action.equals("AUTO_BID_DISABLED_LIMIT_MONEY")) {
+            Room room = (Room)response.getData();
+            Platform.runLater(() -> {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Thông báo hệ thống");
+                alert.setHeaderText("Tự động hủy ủy quyền đặt giá!");
+                alert.setContentText("Giá sản phẩm đã quá giá đặt Auto-bid của bạn ở phòng [" + room.getRoomName() + "']. Hệ thống đã tự động gỡ cài đặt Auto-bid.");
+                alert.showAndWait();
+            });
+
+            if (realtimeBidCallback != null) {
+                realtimeBidCallback.accept(response);
+            }
+        }
+        else if (currentResponseCallback != null) {
             Platform.runLater(() -> {
                 currentResponseCallback.accept(response);
             });
@@ -125,6 +159,31 @@ public class Session {
         this.ois = ois;
     }
 
+    public void closeConnection() {
+        try {
+            clearRealtimeBidCallback();
+
+            if (ois != null) {
+                ois.close();
+                ois = null;
+            }
+            if (oos != null) {
+                oos.close();
+                oos = null;
+            }
+            if (socket != null) {
+                socket.close();
+                socket = null;
+            }
+
+            this.currentResponseCallback = null;
+            this.currentUser = null;
+            this.currentProduct = null;
+        } catch (IOException e) {
+            System.err.println("[CLIENT] Lỗi khi chủ động đóng Socket: " + e.getMessage());
+        }
+    }
+
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
@@ -133,5 +192,12 @@ public class Session {
 
     public String getCurrentUsername() {
         return currentUser.getUsername();
+    }
+
+    public void setCurrentProduct(Product currnetproduct){
+        this.currentProduct = currnetproduct;
+    }
+    public Product getCurrentProduct(){
+        return currentProduct;
     }
 }

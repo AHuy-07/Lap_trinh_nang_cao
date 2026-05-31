@@ -1,0 +1,1090 @@
+/* =====================================================================
+   Aurelia - Premium Auction House
+   Luxury theme stylesheet for Login & Sign Up screens
+   ===================================================================== */
+
+/* ---------- ROOT / BACKGROUND ---------- */
+.text-input {
+    -fx-highlight-fill: #E8D9B4;
+    -fx-highlight-text-fill: #2C2520; /* Đổi màu chữ khi bôi đen thành Trắng */
+}
+
+.root-pane {
+    -fx-background-color: #F5EFE4;
+    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Subtle warm radial glow behind the card to add depth */
+.root-pane-decorated {
+    -fx-background-color:
+        radial-gradient(center 50% 30%, radius 70%, #FBF7EF 0%, #F5EFE4 60%, #EFE7D6 100%);
+}
+
+/* ---------- CARD / FORM CONTAINER ---------- */
+.card-container {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-color: #EFE7D6;
+    -fx-border-width: 1px;
+    -fx-padding: 36px 48px 36px 48px;
+    -fx-effect: dropshadow(gaussian, rgba(60, 45, 20, 0.18), 28, 0.18, 0, 10);
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+.brand-title {
+    -fx-text-fill: #2C2520;
+    -fx-font-family: "Georgia", "Times New Roman", serif;
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 4px;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #8A8279;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 13px;
+    -fx-letter-spacing: 2px;
+}
+
+.label-muted {
+    -fx-text-fill: #8A8279;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 14px;
+}
+
+.status-error {
+    -fx-text-fill: #B23A2F;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.status-success {
+    -fx-text-fill: #4F7A4A;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+/* ---------- LOGO / AVATAR RING ---------- */
+.logo-ring {
+    -fx-stroke: #C5A059;
+    -fx-stroke-width: 1.5;
+}
+/*./k,*/
+.logo-icon {
+    -fx-fill: transparent;
+    -fx-stroke: #C5A059;
+    -fx-stroke-width: 1.4;
+}
+
+/* ---------- INPUT FIELD GROUP (HBox wrapper) ---------- */
+.input-group {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-padding: 0;
+    -fx-transition: all 0.25s ease;
+}
+
+.input-group:hover {
+    -fx-border-color: #D4C7A8;
+}
+
+/* When the inner field is focused, highlight the wrapping group */
+/*.input-group:focus-within {*/
+/*    -fx-border-color: #C5A059;*/
+/*    -fx-effect: dropshadow(gaussian, rgba(197, 160, 89, 0.25), 8, 0, 0, 0);*/
+/*}*/
+
+.input-icon {
+    -fx-fill: #B6A77F;
+}
+
+.input-separator .line {
+    -fx-border-color: #E0D9CD;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* ---------- TEXT FIELD / PASSWORD FIELD ---------- */
+.text-field-custom {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2C2520;
+    -fx-prompt-text-fill: #B6AFA3;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 15px;
+    -fx-padding: 12px 14px 12px 14px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    /*-fx-highlight-fill: #E8D9B4;*/
+    /*-fx-highlight-text-fill: #2C2520;*/
+}
+
+.text-field-custom:focused {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* ---------- CHOICE BOX ---------- */
+.choice-box-custom {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2C2520;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 15px;
+    -fx-padding: 6px 14px 6px 14px;
+    -fx-mark-color: #C5A059;
+}
+
+.choice-box-custom .label {
+    -fx-text-fill: #2C2520;
+}
+
+.choice-box-custom:focused {
+    -fx-background-color: transparent;
+}
+
+.choice-box-custom .context-menu {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(60,45,20,0.15), 14, 0.1, 0, 4);
+}
+
+.choice-box-custom .menu-item:focused {
+    -fx-background-color: #F5EFE4;
+}
+
+.choice-box-custom .menu-item .label {
+    -fx-text-fill: #2C2520;
+}
+
+/* ---------- PRIMARY BUTTON (Gold gradient) ---------- */
+.button-primary {
+    -fx-background-color: linear-gradient(to bottom, #D4AF37 0%, #AA7C11 100%);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 3px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 14px 22px;
+    -fx-effect: dropshadow(gaussian, rgba(170, 124, 17, 0.35), 12, 0.1, 0, 4);
+}
+
+.button-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #E2BE48 0%, #B98718 100%);
+    -fx-effect: dropshadow(gaussian, rgba(170, 124, 17, 0.5), 16, 0.15, 0, 6);
+}
+
+.button-primary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #B58E1F 0%, #8E6608 100%);
+    -fx-effect: dropshadow(gaussian, rgba(170, 124, 17, 0.25), 6, 0.1, 0, 2);
+}
+
+/* ---------- SECONDARY / LINK BUTTON ---------- */
+.button-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8A8279;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-padding: 6px 10px;
+}
+
+.button-link:hover {
+    -fx-text-fill: #AA7C11;
+    -fx-underline: true;
+}
+
+.button-link:pressed {
+    -fx-text-fill: #8E6608;
+}
+
+/* ---------- SEPARATOR INSIDE INPUT GROUP ---------- */
+.input-group .separator .line {
+    -fx-border-color: #E8E1D2;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* =====================================================================
+   Aurelia Dashboard Theme
+   ===================================================================== */
+
+/* --- Dashboard Root --- */
+.dash-root {
+    -fx-background-color: #F9F6F0;
+}
+
+/* --- Left Sidebar --- */
+.dash-sidebar {
+    -fx-background-color: #2C2520;
+}
+
+.dash-brand-bar {
+    -fx-background-color: #1E1A18;
+    -fx-padding: 20 20 16 24;
+}
+
+.dash-brand-label {
+    -fx-text-fill: #D4AF37;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.dash-brand-sub {
+    -fx-text-fill: #6B5D4F;
+    -fx-font-size: 9px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.dash-search-bar {
+    -fx-background-color: #231F1C;
+    -fx-padding: 10 16 10 16;
+}
+
+.dash-search-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #C8B99A;
+    -fx-prompt-text-fill: #5C5048;
+    -fx-font-size: 13px;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 4 0;
+}
+
+/* User profile strip */
+.dash-user-bar {
+    -fx-background-color: #231F1C;
+    -fx-padding: 12 16 12 16;
+}
+
+.dash-username-label {
+    -fx-text-fill: #E8D5B0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.dash-online-label {
+    -fx-text-fill: #6DBF67;
+    -fx-font-size: 10px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+/* Nav section labels */
+.nav-section-label {
+    -fx-text-fill: #5C5048;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-padding: 16 20 6 20;
+}
+
+/* Nav item buttons */
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9A8878;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-cursor: hand;
+    -fx-padding: 11 20 11 20;
+    -fx-graphic-text-gap: 12;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.nav-item:hover {
+    -fx-background-color: #352E2A;
+    -fx-text-fill: #E8D5B0;
+}
+
+.nav-item-active {
+    -fx-background-color: #3D3026;
+    -fx-text-fill: #D4AF37;
+    -fx-border-color: transparent transparent transparent #D4AF37;
+    -fx-border-width: 0 0 0 3;
+    -fx-font-weight: bold;
+}
+
+/* Premium Member badge */
+.premium-badge-card {
+    -fx-background-color: linear-gradient(to bottom right, #3D3026, #2C2520);
+    -fx-background-radius: 10;
+    -fx-border-color: #5C4A20;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-margin: 12 12 16 12;
+}
+
+.premium-badge-title {
+    -fx-text-fill: #D4AF37;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.premium-badge-sub {
+    -fx-text-fill: #9A8878;
+    -fx-font-size: 10px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+/* --- Top Bar --- */
+.dash-topbar {
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.07), 8, 0, 0, 2);
+    -fx-padding: 0 30 0 30;
+}
+
+.dash-breadcrumb {
+    -fx-text-fill: #B6AFA3;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.btn-logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #B23A2F;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-border-width: 0;
+    -fx-graphic-text-gap: 6;
+    -fx-padding: 6 12;
+}
+
+.btn-logout:hover {
+    -fx-text-fill: #8B2A21;
+}
+
+/* --- Welcome Section --- */
+.dash-welcome-title {
+    -fx-text-fill: #2C2520;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.dash-welcome-sub {
+    -fx-text-fill: #8A8279;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+/* --- Metric Cards --- */
+.metric-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 18 20;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.07), 12, 0, 0, 3);
+}
+
+.metric-value {
+    -fx-text-fill: #2C2520;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.metric-label {
+    -fx-text-fill: #8A8279;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.metric-icon-gold  { -fx-fill: #D4AF37; }
+.metric-icon-teal  { -fx-fill: #4A8F8A; }
+.metric-icon-blue  { -fx-fill: #5A7AB5; }
+.metric-icon-muted { -fx-fill: #9A8878; }
+
+/* --- Section Title --- */
+.section-title {
+    -fx-text-fill: #2C2520;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.section-sub {
+    -fx-text-fill: #8A8279;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+/* --- Table Toolbar Buttons --- */
+.btn-refresh {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2C2520;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-padding: 8 16;
+    -fx-graphic-text-gap: 6;
+}
+
+.btn-refresh:hover {
+    -fx-border-color: #C5A059;
+    -fx-text-fill: #AA7C11;
+}
+
+.btn-join {
+    -fx-background-color: linear-gradient(to bottom, #D4AF37, #AA7C11);
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 8 20;
+    -fx-graphic-text-gap: 6;
+    -fx-effect: dropshadow(gaussian, rgba(170,124,17,0.30), 8, 0, 0, 3);
+}
+
+.btn-join:hover {
+    -fx-background-color: linear-gradient(to bottom, #E2BE48, #B98718);
+}
+
+/* --- TableView Overhaul --- */
+.auction-table {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.06), 12, 0, 0, 3);
+}
+
+.auction-table .column-header-background {
+    -fx-background-color: #FDFAF5;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.auction-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #EFE7D6 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 16;
+}
+
+.auction-table .column-header .label {
+    -fx-text-fill: #8A8279;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.auction-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F5EFE4 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-cell-size: 52px;
+}
+
+.auction-table .table-row-cell:hover {
+    -fx-background-color: #FBF7EE;
+}
+
+.auction-table .table-row-cell:selected {
+    -fx-background-color: #F5EAD0;
+}
+
+.auction-table .table-cell {
+    -fx-text-fill: #2C2520;
+    -fx-font-size: 13px;
+    -fx-padding: 0 16;
+    -fx-border-color: transparent;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.auction-table .table-cell:selected {
+    -fx-text-fill: #2C2520;
+}
+
+/* Remove focus ring on table */
+.auction-table:focused {
+    -fx-background-color: #FFFFFF;
+}
+
+/* Status badge styles (applied via controller cellFactory setStyle) */
+.badge-active {
+    -fx-background-color: #FFF3E0;
+    -fx-text-fill: #B5580A;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+.badge-upcoming {
+    -fx-background-color: #E3F2FD;
+    -fx-text-fill: #1565C0;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+.badge-closed {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #757575;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10;
+    -fx-font-size: 11px;
+}
+
+/* --- Right Sidebar --- */
+.right-sidebar {
+    -fx-background-color: #F3EEE6;
+    -fx-padding: 20;
+    -fx-spacing: 0;
+}
+
+.balance-card {
+    -fx-background-color: linear-gradient(to bottom, #2C2520, #4A3B30);
+    -fx-background-radius: 14;
+    -fx-padding: 22 20;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.25), 16, 0.1, 0, 6);
+}
+
+.balance-label {
+    -fx-text-fill: #C8B99A;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.balance-amount {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.balance-currency {
+    -fx-text-fill: #D4AF37;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.btn-add-funds {
+    -fx-background-color: linear-gradient(to right, #D4AF37, #AA7C11);
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 9 18;
+    -fx-effect: dropshadow(gaussian, rgba(170,124,17,0.35), 8, 0, 0, 3);
+}
+
+.btn-add-funds:hover {
+    -fx-background-color: linear-gradient(to right, #E2BE48, #B98718);
+}
+
+.sidebar-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 16 18;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.06), 10, 0, 0, 3);
+}
+
+.sidebar-card-title {
+    -fx-text-fill: #2C2520;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.sidebar-placeholder-text {
+    -fx-text-fill: #9A8878;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+/* =====================================================================
+   Aurelia Wallet Theme
+   ===================================================================== */
+
+.wallet-root {
+    -fx-background-color: #FDFBF7;
+    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+.wallet-page-title {
+    -fx-text-fill: #2A1B14;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.wallet-btn-back {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #2A1B14;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 8 18;
+    -fx-effect: dropshadow(gaussian, rgba(60,45,20,0.08), 6, 0, 0, 2);
+}
+
+.wallet-btn-back:hover {
+    -fx-border-color: #D4AF37;
+    -fx-text-fill: #AA7C11;
+}
+
+.wallet-status-error {
+    -fx-text-fill: #DC3545;
+    -fx-font-style: italic;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-balance-card {
+    -fx-background-color: #2A1B14;
+    -fx-background-radius: 16;
+    -fx-padding: 24 32;
+    -fx-effect: dropshadow(gaussian, rgba(42,27,20,0.30), 20, 0.12, 0, 8);
+}
+
+.wallet-balance-subtitle {
+    -fx-text-fill: #C8B89A;
+    -fx-font-size: 18px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-balance-amount {
+    -fx-text-fill: #E6C27A;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.wallet-tabs {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 44px;
+    -fx-tab-max-height: 44px;
+}
+
+.wallet-tabs .tab-header-area {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.wallet-tabs .tab-header-background {
+    -fx-background-color: #F8F5F0;
+    -fx-border-color: transparent transparent #EFE7D6 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.wallet-tabs .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 10 24;
+    -fx-background-radius: 8 8 0 0;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.wallet-tabs .tab .tab-label {
+    -fx-text-fill: #8A8279;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-tabs .tab:hover .tab-label { -fx-text-fill: #4A3B30; }
+
+.wallet-tabs .tab:selected {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EFE7D6 #EFE7D6 transparent #EFE7D6;
+    -fx-border-width: 1;
+    -fx-border-radius: 8 8 0 0;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.wallet-tabs .tab:selected .tab-label {
+    -fx-text-fill: #2A1B14;
+    -fx-font-weight: bold;
+}
+
+.wallet-tab-content {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 25;
+    -fx-border-color: #EFE7D6;
+    -fx-border-width: 0 1 1 1;
+    -fx-background-radius: 0 0 10 10;
+    -fx-border-radius: 0 0 10 10;
+}
+
+.wallet-form-label {
+    -fx-text-fill: #4A4A4A;
+    -fx-font-size: 15px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-input {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2A1B14;
+    -fx-prompt-text-fill: #B6AFA3;
+    -fx-font-size: 14px;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 8 12;
+    -fx-background-insets: 0;
+    /*-fx-highlight-fill: #E8D9B4;*/
+}
+
+.wallet-input:focused {
+    -fx-border-color: #D4AF37;
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(212,175,55,0.22), 6, 0, 0, 0);
+}
+
+.wallet-combo {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-background-insets: 0;
+}
+
+.wallet-combo .list-cell {
+    -fx-text-fill: #2A1B14;
+    -fx-background-color: transparent;
+    -fx-padding: 4 8;
+}
+
+.wallet-combo .arrow-button { -fx-background-color: transparent; }
+.wallet-combo .arrow        { -fx-background-color: #8A8279; }
+
+.wallet-combo:hover    { -fx-border-color: #C5A059; }
+.wallet-combo:focused,
+.wallet-combo:showing  {
+    -fx-border-color: #D4AF37;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(212,175,55,0.22), 6, 0, 0, 0);
+}
+
+.wallet-combo .combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(60,45,20,0.15), 12, 0.1, 0, 4);
+}
+
+.wallet-combo .combo-box-popup .list-cell {
+    -fx-text-fill: #2A1B14;
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-padding: 8 14;
+}
+
+.wallet-combo .combo-box-popup .list-cell:hover          { -fx-background-color: #FBF7EE; }
+.wallet-combo .combo-box-popup .list-cell:filled:selected { -fx-background-color: #F5EAD0; -fx-text-fill: #2A1B14; }
+
+.wallet-error {
+    -fx-text-fill: #DC3545;
+    -fx-font-style: italic;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-btn-cancel {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8A8279;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 9 20;
+}
+
+.wallet-btn-cancel:hover {
+    -fx-border-color: #C5A059;
+    -fx-text-fill: #4A3B30;
+    -fx-background-color: #FBF7EE;
+}
+
+.wallet-btn-confirm {
+    -fx-background-color: linear-gradient(to bottom, #D4AF37, #AA7C11);
+    -fx-text-fill: #2A1B14;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 28;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(170,124,17,0.35), 10, 0.1, 0, 4);
+}
+
+.wallet-btn-confirm:hover {
+    -fx-background-color: linear-gradient(to bottom, #E2BE48, #B98718);
+    -fx-effect: dropshadow(gaussian, rgba(170,124,17,0.50), 14, 0.15, 0, 6);
+}
+
+.wallet-btn-confirm:pressed {
+    -fx-background-color: linear-gradient(to bottom, #B58E1F, #8E6608);
+}
+
+.wallet-section-title {
+    -fx-text-fill: #2A1B14;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.wallet-table {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.07), 12, 0, 0, 3);
+}
+
+.wallet-table .column-header-background {
+    -fx-background-color: #FDFAF5;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.wallet-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #EFE7D6 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 16;
+}
+
+.wallet-table .column-header .label {
+    -fx-text-fill: #8A8279;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F5EFE4 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-cell-size: 48px;
+}
+
+.wallet-table .table-row-cell:odd  { -fx-background-color: #FDFAF5; }
+.wallet-table .table-row-cell:hover { -fx-background-color: #FBF7EE; }
+.wallet-table .table-row-cell:filled:selected { -fx-background-color: #F5EAD0; }
+
+.wallet-table .table-cell {
+    -fx-text-fill: #2A1B14;
+    -fx-font-size: 13px;
+    -fx-padding: 0 16;
+    -fx-border-color: transparent;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.wallet-table .table-cell:selected { -fx-text-fill: #2A1B14; }
+
+.wallet-table:focused {
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0;
+}
+
+.wallet-table .filler { -fx-background-color: #FDFAF5; }
+
+/* =====================================================================
+   Aurelia Auction Room Theme
+   ===================================================================== */
+.auction-room-root { -fx-background-color: #FDFBF7; }
+
+.auction-header {
+    -fx-background-color: #2A1B14;
+    -fx-padding: 12 20 12 20;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(42,27,20,0.30), 10, 0, 0, 3);
+}
+
+.auction-back-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #5C4A38;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-text-fill: #E8D5B0;
+    -fx-cursor: hand;
+    -fx-padding: 6 12;
+    -fx-font-size: 13px;
+}
+.auction-back-btn:hover { -fx-border-color: #D4AF37; -fx-text-fill: #D4AF37; }
+
+.auction-room-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+.room-status-label { -fx-text-fill: #9A8878; -fx-font-size: 12px; }
+
+.auction-details-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EFE7D6;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.07), 12, 0, 0, 3);
+}
+.room-info-section-label { -fx-text-fill: #8A8279; -fx-font-weight: bold; -fx-font-size: 11px; }
+
+.current-price-card {
+    -fx-background-color: #FDFAF5;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+}
+.current-price-title { -fx-text-fill: #8A8279; -fx-font-size: 11px; -fx-font-weight: bold; }
+.current-price-value { -fx-text-fill: #2A1B14; -fx-font-family: "Georgia", serif; -fx-font-size: 20px; -fx-font-weight: bold; }
+
+.timer-card {
+    -fx-background-color: #2A1B14;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+}
+.timer-title  { -fx-text-fill: #C8B89A; -fx-font-size: 11px; -fx-font-weight: bold; }
+.timer-value  { -fx-text-fill: #E6C27A; -fx-font-family: "Georgia", serif; -fx-font-size: 20px; -fx-font-weight: bold; }
+
+.bid-section-title { -fx-text-fill: #2A1B14; -fx-font-size: 14px; -fx-font-weight: bold; }
+
+.bid-input {
+    -fx-background-color: #FDFBF7;
+    -fx-border-color: #E0D9CD;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2A1B14;
+    -fx-padding: 6 10;
+    -fx-background-insets: 0;
+}
+.bid-input:focused {
+    -fx-border-color: #D4AF37;
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(212,175,55,0.20), 5, 0, 0, 0);
+}
+
+.bid-step-btn {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D4AF37;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-width: 1;
+    -fx-text-fill: #2A1B14;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.bid-step-btn:hover { -fx-background-color: #FBF7EE; -fx-border-color: #AA7C11; }
+
+.btn-place-bid {
+    -fx-background-color: #2A1B14;
+    -fx-text-fill: #D4AF37;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(42,27,20,0.25), 8, 0, 0, 3);
+}
+.btn-place-bid:hover { -fx-background-color: #3D2D20; }
+
+.auto-bid-panel {
+    -fx-background-color: #FDFAF5;
+    -fx-padding: 12;
+    -fx-background-radius: 8;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+.auto-bid-section-title { -fx-text-fill: #4A3B30; -fx-font-weight: bold; -fx-font-size: 12px; }
+.auto-bid-hint { -fx-font-size: 11px; -fx-text-fill: #8A8279; -fx-font-style: italic; }
+
+.btn-auto-bid-activate {
+    -fx-background-color: linear-gradient(to bottom, #D4AF37, #AA7C11);
+    -fx-text-fill: #2A1B14;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(170,124,17,0.30), 8, 0, 0, 3);
+}
+.btn-auto-bid-activate:hover { -fx-background-color: linear-gradient(to bottom, #E2BE48, #B98718); }
+
+.btn-auto-bid-cancel { -fx-background-color: #B23A2F; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; }
+.btn-auto-bid-cancel:hover { -fx-background-color: #8B2A21; }
+
+.auction-chart-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EFE7D6;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.07), 12, 0, 0, 3);
+}
+.auction-chart-title { -fx-text-fill: #2A1B14; -fx-font-weight: bold; -fx-font-size: 15px; }
+
+.auction-chart .chart-plot-background       { -fx-background-color: #FDFBF7; }
+.auction-chart .chart-horizontal-grid-lines { -fx-stroke: #F0EBE0; -fx-stroke-width: 1; }
+.auction-chart .chart-vertical-grid-lines   { -fx-stroke: transparent; }
+.auction-chart .axis                        { -fx-tick-label-fill: #8A8279; }
+.auction-chart .axis-label                  { -fx-text-fill: #8A8279; -fx-font-size: 11px; }
+.auction-chart .default-color0.chart-series-line  { -fx-stroke: #D4AF37; -fx-stroke-width: 2.5; }
+.auction-chart .default-color0.chart-line-symbol  { -fx-background-color: #D4AF37, white; -fx-background-radius: 5; }
+
+.auction-history-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EFE7D6;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(44,37,32,0.07), 12, 0, 0, 3);
+}
+.auction-history-title { -fx-text-fill: #2A1B14; -fx-font-weight: bold; -fx-font-size: 15px; }
+
+.bid-history-area {
+    -fx-font-family: "Segoe UI", monospace;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2A1B14;
+    -fx-border-color: #EFE7D6;
+    -fx-border-radius: 6;
+    -fx-control-inner-background: #FDFBF7;
+    /*-fx-highlight-fill: #E8D9B4;*/
+}
+.bid-history-area .content { -fx-background-color: transparent; }

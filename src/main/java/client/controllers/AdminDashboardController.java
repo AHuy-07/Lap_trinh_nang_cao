@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AdminDashboardController {
     @FXML private TableView<Room> tablePendingRooms;
@@ -120,5 +121,21 @@ public class AdminDashboardController {
     @FXML
     public void reload(ActionEvent event) {
         refreshData();
+    }
+
+    public void logOut(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác nhận đăng xuất");
+        alert.setHeaderText("Đăng xuất khỏi hệ thống.");
+        alert.setContentText("Bạn có chắc chắn muốn đăng xuất không?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            System.out.println("Đang xử lý đăng xuất...");
+            SceneController.switchScene("/client/views/Login.fxml");
+        } else {
+            System.out.println("Đã hủy thao tác đăng xuất.");
+        }
     }
 }

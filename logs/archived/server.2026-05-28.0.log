@@ -1,0 +1,131 @@
+2026-05-28 17:00:43 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:00:43 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:00:43 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:01:14 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:01:14 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:01:14 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:01:34 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-28 17:02:14 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:02:22 [Thread-2] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz | Type: DEPOSIT | Amount: 10000000
+2026-05-28 17:02:24 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:02:49 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-28 17:02:55 [Thread-3] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz1 | Type: DEPOSIT | Amount: 10000000
+2026-05-28 17:02:58 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:04:09 [Thread-1] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-05-28 17:04:23 [Thread-4] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-28 17:11:50 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:11:50 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:11:50 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:12:05 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-28 17:12:33 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:12:44 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-28 17:30:04 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:30:04 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:30:04 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:30:15 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:30:22 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:30:30 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:30:43 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:31:12 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: Connection reset
+2026-05-28 17:31:28 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:31:32 [Thread-2] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:32:51 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:32:51 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:32:51 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:33:02 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:33:05 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:33:05 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 50000000
+2026-05-28 17:33:05 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:33:08 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:33:08 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 50000000
+2026-05-28 17:33:08 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:33:14 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:33:14 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 1009230239
+2026-05-28 17:33:14 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:34:00 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:34:00 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:34:00 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:34:12 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:34:16 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:34:16 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 1009230239
+2026-05-28 17:34:16 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:34:24 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:34:24 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 100000000
+2026-05-28 17:34:24 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:36:38 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:36:38 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 100000000
+2026-05-28 17:36:38 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:36:44 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:36:44 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 337834734
+2026-05-28 17:36:44 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:39:52 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:39:52 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:39:52 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:40:02 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:40:05 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:40:05 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 337834734
+2026-05-28 17:40:05 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:40:12 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:40:12 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 38923898293892
+2026-05-28 17:40:12 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:41:20 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:41:20 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:41:20 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:41:31 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:41:34 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:41:34 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 38923898293892
+2026-05-28 17:41:34 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:41:43 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:41:43 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 17:41:43 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:42:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:42:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:42:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:42:32 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:42:35 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:42:35 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 17:42:35 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:42:42 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:42:42 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 17:42:42 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:45:48 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 17:45:48 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 17:45:48 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 17:45:58 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 17:46:06 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:46:06 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 17:46:06 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 17:46:13 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 17:46:13 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 50000000
+2026-05-28 17:46:13 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 19:10:22 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 19:10:22 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 19:10:22 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 19:10:31 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 19:10:35 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 19:10:35 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 50000000
+2026-05-28 19:10:35 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 19:10:44 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 19:10:44 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 19:10:44 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 19:15:28 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-28 19:15:28 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-28 19:15:28 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-28 19:15:38 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-28 19:15:41 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 19:15:41 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 19:15:41 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 19:15:41 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-05-28 19:15:48 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 19:15:48 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 19:15:48 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 19:15:48 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-05-28 19:16:02 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-28 19:16:05 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-05-28 19:16:05 [Thread-2] INFO  server.ClientHandler - Gui thong tin that bai
+2026-05-28 19:17:06 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-05-28 19:17:06 [Thread-2] INFO  server.ClientHandler - Gui thong tin that bai
+2026-05-28 19:17:13 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-05-28 19:17:13 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 5000000
+2026-05-28 19:17:13 [Thread-1] INFO  server.ClientHandler - Gui thong tin ve thanh cong
+2026-05-28 19:17:13 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
