@@ -1,0 +1,5 @@
+2026-05-05 09:28:49 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-05 09:28:49 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-05 09:28:49 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-05 09:29:13 [Thread-0] INFO  server.dao.UserDAO - Người dùng LAH2 xác thực thành công
+2026-05-05 09:37:02 [Thread-0] ERROR server.ClientHandler - Lỗi kết nối với Client LAH2: Connection reset

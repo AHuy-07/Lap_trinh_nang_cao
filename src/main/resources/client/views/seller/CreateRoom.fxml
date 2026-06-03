@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="900.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.sellerController.CreateRoomController" stylesheets="@../../style.css" styleClass="seller-form-root">
+    <children>
+        <VBox spacing="20.0" styleClass="seller-form-card">
+            <children>
+                <VBox alignment="CENTER_LEFT" spacing="6.0">
+                    <Label styleClass="seller-form-title" text="Tạo phòng đấu giá mới" style="-fx-font-family: System"/>
+                    <Label styleClass="seller-form-subtitle" text="Vui lòng điền đầy đủ thông tin để gửi Admin phê duyệt." />
+                </VBox>
+
+                <GridPane hgap="18.0" vgap="18.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120.0" prefWidth="140.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+        </columnConstraints>
+
+        <!-- Tên phòng (Row 1) -->
+        <Label styleClass="seller-field-label" text="Tên phòng:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtRoomName" promptText="VD: Đấu giá xe máy Honda Wave..." styleClass="seller-input" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <!-- Mã sản phẩm (Row 2) -->
+        <Label styleClass="seller-field-label" text="Mã sản phẩm:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtProductId" promptText="Ví dụ: P_01, P_02..." styleClass="seller-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <!-- Giá khởi điểm (Row 3) -->
+        <Label styleClass="seller-field-label" text="Giá khởi điểm (VNĐ):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtStartingPrice" promptText="Nhập số tiền (VD: 500000)" styleClass="seller-input" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <!-- Thông tin phòng (Row 4) -->
+        <Label styleClass="seller-field-label" text="Thông tin phòng:" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets top="8.0" />
+            </GridPane.margin>
+        </Label>
+        <TextField fx:id="txtDetails" prefHeight="90.0" promptText="Quy định thêm của phòng (nếu có)..." styleClass="seller-input" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label styleClass="seller-field-label" text="Thời gian bắt đầu:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <DatePicker fx:id="beginDate" prefWidth="150.0" promptText="Chọn ngày" styleClass="seller-input" />
+            <ComboBox fx:id="beginHour" prefWidth="85.0" promptText="Giờ" styleClass="seller-input" />
+            <Label text=":" textFill="#34495e"><font><Font name="System Bold" size="16.0" /></font></Label>
+            <ComboBox fx:id="beginMinute" prefWidth="85.0" promptText="Phút" styleClass="seller-input" />
+        </HBox>
+
+        <Label styleClass="seller-field-label" text="Thời gian kết thúc:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <DatePicker fx:id="endDate" prefWidth="150.0" promptText="Chọn ngày" styleClass="seller-input" />
+            <ComboBox fx:id="endHour" prefWidth="85.0" promptText="Giờ" styleClass="seller-input" />
+            <Label text=":" textFill="#34495e"><font><Font name="System Bold" size="16.0" /></font></Label>
+            <ComboBox fx:id="endMinute" prefWidth="85.0" promptText="Phút" styleClass="seller-input" />
+        </HBox>
+
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+
+                <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                    <Label fx:id="status" prefWidth="360.0" styleClass="seller-status-error" />
+
+                    <Button fx:id="btnCancel" cancelButton="true" onAction="#returnFromCreateRoom" styleClass="seller-ghost-button" text="Hủy bỏ">
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                    </Button>
+
+                    <Button fx:id="btnSubmit" defaultButton="true" onAction="#checkRoom" styleClass="seller-primary-button" text="Gửi yêu cầu">
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                    </Button>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

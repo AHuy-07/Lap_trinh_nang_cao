@@ -1,0 +1,208 @@
+2026-06-03 21:43:50 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 21:43:50 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 21:43:50 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 21:43:57 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-06-03 21:44:04 [Thread-1] INFO  server.ClientHandler - [SERVER] Người dùng hung đã được xóa khỏi danh sách online ngầm.
+2026-06-03 21:44:04 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hung: null
+2026-06-03 21:44:13 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 21:45:22 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: Connection reset
+2026-06-03 21:45:29 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 21:45:31 [Thread-3] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 21:45:56 [Thread-3] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 21:45:56 [Thread-3] INFO  server.ClientHandler - Gia tri maxPrice 300000
+2026-06-03 21:45:56 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 21:46:01 [Thread-3] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-06-03 21:46:01 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-06-03 21:46:05 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 21:46:06 [Thread-4] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 21:46:57 [Thread-5] WARN  server.AppServer - [SERVER] Không tìm thấy hungdz để gửi thông báo
+2026-06-03 21:48:34 [Thread-4] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 21:48:44 [Thread-4] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-03 21:48:44 [Thread-4] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-03 21:48:47 [Thread-7] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 21:48:49 [Thread-7] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 21:48:56 [Thread-8] WARN  server.AppServer - [SERVER] Không tìm thấy hungdz1 để gửi thông báo
+2026-06-03 22:06:38 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 22:06:38 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 22:06:38 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 22:06:46 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 22:06:47 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:06:53 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: Connection reset
+2026-06-03 22:06:59 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:07:01 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:07:06 [Thread-2] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:07:06 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-03 22:07:25 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:07:27 [Thread-3] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:07:36 [Thread-3] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:07:36 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-03 22:07:40 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 22:07:41 [Thread-4] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:07:45 [Thread-5] WARN  server.AppServer - [SERVER] Không tìm thấy hungdz1 để gửi thông báo
+2026-06-03 22:08:07 [Thread-4] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:08:07 [Thread-4] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-06-03 22:08:11 [Thread-7] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:08:12 [Thread-7] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:08:29 [Thread-7] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:08:29 [Thread-7] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-03 22:08:44 [Thread-9] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:08:45 [Thread-9] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:08:56 [Thread-9] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:08:56 [Thread-9] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-03 22:09:00 [Thread-10] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 22:09:01 [Thread-10] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:09:03 [Thread-11] WARN  server.AppServer - [SERVER] Không tìm thấy hungdz1 để gửi thông báo
+2026-06-03 22:09:19 [Thread-10] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:09:19 [Thread-10] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-06-03 22:09:23 [Thread-13] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:09:24 [Thread-13] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:09:35 [Thread-13] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-03 22:09:35 [Thread-13] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-03 22:09:47 [Thread-14] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 22:09:53 [Thread-15] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:09:59 [Thread-14] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:10:00 [Thread-15] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:10:45 [Thread-15] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:10:47 [Thread-14] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:31:58 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 22:31:58 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 22:31:58 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 22:32:11 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 22:33:43 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 22:33:45 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 22:33:55 [Thread-2] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz1 | Type: DEPOSIT | Amount: 1000000
+2026-06-03 22:33:56 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 22:33:59 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:34:01 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:34:37 [Thread-2] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz1 | Type: DEPOSIT | Amount: 100000000
+2026-06-03 22:34:40 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:34:47 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 22:34:57 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 23:18:39 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 23:18:39 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 23:18:39 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 23:18:56 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 23:19:03 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 23:19:16 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 23:19:17 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 23:31:48 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 23:31:48 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 23:31:48 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 23:32:20 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 23:32:24 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 23:32:28 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
+2026-06-03 23:32:28 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:32:28 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 387000
+2026-06-03 23:32:28 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:35:50 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 23:35:50 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 23:35:50 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 23:36:20 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 23:36:25 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 23:36:33 [Thread-2] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:36:33 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice 412000
+2026-06-03 23:36:34 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:36:34 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 412000
+2026-06-03 23:36:35 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:36:36 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:36:52 [Thread-3] INFO  server.ClientHandler - Tien 414000
+2026-06-03 23:36:52 [Thread-3] INFO  server.ClientHandler - Tien 415000
+2026-06-03 23:36:53 [Thread-3] INFO  server.ClientHandler - Tien 416000
+2026-06-03 23:38:42 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 23:38:42 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 23:38:42 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 23:39:01 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 23:39:22 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 23:39:29 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:39:29 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 415000
+2026-06-03 23:39:29 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:39:31 [Thread-2] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:39:31 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice 415000
+2026-06-03 23:39:31 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:39:45 [Thread-3] INFO  server.ClientHandler - Tien 417000
+2026-06-03 23:39:45 [Thread-3] INFO  server.ClientHandler - Tien 418000
+2026-06-03 23:39:46 [Thread-3] INFO  server.ClientHandler - Tien 419000
+2026-06-03 23:39:46 [Thread-3] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:40:53 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-06-03 23:40:53 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-03 23:40:53 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-03 23:41:07 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-03 23:41:27 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-03 23:41:35 [Thread-2] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:41:35 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice 418000
+2026-06-03 23:41:36 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:41:37 [Thread-1] INFO  server.dao.AutoBidDAO - Lấy autobid thanhf công
+2026-06-03 23:41:37 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice 418000
+2026-06-03 23:41:37 [JavaFX Application Thread] INFO  c.c.b.AuctionRoomController - Lay thong tin thanh cong
+2026-06-03 23:41:52 [Thread-3] INFO  server.ClientHandler - Tien 420000
+2026-06-03 23:41:53 [Thread-3] INFO  server.ClientHandler - Tien 421000
+2026-06-03 23:41:54 [Thread-3] INFO  server.ClientHandler - Tien 422000
+2026-06-03 23:41:54 [Thread-3] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:41:58 [Thread-4] INFO  server.ClientHandler - Tien 423000
+2026-06-03 23:41:58 [Thread-4] INFO  server.ClientHandler - bot hungdz
+2026-06-03 23:42:15 [Thread-5] INFO  server.ClientHandler - Tien 424000
+2026-06-03 23:42:15 [Thread-5] INFO  server.ClientHandler - Tien 425000
+2026-06-03 23:42:16 [Thread-5] INFO  server.ClientHandler - Tien 426000
+2026-06-03 23:42:16 [Thread-5] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:42:33 [Thread-6] INFO  server.ClientHandler - Tien 427000
+2026-06-03 23:42:33 [Thread-6] INFO  server.ClientHandler - Tien 428000
+2026-06-03 23:42:34 [Thread-6] INFO  server.ClientHandler - Tien 429000
+2026-06-03 23:42:34 [Thread-6] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:42:49 [Thread-7] INFO  server.ClientHandler - Tien 430000
+2026-06-03 23:42:50 [Thread-7] INFO  server.ClientHandler - Tien 431000
+2026-06-03 23:42:50 [Thread-7] INFO  server.ClientHandler - Tien 432000
+2026-06-03 23:42:50 [Thread-7] INFO  server.ClientHandler - bot hungdz
+2026-06-03 23:43:07 [Thread-8] INFO  server.ClientHandler - Tien 433000
+2026-06-03 23:43:08 [Thread-8] INFO  server.ClientHandler - Tien 434000
+2026-06-03 23:43:09 [Thread-8] INFO  server.ClientHandler - Tien 435000
+2026-06-03 23:43:09 [Thread-8] INFO  server.ClientHandler - Tien 436000
+2026-06-03 23:43:10 [Thread-8] INFO  server.ClientHandler - Tien 437000
+2026-06-03 23:43:10 [Thread-8] INFO  server.ClientHandler - bot hungdz
+2026-06-03 23:43:28 [Thread-9] INFO  server.ClientHandler - Tien 438000
+2026-06-03 23:43:29 [Thread-9] INFO  server.ClientHandler - Tien 439000
+2026-06-03 23:43:29 [Thread-9] INFO  server.ClientHandler - Tien 440000
+2026-06-03 23:43:29 [Thread-9] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:43:56 [Thread-10] INFO  server.ClientHandler - Tien 441000
+2026-06-03 23:43:57 [Thread-10] INFO  server.ClientHandler - Tien 442000
+2026-06-03 23:43:57 [Thread-10] INFO  server.ClientHandler - Tien 443000
+2026-06-03 23:43:58 [Thread-10] INFO  server.ClientHandler - Tien 444000
+2026-06-03 23:43:58 [Thread-10] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:44:16 [Thread-11] INFO  server.ClientHandler - Tien 445000
+2026-06-03 23:44:16 [Thread-11] INFO  server.ClientHandler - Tien 446000
+2026-06-03 23:44:17 [Thread-11] INFO  server.ClientHandler - Tien 447000
+2026-06-03 23:44:19 [Thread-11] INFO  server.ClientHandler - Tien 448000
+2026-06-03 23:44:19 [Thread-11] INFO  server.ClientHandler - bot hungdz
+2026-06-03 23:44:39 [Thread-12] INFO  server.ClientHandler - Tien 449000
+2026-06-03 23:44:40 [Thread-12] INFO  server.ClientHandler - Tien 450000
+2026-06-03 23:44:40 [Thread-12] INFO  server.ClientHandler - Tien 451000
+2026-06-03 23:44:41 [Thread-12] INFO  server.ClientHandler - Tien 452000
+2026-06-03 23:44:41 [Thread-12] INFO  server.ClientHandler - bot hungdz
+2026-06-03 23:44:54 [Thread-13] INFO  server.ClientHandler - Tien 453000
+2026-06-03 23:44:54 [Thread-13] INFO  server.ClientHandler - Tien 454000
+2026-06-03 23:44:55 [Thread-13] INFO  server.ClientHandler - Tien 455000
+2026-06-03 23:44:55 [Thread-13] INFO  server.ClientHandler - Tien 456000
+2026-06-03 23:44:55 [Thread-13] INFO  server.ClientHandler - bot hungdz1
+2026-06-03 23:45:04 [Thread-14] INFO  server.ClientHandler - Tien 457000
+2026-06-03 23:45:05 [Thread-14] INFO  server.ClientHandler - Tien 458000
+2026-06-03 23:45:06 [Thread-15] INFO  server.ClientHandler - Tien 459000
+2026-06-03 23:45:07 [Thread-15] INFO  server.ClientHandler - Tien 460000
+2026-06-03 23:45:07 [Thread-16] INFO  server.ClientHandler - Tien 461000
+2026-06-03 23:45:07 [Thread-17] INFO  server.ClientHandler - Tien 463000
+2026-06-03 23:45:07 [Thread-16] INFO  server.ClientHandler - Tien 464000
+2026-06-03 23:45:08 [Thread-18] INFO  server.ClientHandler - Tien 465000
+2026-06-03 23:45:08 [Thread-19] INFO  server.ClientHandler - Tien 467000
+2026-06-03 23:45:08 [Thread-17] INFO  server.ClientHandler - Tien 469000
+2026-06-03 23:45:08 [Thread-20] INFO  server.ClientHandler - Tien 470000
+2026-06-03 23:45:08 [Thread-18] INFO  server.ClientHandler - Tien 471000
+2026-06-03 23:45:08 [Thread-21] INFO  server.ClientHandler - Tien 472000
+2026-06-03 23:45:08 [Thread-19] INFO  server.ClientHandler - Tien 472000
+2026-06-03 23:45:08 [Thread-17] INFO  server.ClientHandler - Tien 472000
+2026-06-03 23:45:09 [Thread-18] INFO  server.ClientHandler - Tien 472000
+2026-06-03 23:45:09 [Thread-22] INFO  server.ClientHandler - Tien 473000
+2026-06-03 23:45:09 [Thread-23] INFO  server.ClientHandler - Tien 475000
+2026-06-03 23:45:10 [Thread-22] INFO  server.ClientHandler - Tien 476000
+2026-06-03 23:45:10 [Thread-24] INFO  server.ClientHandler - Tien 477000
+2026-06-03 23:45:10 [Thread-25] INFO  server.ClientHandler - Tien 479000
+2026-06-03 23:45:10 [Thread-23] INFO  server.ClientHandler - Tien 480000
+2026-06-03 23:45:10 [Thread-24] INFO  server.ClientHandler - Tien 480000
+2026-06-03 23:45:10 [Thread-25] INFO  server.ClientHandler - Tien 480000
