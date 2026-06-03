@@ -1,0 +1,17 @@
+2026-05-25 21:00:54 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-25 21:00:54 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-25 21:00:54 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-25 21:12:38 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-25 21:12:38 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-25 21:12:38 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-25 21:13:25 [Thread-1] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-25 22:29:59 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-25 22:29:59 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-25 22:29:59 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-25 22:30:15 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-25 22:30:24 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-25 22:30:45 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-25 22:30:56 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-25 22:31:28 [Thread-3] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-25 22:33:09 [Thread-4] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-25 22:33:17 [Thread-4] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công

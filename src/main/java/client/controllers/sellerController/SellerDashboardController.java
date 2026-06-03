@@ -5,6 +5,7 @@ import client.controllers.Session;
 import common.Request;
 import common.models.Room;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,14 +21,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class SellerDashboardController {
     private static final Logger logger = LoggerFactory.getLogger(SellerDashboardController.class);
+    @FXML private Label currentUserName;
     @FXML private TableView<Room> tableMyRooms;
     @FXML private TableColumn<Room, String> colRoomId;
     @FXML private TableColumn<Room, String> colRoomName;
     @FXML private TableColumn<Room, String> colStatus;
     @FXML private TableColumn<Room, Void> colAction;
+    @FXML private TableColumn<Room, String> colBeginTime;
+    @FXML private TableColumn<Room, String> colEndTime;
 
     // Thành phần cho In-App Notification
     @FXML private HBox notificationBox;
@@ -37,20 +42,21 @@ public class SellerDashboardController {
 
     @FXML
     public void initialize() {
-        // Đăng kí Controller với Session để nhận thông báo
         Session.getInstance().setSellerDashboardController(this);
 
-        // Thiết lập các cột cho TableView
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colRoomName.setCellValueFactory(new PropertyValueFactory<>("roomName"));
 
-        setupStatusCol(); // Tô màu trạng thái
-        setupActionButtons(); // Tạo nút "Vào phòng"
+        // Thêm 2 cột mới
+        colBeginTime.setCellValueFactory(new PropertyValueFactory<>("beginTime"));
+        colEndTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
 
+        setupStatusCol();
+        setupActionButtons();
         tableMyRooms.setItems(myRoomsList);
-
-        // Load dữ liệu lần đầu từ Database;
         loadMyRooms();
+        loadCurrentUserName();
+
     }
 
     public void loadMyRooms() {
@@ -143,7 +149,7 @@ public class SellerDashboardController {
             Parent autionRoomRoot = loader.load();
             SellerAuctionRoomController controller = loader.getController();
             controller.initRoom(room);
-            SceneController.contentGroup.getChildren().setAll(autionRoomRoot);
+            SceneController.setContent(autionRoomRoot);
         } catch (IOException e) {
             logger.error("Lỗi khi seller {} vào phòng {}", room.getSellerName(), room.getRoomId(), e);
         }
@@ -169,4 +175,33 @@ public class SellerDashboardController {
         SceneController.switchScene("/client/views/Wallet.fxml");
     }
 
+    public void logOut(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác nhận đăng xuất");
+        alert.setHeaderText("Đăng xuất khỏi hệ thống.");
+        alert.setContentText("Bạn có chắc chắn muốn đăng xuất không?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Request req = new Request("LOG_OUT", Session.getInstance().getCurrentUsername());
+            Session.getInstance().sendRequest(req, response -> {
+                if (response.getAction().equals("LOG_OUT_SUCCESS")) {
+                    System.out.println("Đang xử lý đăng xuất...");
+                    Platform.runLater(() -> {
+                        SceneController.switchScene("/client/views/Login.fxml");
+                        Session.getInstance().closeConnection();
+                    });
+
+                }
+            });
+
+        } else {
+            System.out.println("Đã hủy thao tác đăng xuất.");
+        }
+    }
+
+    private void loadCurrentUserName(){
+        currentUserName.setText(Session.getInstance().getCurrentUsername());
+    }
 }

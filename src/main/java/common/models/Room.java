@@ -16,6 +16,7 @@ public class Room implements Serializable {
     private String endTime;
     private long winPrice = 0;
     private String winnerUsername;
+    private String productName;
 
 
     public Room() {}
@@ -119,5 +120,13 @@ public class Room implements Serializable {
 
     public void setWinnerUsername(String winnerUsername) {
         this.winnerUsername = winnerUsername;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

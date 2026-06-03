@@ -1,0 +1,52 @@
+2026-05-27 07:18:59 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 07:18:59 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 07:18:59 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 07:19:12 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 07:19:32 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-27 07:19:52 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-27 07:20:55 [Thread-4] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-27 08:30:15 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 08:30:15 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 08:30:15 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 08:30:29 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-27 08:36:56 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 08:36:56 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 08:36:56 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 08:37:05 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-27 08:57:28 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 08:57:28 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 08:57:28 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 08:57:38 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 09:04:06 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 09:04:06 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 09:04:06 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 09:04:14 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 09:04:17 [Thread-1] ERROR server.dao.BidDAO - Lỗi SQL khi lấy số lượng người tham gia của phòng R_007
+2026-05-27 09:07:16 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 09:07:16 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 09:07:16 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 09:07:25 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 09:07:28 [Thread-1] ERROR server.dao.BidDAO - Lỗi SQL khi lấy số lượng người tham gia của phòng R_007
+2026-05-27 09:10:28 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 09:10:28 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 09:10:28 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 09:10:40 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 09:10:43 [Thread-1] ERROR server.dao.BidDAO - Lỗi SQL khi lấy số lượng người tham gia của phòng R_007
+2026-05-27 09:14:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 09:14:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 09:14:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 09:14:40 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 09:15:08 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz2 xác thực thành công
+2026-05-27 09:15:19 [Thread-2] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz2 | Type: DEPOSIT | Amount: 1000000000
+2026-05-27 09:15:21 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 09:16:26 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz2 xác thực thành công
+2026-05-27 09:16:28 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-27 09:19:47 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-27 09:19:47 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-27 09:19:47 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-27 09:20:02 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-27 09:20:27 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz2 xác thực thành công
+2026-05-27 09:20:47 [Thread-3] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-27 09:21:45 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz3 xác thực thành công
+2026-05-27 09:22:02 [Thread-4] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz3 | Type: DEPOSIT | Amount: 1000000000
+2026-05-27 09:22:04 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công

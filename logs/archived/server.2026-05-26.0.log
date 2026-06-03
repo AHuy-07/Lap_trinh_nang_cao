@@ -1,0 +1,156 @@
+2026-05-26 08:37:32 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 08:37:33 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 08:37:33 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 08:38:06 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:38:20 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:41:01 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 08:41:01 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 08:41:01 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 08:41:13 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:41:26 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:41:39 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:41:44 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:41:51 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:41:55 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:42:17 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 08:42:17 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 08:42:17 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 08:42:38 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:42:53 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 08:50:05 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 08:50:05 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 08:50:05 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 08:50:14 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:31 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:38 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:41 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:46 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:47 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:47 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:50:47 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:52:20 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 08:52:20 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 08:52:20 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 08:52:30 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:52:43 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:52:46 [Thread-1] ERROR server.ClientHandler - Lỗi gửi dữ liệu cho hung: Socket closed
+2026-05-26 08:52:46 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hung: Socket closed
+2026-05-26 08:52:46 [Thread-1] ERROR server.ClientHandler - lỗi không đóng được file Socket closed
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.ensureOpenAndConnected(NioSocketImpl.java:162)
+	at java.base/sun.nio.ch.NioSocketImpl.beginWrite(NioSocketImpl.java:370)
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:415)
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:448)
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:821)
+	at java.base/java.net.Socket$SocketOutputStream.implWrite(Socket.java:1086)
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1076)
+	at java.base/java.io.ObjectOutputStream$BlockDataOutputStream.drain(ObjectOutputStream.java:1765)
+	at java.base/java.io.ObjectOutputStream$BlockDataOutputStream.flush(ObjectOutputStream.java:1710)
+	at java.base/java.io.ObjectOutputStream.flush(ObjectOutputStream.java:675)
+	at java.base/java.io.ObjectOutputStream.close(ObjectOutputStream.java:697)
+	at server.ClientHandler.closeEverything(ClientHandler.java:607)
+	at server.ClientHandler.run(ClientHandler.java:51)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-05-26 08:56:49 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 08:56:49 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 08:56:49 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 08:56:58 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:57:14 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 08:57:18 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hung: Socket closed
+2026-05-26 08:57:20 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 09:08:39 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 09:08:39 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 09:08:39 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 09:08:49 [Thread-1] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 09:09:02 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 09:09:05 [Thread-1] INFO  server.ClientHandler - [SERVER] Người dùng hung đã được xóa khỏi danh sách online ngầm.
+2026-05-26 09:09:05 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hung: null
+2026-05-26 09:09:07 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 09:09:11 [Thread-2] INFO  server.ClientHandler - [SERVER] Người dùng hung đã được xóa khỏi danh sách online ngầm.
+2026-05-26 09:09:11 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client hung: null
+2026-05-26 09:09:24 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 09:09:30 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 09:09:33 [Thread-3] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-05-26 09:09:33 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-05-26 09:09:36 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 09:39:26 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 09:39:26 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 09:39:26 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 09:40:08 [Thread-1] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-26 09:46:37 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 09:46:37 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 09:46:37 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 09:50:35 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 09:50:35 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 09:50:35 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 09:51:15 [Thread-1] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-26 09:52:41 [Thread-2] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 09:53:01 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 09:56:20 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 09:56:57 [Thread-4] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 10:18:42 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 10:18:42 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 10:18:42 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 10:18:57 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 10:19:03 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 10:51:40 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 10:51:40 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 10:51:40 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 10:51:58 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 10:52:06 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 11:02:12 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 11:02:12 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 11:02:12 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 11:02:24 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 11:02:31 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 11:02:33 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 18:13:54 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 18:13:54 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 18:13:54 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 18:14:06 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 18:14:12 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 19:50:03 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 19:50:03 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 19:50:03 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 19:50:17 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 19:52:04 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 19:52:04 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 19:52:04 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 19:52:14 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 20:23:11 [Thread-2] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-05-26 20:23:21 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 20:23:24 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 20:23:31 [Thread-4] INFO  server.dao.UserDAO - Người dùng hung xác thực thành công
+2026-05-26 20:27:10 [Thread-1] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz1 | Type: DEPOSIT | Amount: 10000000000
+2026-05-26 20:27:12 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 20:27:52 [Thread-3] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz | Type: DEPOSIT | Amount: 1000000000
+2026-05-26 20:27:54 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 20:28:31 [Thread-1] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-05-26 20:28:31 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-05-26 20:37:31 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 20:37:31 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 20:37:31 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 20:37:46 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 20:37:52 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 20:46:09 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 20:46:09 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 20:46:09 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 20:46:19 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-05-26 20:46:25 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:41:17.630473100]
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:41:15.682539200]
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:38:37.114137200]
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:38:34.585482500]
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:28:14.937604500]
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:27:57.653783400]
+2026-05-26 20:46:27 [JavaFX Application Thread] ERROR c.c.b.AuctionRoomController - ❌ LỖI ĐỊNH DẠNG: Không thể đọc được chuỗi thời gian -> [2026-05-26T20:27:20.155231200]
+2026-05-26 20:51:24 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 20:51:24 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 20:51:24 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 20:51:35 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 21:45:38 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
+2026-05-26 21:45:38 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-05-26 21:45:38 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-05-26 21:45:43 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-05-26 21:46:01 [Thread-1] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-05-26 21:46:01 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
