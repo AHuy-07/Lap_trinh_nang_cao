@@ -136,7 +136,7 @@ public class ClientHandler implements Runnable{
         String roomId = data[0];
         String username = data[1];
         long maxPrice = AutoBidDAO.checkAutoBidStatus(roomId, username);
-        logger.info("Gia tri maxPrice {}", maxPrice);
+
         if (maxPrice == -1) {
             sendResponse(new Request("CHECK_AUTO_BID_FALSE", -1));
         } else {
@@ -320,7 +320,7 @@ public class ClientHandler implements Runnable{
                 priorityQueue.addAll(bidders);
 
                 boolean actionTake = false;
-                logger.info("Tien {}", nextPrice);
+
 
                 Set<AutoBidSetting> autobidNeedToDelete = new HashSet<>();
 
@@ -333,7 +333,6 @@ public class ClientHandler implements Runnable{
 
                     if (nextPrice > bot.getMaxPrice()) {
                         autobidNeedToDelete.add(bot);
-                        logger.info("bot {}", bot.getUsername());
                         continue;
                     }
 
