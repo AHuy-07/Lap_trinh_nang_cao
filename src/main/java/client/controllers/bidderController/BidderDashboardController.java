@@ -14,16 +14,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 public class BidderDashboardController {
     @FXML private Label currentUserName;
     @FXML private Label statusLabel;
+    @FXML private Label balanceAmount;
     @FXML private TableView<Room> activeRoomsTable;
     @FXML private TableColumn<Room, String> roomNameColumn;
     @FXML private TableColumn<Room, String> productNameColumn;
@@ -135,7 +138,7 @@ public class BidderDashboardController {
     }
 
     private void loadActiveRooms() {
-        statusLabel.setText("Đang tải danh sách phòng...");
+        //statusLabel.setText("Đang tải danh sách phòng...");
 
         Session.getInstance().sendRequest(
                 new Request("GET_ACTIVE_ROOMS", null),
@@ -143,10 +146,11 @@ public class BidderDashboardController {
                     if ("GET_ACTIVE_ROOMS_SUCCESS".equals(response.getAction())) {
                         List<Room> activeRooms = (List<Room>) response.getData();
                         activeRoomsTable.setItems(FXCollections.observableArrayList(activeRooms));
-                        statusLabel.setText("Có " + activeRooms.size() + " phòng đang hoạt động");
+                        //statusLabel.setText("Có " + activeRooms.size() + " phòng đang hoạt động");
                     } else {
-                        statusLabel.setText("Không thể tải danh sách phòng");
+                        //statusLabel.setText("Không thể tải danh sách phòng");
                     }
+                    loadBalance();
                 }
         );
     }
@@ -174,6 +178,26 @@ public class BidderDashboardController {
             return;
         }
         openAuctionRoom(selectedRoom);
+    }
+
+    private void loadBalance() {
+        String username = Session.getInstance().getCurrentUsername();
+        Session.getInstance().sendRequest(
+                new Request("GET_WALLET_INFO", username),
+                response -> {
+                    if ("GET_WALLET_SUCCESS".equals(response.getAction())) {
+                        long balance = Long.parseLong((String) response.getData());
+                        Session.getInstance().getCurrentUser().setBalance(balance);
+                        balanceAmount.setText(formatBalance(balance));
+                    } else {
+                        balanceAmount.setText("N/A");
+                    }
+                }
+        );
+    }
+
+    private String formatBalance(long amount) {
+        return NumberFormat.getNumberInstance(new Locale("vi", "VN")).format(amount);
     }
 
     private void openAuctionRoom(Room room) {

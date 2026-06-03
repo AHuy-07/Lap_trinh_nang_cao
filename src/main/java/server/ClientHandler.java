@@ -12,10 +12,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ClientHandler implements Runnable{
@@ -120,7 +117,7 @@ public class ClientHandler implements Runnable{
                 handleForceEndRoom(req);
                 break;
             case "TOGGLE_AUTO_BID":
-                handleToggleAutoBid(req);   
+                handleToggleAutoBid(req);
                 break;
             case "CHECK_AUTO_BID_STATUS":
                 handleCheckAutoBidStatus(req);
@@ -319,35 +316,30 @@ public class ClientHandler implements Runnable{
                     break;
                 }
 
-                PriorityQueue<AutoBidSetting> priorityQueue = new PriorityQueue<>((b1, b2) -> {
-                    int priceCompare = Long.compare(b1.getMaxPrice(), b2.getMaxPrice());
-                    if (priceCompare != 0) {
-                        return priceCompare;
-                    }
-
-                    return Long.compare(b1.getCreateAt(), b2.getCreateAt());
-                });
+                PriorityQueue<AutoBidSetting> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(AutoBidSetting::getCreateAt).thenComparingLong(AutoBidSetting::getMaxPrice));
                 priorityQueue.addAll(bidders);
 
                 boolean actionTake = false;
+                logger.info("Tien {}", nextPrice);
+
+                Set<AutoBidSetting> autobidNeedToDelete = new HashSet<>();
 
                 while (!priorityQueue.isEmpty()) {
                     AutoBidSetting bot = priorityQueue.poll();
 
-//                    if (bot.getUsername().equals(room.getWinnerUsername())) {
-//                        continue;
-//                    }
+                    if (bot.getUsername().equals(room.getWinnerUsername())) {
+                        continue;
+                    }
 
                     if (nextPrice > bot.getMaxPrice()) {
-                        AutoBidDAO.removeAutoBid(roomId, bot.getUsername());
-                        AppServer.sendToSpecificUser(bot.getUsername(), new Request("AUTO_BID_DISABLED_LIMIT_MONEY", room));
+                        autobidNeedToDelete.add(bot);
+                        logger.info("bot {}", bot.getUsername());
                         continue;
                     }
 
                     long botBalance = WalletDAO.getBalance(bot.getUsername());
                     if (botBalance < nextPrice) {
-                        AutoBidDAO.removeAutoBid(roomId, bot.getUsername());
-                        AppServer.sendToSpecificUser(bot.getUsername(), new Request("AUTO_BID_DISABLED_NO_MONEY", room));
+                        autobidNeedToDelete.add(bot);
                         continue;
                     }
 
@@ -363,14 +355,31 @@ public class ClientHandler implements Runnable{
                     // Xu li phan Xung dot
                     AutoBidSetting earlierConflictBot = null;
                     for (AutoBidSetting otherbot : bidders) {
-                        if (earlierConflictBot != null) {
-                            if (otherbot.getMaxPrice() == earlierConflictBot.getMaxPrice() && otherbot.getCreateAt() < earlierConflictBot.getCreateAt()) {
-                                earlierConflictBot = otherbot;
+                        if (autobidNeedToDelete.contains(otherbot)) {
+                            continue;
+                        }
+                        if (!otherbot.getUsername().equals(bot.getUsername())) {
+                            Long otherBotBalance = WalletDAO.getBalance(otherbot.getUsername());
+                            if (otherBotBalance < nextPrice) {
+                                autobidNeedToDelete.add(otherbot);
+                                continue;
                             }
-                        } else {
-                            earlierConflictBot = otherbot;
+                            if (otherbot.getMaxPrice() < nextPrice) {
+                                autobidNeedToDelete.add(otherbot);
+                                continue;
+                            }
+                            if (earlierConflictBot != null) {
+                                if (otherbot.getCreateAt() < earlierConflictBot.getCreateAt()) {
+                                    earlierConflictBot = otherbot;
+                                }
+                            } else {
+                                if (otherbot.getCreateAt() < bot.getCreateAt()) {
+                                    earlierConflictBot = otherbot;
+                                }
+                            }
                         }
                     }
+
 
                     boolean success;
 
@@ -391,6 +400,11 @@ public class ClientHandler implements Runnable{
                         break;
                     }
 
+                }
+
+                for (AutoBidSetting bot : autobidNeedToDelete) {
+                    AutoBidDAO.removeAutoBid(roomId, bot.getUsername());
+                    AppServer.sendToSpecificUser(bot.getUsername(), new Request("AUTO_BID_DISABLED_NO_MONEY", room));
                 }
 
                 if (!actionTake) {

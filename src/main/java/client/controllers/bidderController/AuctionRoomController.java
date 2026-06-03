@@ -88,7 +88,7 @@ public class AuctionRoomController {
     }
 
     private void joinRoom() {
-        statusLabel.setText("Đang vào phòng đấu giá...");
+        statusLabel.setText("Đang vào phòng...");
         countdownLabel.setText("--:--:--");
 
         Session.getInstance().sendRequest(
@@ -211,9 +211,9 @@ public class AuctionRoomController {
 
             bidAmountField.setDisable(false);
             remainingSeconds = java.time.Duration.between(now, endTime).toSeconds();
-
             countdownTimeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), event -> {
                 remainingSeconds--;
+
                 if (remainingSeconds <= 0) {
                     countdownTimeline.stop();
                     countdownLabel.setText("00:00:00");
@@ -224,7 +224,9 @@ public class AuctionRoomController {
                     long minutes = (remainingSeconds % 3600) / 60;
                     long seconds = remainingSeconds % 60;
                     countdownLabel.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
-                    statusLabel.setText("Đã vào phòng. Bạn có thể bắt đầu đấu giá.");
+                    if (statusLabel.getText().equals("Đang vào phòng...")) {
+                        statusLabel.setText("Đã vào phòng. Bạn có thể bắt đầu đấu giá.");
+                    }
                 }
             }));
             countdownTimeline.setCycleCount(Timeline.INDEFINITE);
