@@ -280,7 +280,7 @@ public class AuctionRoomController {
                     statusLabel.setText("Phiên đấu giá được gia hạn thêm 1 phút!");
                     initCountdown(null, newEndTime);
                 } else if ("AUTO_BID_DISABLED_NO_MONEY".equals(response.getAction())
-                || ("AUTO_BID_DISABLED_LIMIT_MONEY".equals(response.getAction()))) {
+                        || ("AUTO_BID_DISABLED_LIMIT_MONEY".equals(response.getAction()))) {
                     Room bidDisabledRoom = (Room)response.getData();
                     if (currentRoom.getRoomId().equals(bidDisabledRoom.getRoomId())) {
                         isAutoBidOn = false;
@@ -396,12 +396,14 @@ public class AuctionRoomController {
 
             try {
                 long maxPrice = Long.parseLong(limitedPriceText);
-                if (maxPrice <= currentPrice) {
-                    statusLabel.setText("Giá tối đa phải lớn hơn giá hiện tại!");
+                if ((maxPrice <= currentPrice + bidStep)) {
+                    statusLabel.setText("Giá tối đa phải lớn hơn giá tiếp theo 1 bước giá!");
                     return;
                 }
 
-                String[] data = new String[]{currentRoom.getRoomId(), Long.toString(maxPrice), "ON"};
+                long createAt = System.currentTimeMillis() - 1770000000000L;
+
+                String[] data = new String[]{currentRoom.getRoomId(), Long.toString(maxPrice), "ON", Long.toString(createAt)};
                 statusLabel.setText("Đang đăng ký Auto-bid...");
                 Request req = new Request("TOGGLE_AUTO_BID", data);
                 Session.getInstance().sendRequest(req, response -> Platform.runLater(() -> {

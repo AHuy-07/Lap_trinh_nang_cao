@@ -55,7 +55,7 @@ public class AppServer {
             ConnectDatabase.closeConnection();
         }
     }
-    
+
     public static void manageActiveRoom() {
         Timer timer = new Timer(true);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

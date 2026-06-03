@@ -6,13 +6,15 @@ public class AutoBidSetting implements Serializable {
     private String roomId;
     private String username;
     private long maxPrice;
+    private long createAt;
 
     public AutoBidSetting() {}
 
-    public AutoBidSetting(String roomId, String username, long maxPrice) {
+    public AutoBidSetting(String roomId, String username, long maxPrice, long createAt) {
         this.roomId = roomId;
         this.username = username;
         this.maxPrice = maxPrice;
+        this.createAt = createAt;
     }
 
     public void setRoomId(String roomId) {
@@ -37,5 +39,13 @@ public class AutoBidSetting implements Serializable {
 
     public long getMaxPrice() {
         return maxPrice;
+    }
+
+    public void setCreateAt(long createAt) {
+        this.createAt = createAt;
+    }
+
+    public long getCreateAt() {
+        return createAt;
     }
 }

@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ClientHandler implements Runnable{
@@ -118,12 +120,12 @@ public class ClientHandler implements Runnable{
                 handleForceEndRoom(req);
                 break;
             case "TOGGLE_AUTO_BID":
-                handleToggleAutoBid(req);
+                handleToggleAutoBid(req);   
                 break;
             case "CHECK_AUTO_BID_STATUS":
                 handleCheckAutoBidStatus(req);
                 break;
-                // xử lý sản phẩm đấu giá thành công (23/05)
+            // xử lý sản phẩm đấu giá thành công (23/05)
             case "GET_MY_WON_PRODUCTS":
                 handleGetMyWonProducts(req);
                 break;
@@ -139,10 +141,8 @@ public class ClientHandler implements Runnable{
         long maxPrice = AutoBidDAO.checkAutoBidStatus(roomId, username);
         logger.info("Gia tri maxPrice {}", maxPrice);
         if (maxPrice == -1) {
-            logger.info("Gui thong tin that bai");
             sendResponse(new Request("CHECK_AUTO_BID_FALSE", -1));
         } else {
-            logger.info("Gui thong tin ve thanh cong");
             sendResponse(new Request("CHECK_AUTO_BID_TRUE", maxPrice));
         }
     }
@@ -152,9 +152,12 @@ public class ClientHandler implements Runnable{
         String roomId = data[0];
         String status = data[2];
 
+        // 31/05
+
         if ("ON".equals(status)) {
             long maxPrice = Long.parseLong(data[1]);
-            AutoBidDAO.saveAutoBid(roomId, this.username, maxPrice);
+            long createAt = Long.parseLong(data[3]);
+            AutoBidDAO.saveAutoBid(roomId, this.username, maxPrice, createAt);
             sendResponse(new Request("TOGGLE_AUTO_BID_SUCCESS", "Đã bật đấu giá tự động"));
         } else {
             AutoBidDAO.removeAutoBid(roomId, this.username);
@@ -298,7 +301,7 @@ public class ClientHandler implements Runnable{
     private void triggerAutoBid(String roomId) {
         /*
 
-        */
+         */
 
         new Thread(() -> {
             while (true) {
@@ -312,13 +315,28 @@ public class ClientHandler implements Runnable{
                 long nextPrice = currentPrice + bidStep;
 
                 List<AutoBidSetting> bidders = AutoBidDAO.getAutoBidders(roomId);
+                if (bidders == null || bidders.isEmpty()) {
+                    break;
+                }
+
+                PriorityQueue<AutoBidSetting> priorityQueue = new PriorityQueue<>((b1, b2) -> {
+                    int priceCompare = Long.compare(b1.getMaxPrice(), b2.getMaxPrice());
+                    if (priceCompare != 0) {
+                        return priceCompare;
+                    }
+
+                    return Long.compare(b1.getCreateAt(), b2.getCreateAt());
+                });
+                priorityQueue.addAll(bidders);
 
                 boolean actionTake = false;
 
-                for (AutoBidSetting bot : bidders) {
-                    if (bot.getUsername().equals(room.getWinnerUsername())) {
-                        continue;
-                    }
+                while (!priorityQueue.isEmpty()) {
+                    AutoBidSetting bot = priorityQueue.poll();
+
+//                    if (bot.getUsername().equals(room.getWinnerUsername())) {
+//                        continue;
+//                    }
 
                     if (nextPrice > bot.getMaxPrice()) {
                         AutoBidDAO.removeAutoBid(roomId, bot.getUsername());
@@ -342,7 +360,26 @@ public class ClientHandler implements Runnable{
                         oldBidderBalance = WalletDAO.getBalance(oldWinner);
                     }
 
-                    boolean success = BidDAO.placeBid(room, oldWinner, bot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, botBalance - nextPrice);
+                    // Xu li phan Xung dot
+                    AutoBidSetting earlierConflictBot = null;
+                    for (AutoBidSetting otherbot : bidders) {
+                        if (earlierConflictBot != null) {
+                            if (otherbot.getMaxPrice() == earlierConflictBot.getMaxPrice() && otherbot.getCreateAt() < earlierConflictBot.getCreateAt()) {
+                                earlierConflictBot = otherbot;
+                            }
+                        } else {
+                            earlierConflictBot = otherbot;
+                        }
+                    }
+
+                    boolean success;
+
+                    if (earlierConflictBot != null) {
+                        long earlierConflictBotBalance = WalletDAO.getBalance(earlierConflictBot.getUsername());
+                        success = BidDAO.placeBid(room, oldWinner, earlierConflictBot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, earlierConflictBotBalance - nextPrice);
+                    } else {
+                        success = BidDAO.placeBid(room, oldWinner, bot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, botBalance - nextPrice);
+                    }
 
                     if (success) {
                         int participantCount = BidDAO.getParticipantCount(roomId);
@@ -353,7 +390,9 @@ public class ClientHandler implements Runnable{
                         actionTake = true;
                         break;
                     }
+
                 }
+
                 if (!actionTake) {
                     break;
                 }

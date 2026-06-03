@@ -87,22 +87,21 @@
                         <Region VBox.vgrow="ALWAYS" />
 
                         <!-- Premium Member Badge -->
-                        <VBox spacing="8.0" styleClass="premium-badge-card">
-                            <padding><Insets bottom="16.0" left="16.0" right="16.0" top="16.0" /></padding>
-                            <children>
-                                <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                    <children>
-                                        <SVGPath content="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="#D4AF37" scaleX="0.75" scaleY="0.75" />
-                                        <VBox>
-                                            <children>
-                                                <Label styleClass="premium-badge-title" text="PREMIUM MEMBER" />
-                                                <Label styleClass="premium-badge-sub" text="Tayf Gold Status" />
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
+<!--                            <VBox spacing="8.0" styleClass="premium-badge-card">-->
+<!--                                <padding><Insets bottom="16.0" left="16.0" right="16.0" top="16.0" /></padding>-->
+<!--                                <children>-->
+<!--                                    <HBox alignment="CENTER_LEFT" spacing="8.0">-->
+<!--                                    <children>-->
+<!--                                        <SVGPath content="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="#D4AF37" scaleX="0.75" scaleY="0.75" />-->
+<!--                                        <VBox>-->
+<!--                                            <children>-->
+<!--                                                <Label styleClass="premium-badge-title" text="" style="-fx-font-size: 12px" />-->
+<!--                                            </children>-->
+<!--                                        </VBox>-->
+<!--                                    </children>-->
+<!--                                </HBox>-->
+<!--                            </children>-->
+<!--                        </VBox>-->
 
                     </children>
                 </VBox>
@@ -134,7 +133,7 @@
                                 <!-- Welcome Header -->
                                 <VBox spacing="4.0">
                                     <children>
-                                        <Label styleClass="dash-welcome-title" text="Welcome back to Tayf" />
+                                        <Label styleClass="dash-welcome-title" text="Welcome back to Tayf" style="-fx-font-family: System"/>
                                         <Label styleClass="dash-welcome-sub" text="Here's what's happening with your auctions today." />
                                     </children>
                                 </VBox>
@@ -275,7 +274,7 @@
                                             <children>
                                                 <VBox prefHeight="38.0" prefWidth="324.0" spacing="2.0">
                                                     <children>
-                                                        <Label styleClass="section-title" text="Live Auction Rooms" />
+                                                        <Label styleClass="section-title" text="Live Auction Rooms" style="-fx-font-family: System"/>
                                                         <Label styleClass="section-sub" text="Select a room and click Enter to join the bidding" />
                                                     </children>
                                                 </VBox>

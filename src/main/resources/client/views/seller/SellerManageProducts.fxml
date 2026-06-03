@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="1280.0" spacing="20.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.sellerController.SellerProductsController">
+<VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="1280.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.sellerController.SellerProductsController" stylesheets="@../../style.css" styleClass="seller-form-root">
 
     <padding>
         <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
@@ -18,7 +18,7 @@
 
     <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="15.0">
         <children>
-            <Button mnemonicParsing="false" onAction="#switchToDashboard" style="-fx-background-color: white; -fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: #475569; -fx-cursor: hand;" text="← Quay lại Dashboard">
+            <Button mnemonicParsing="false" onAction="#switchToDashboard" styleClass="seller-ghost-button" text="← Quay lại Dashboard">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
@@ -29,37 +29,25 @@
 
             <Region HBox.hgrow="ALWAYS" />
 
-            <Label text="QUẢN LÝ SẢN PHẨM" textFill="#1e293b">
-                <font>
-                    <Font name="System Bold" size="26.0" />
-                </font>
-            </Label>
+            <Label styleClass="seller-form-title" text="Quản lý sản phẩm" style="-fx-font-family: System"/>
         </children>
     </HBox>
 
-    <VBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 25; -fx-border-color: #e2e8f0; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 3);" VBox.vgrow="ALWAYS">
+    <VBox spacing="20.0" styleClass="seller-pane-card" VBox.vgrow="ALWAYS">
         <children>
 
             <HBox alignment="CENTER_LEFT">
                 <children>
                     <VBox spacing="3.0">
                         <children>
-                            <Label text="DANH SÁCH SẢN PHẨM" textFill="#1e293b">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <Label text="Các sản phẩm bạn đã đăng ký để mang đi đấu giá" textFill="#64748b">
-                                <font>
-                                    <Font size="15.0" />
-                                </font>
-                            </Label>
+                            <Label styleClass="seller-pane-title" text="Danh sách sản phẩm" style="-fx-font-family: System"/>
+                            <Label styleClass="seller-pane-subtitle" text="Các sản phẩm bạn đã đăng ký để mang đi đấu giá" />
                         </children>
                     </VBox>
 
                     <Region HBox.hgrow="ALWAYS" />
 
-                    <Button mnemonicParsing="false" onAction="#switchToAddProduct" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-background-radius: 6; -fx-cursor: hand;" text="+ Thêm sản phẩm mới">
+                    <Button mnemonicParsing="false" onAction="#switchToAddProduct" styleClass="seller-primary-button" text="+ Thêm sản phẩm mới">
                         <font>
                             <Font name="System Bold" size="15.0" />
                         </font>
@@ -70,7 +58,7 @@
                 </children>
             </HBox>
 
-            <TableView fx:id="tableMyProducts" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 6; -fx-background-radius: 6;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tableMyProducts" styleClass="auction-table" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colProductId" prefWidth="140.0" text="Mã sản phẩm" />
                     <TableColumn fx:id="colProductName" prefWidth="300.0" text="Tên sản phẩm" />

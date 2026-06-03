@@ -10,8 +10,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class ClientApp extends Application {
-    private static final double BASE_WIDTH = 1024;
-    private static final double BASE_HEIGHT = 768;
+    private static final double BASE_WIDTH = 1280;
+    private static final double BASE_HEIGHT = 800;
     public void start(Stage primaryStage) throws Exception {
 
 
