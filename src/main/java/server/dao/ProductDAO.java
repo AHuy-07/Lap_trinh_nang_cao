@@ -1,5 +1,6 @@
 package server.dao;
 
+import client.controllers.Session;
 import common.models.Product;
 import common.models.Room;
 import org.slf4j.Logger;
@@ -172,6 +173,23 @@ public class ProductDAO {
 
                 System.err.println("Lỗi định dạng không hợp lệ: " + lastId);
                 return "P_ERROR";
+            }
+        }
+    }
+
+    public static boolean deleteProduct(String productId){
+        synchronized (connection){
+            String query = "DELETE FROM Product WHERE productId = ?";
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                
+                pstmt.setString(1, productId);
+                int rowsAffected = pstmt.executeUpdate();
+                
+                return rowsAffected > 0; // Trả về true nếu xóa thành công
+
+            } catch (SQLException e) {
+                logger.error("Lỗi SQL khi xóa sản phẩm", e);
+                return false; // Trả về false nếu có lỗi
             }
         }
     }

@@ -55,20 +55,28 @@ public class BidDAO {
                     insertStatement.setString(5, bidTime);
                     insertStatement.executeUpdate();
 
+
                     updateStatement.setLong(1, bidAmount);
                     updateStatement.setString(2, newBidderUsername);
                     updateStatement.setString(3, room.getRoomId());
                     updateStatement.executeUpdate();
 
-                    if (oldBidderUsername != null && !oldBidderUsername.isBlank()) {
-                        updateBalanceOldWinner.setLong(1, oldBidderBalance);
-                        updateBalanceOldWinner.setString(2, oldBidderUsername);
-                        updateBalanceOldWinner.executeUpdate();
+                    if (oldBidderUsername != null && oldBidderUsername.equals(newBidderUsername)) {
+                        long finalBalance = oldBidderBalance - bidAmount;
+                        updateBalanceNewWinner.setLong(1, finalBalance);
+                        updateBalanceNewWinner.setString(2, oldBidderUsername);
+                    } else {
+                        if (oldBidderUsername != null && !oldBidderUsername.isBlank()) {
+                            updateBalanceOldWinner.setLong(1, oldBidderBalance);
+                            updateBalanceOldWinner.setString(2, oldBidderUsername);
+                            updateBalanceOldWinner.executeUpdate();
+                        }
+
+                        updateBalanceNewWinner.setLong(1, newBidderBalance);
+                        updateBalanceNewWinner.setString(2, newBidderUsername);
+                        updateBalanceNewWinner.executeUpdate();
                     }
 
-                    updateBalanceNewWinner.setLong(1, newBidderBalance);
-                    updateBalanceNewWinner.setString(2, newBidderUsername);
-                    updateBalanceNewWinner.executeUpdate();
 
                     connection.commit();
                     return true;
@@ -92,6 +100,7 @@ public class BidDAO {
         }
 
     }
+
 
     public static long getCurrentPrice(String roomId) {
         synchronized (connection) {
