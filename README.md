@@ -200,18 +200,5 @@ Dựa trên mã nguồn và test hiện có, hệ thống đã triển khai các
 
 ---
 
-## Liên hệ & đóng góp
-- Dự án mang tính nội bộ, bạn có thể fork/clone và mở PR nếu cần cập nhật.
-- Trước khi mở PR, đảm bảo:
-  - Chạy `mvn test` không làm hỏng dữ liệu chính.
-  - Cập nhật README nếu thêm tính năng hoặc thay đổi cấu trúc.
-
----
-
-Nếu bạn muốn, tôi có thể:
-- Tạo script (shell/batch) để dựng và chạy nhanh cho cả Windows và Unix.
-- Hoặc viết hướng dẫn cấu hình IntelliJ chi tiết từng bước.
-
----
 
 
