@@ -3,6 +3,7 @@ package server.dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -39,11 +40,27 @@ public class ConnectDatabase {
             synchronized (ConnectDatabase.class) {
                 if (connection == null) {
                     try {
+                        // 1. Xác định tên file database theo chế độ (Test hoặc Prod)
                         String dbFile = isTestMode ? TEST_DB : PROD_DB;
+
+                        // 2. Tự động kiểm tra đường dẫn
+                        File file = new File(dbFile);
+
+                        // ko tìm thấy thì lùi ra ngoài 1 lần
+                        if (!file.exists()) {
+                            File parentFile = new File("../" + dbFile);
+                            if (parentFile.exists()) {
+                                dbFile = "../" + dbFile;
+                            }
+                        }
+
+                        // 3. Khởi tạo kết nối nhưu bthg
                         String url = "jdbc:sqlite:" + dbFile;
                         connection = DriverManager.getConnection(url);
+
                         String mode = isTestMode ? "TEST" : "PRODUCTION";
                         logger.info("Kết nối {} database thành công ({})", mode, dbFile);
+
                     } catch (SQLException e) {
                         logger.error("Lỗi khi khởi tạo kết nối database: {}", e.getMessage(), e);
                     }
