@@ -132,8 +132,16 @@ public class AdminDashboardController {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            System.out.println("Đang xử lý đăng xuất...");
-            SceneController.switchScene("/client/views/Login.fxml");
+            Request req = new Request("LOG_OUT", Session.getInstance().getCurrentUsername());
+            Session.getInstance().sendRequest(req, response -> {
+                if (response.getAction().equals("LOG_OUT_SUCCESS")) {
+                    System.out.println("Đang xử lý đăng xuất...");
+                    Platform.runLater(() -> {
+                        SceneController.switchScene("/client/views/Login.fxml");
+                        Session.getInstance().closeConnection();
+                    });
+                }
+            });
         } else {
             System.out.println("Đã hủy thao tác đăng xuất.");
         }
