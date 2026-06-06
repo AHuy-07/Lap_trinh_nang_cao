@@ -26,7 +26,7 @@
                </children>
             </StackPane>
 
-            <Label styleClass="brand-title" text="WELCOME TO TAYF" textFill="#2C2520">
+            <Label styleClass="brand-title" text="Đăng nhập" textFill="#2C2520" style = "-fx-font-family: 'System';">
                <font>
                   <Font name="Georgia Bold" size="34.0" />
                </font>
@@ -49,7 +49,7 @@
                      </children>
                   </StackPane>
                   <Separator orientation="VERTICAL" prefHeight="30.0" styleClass="input-separator" />
-                  <TextField fx:id="txtUsername" promptText="Username" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtUsername" promptText="Tên đăng nhập" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -68,7 +68,7 @@
                      </children>
                   </StackPane>
                   <Separator orientation="VERTICAL" prefHeight="30.0" styleClass="input-separator" />
-                  <PasswordField fx:id="txtPassword" promptText="Password" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
+                  <PasswordField fx:id="txtPassword" promptText="Mật khẩu" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -79,13 +79,13 @@
                </VBox.margin>
             </HBox>
 
-            <Button mnemonicParsing="false" onAction="#Login" prefHeight="54.0" prefWidth="460.0" styleClass="button-primary" text="SIGN IN">
+            <Button mnemonicParsing="false" onAction="#Login" prefHeight="54.0" prefWidth="460.0" styleClass="button-primary" text="Đăng nhập">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
 
-            <Button mnemonicParsing="false" onAction="#SignUp" styleClass="button-link" text="Don't have an account?  Create one">
+            <Button mnemonicParsing="false" onAction="#SignUp" styleClass="button-link" text="Chưa đăng ký?  Tạo tài khoản mới">
                <font>
                   <Font size="13.0" />
                </font>

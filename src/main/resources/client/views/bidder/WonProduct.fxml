@@ -1,74 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="client.controllers.bidderController.WonProductsController"
-            prefHeight="800.0"
-            prefWidth="1280.0">
+<StackPane prefHeight="800.0" prefWidth="1280.0" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.bidderController.WonProductsController">
 
-    <VBox spacing="16.0"
-          AnchorPane.topAnchor="24.0"
-          AnchorPane.leftAnchor="24.0"
-          AnchorPane.rightAnchor="24.0"
-          AnchorPane.bottomAnchor="24.0">
+    <VBox spacing="16.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
 
         <!-- Header: Nút Quay lại và Tiêu đề -->
-        <HBox spacing="16.0" alignment="CENTER_LEFT">
-            <Button text="⬅ Quay lại"
-                    onAction="#handleBackToDashboard"
-                    style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;"/>
+        <HBox alignment="CENTER_LEFT" spacing="16.0">
+            <Button onAction="#handleBackToDashboard" styleClass="wallet-btn-back" text="⬅ Quay lại" />
             <Label text="Sản phẩm đã đấu giá thành công">
                 <font>
-                    <Font name="System Bold" size="32.0"/>
+                    <Font name="System Bold" size="32.0" />
                 </font>
                 <HBox.margin>
-                    <Insets left="10.0"/>
+                    <Insets left="10.0" />
                 </HBox.margin>
             </Label>
         </HBox>
 
-        <Label text="Danh sách các sản phẩm bạn đã chiến thắng trong các phiên đấu giá."
-               style="-fx-text-fill: #34495e; -fx-font-style: italic;"/>
+        <Label style="-fx-text-fill: #34495e; -fx-font-style: italic;" text="Danh sách các sản phẩm bạn đã chiến thắng trong các phiên đấu giá." />
 
         <!-- Cụm nút hành động -->
         <HBox spacing="12.0">
-            <Button text="🔄 Làm mới danh sách"
-                    onAction="#handleRefreshList"
-                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-cursor: hand;"/>
+            <Button onAction="#handleRefreshList" style="-fx-background-color: #D4AF37; -fx-text-fill: white; -fx-cursor: hand;" styleClass="nav-item" text="🔄 Làm mới danh sách" />
         </HBox>
 
         <!-- Bảng hiển thị danh sách sản phẩm -->
-        <TableView fx:id="wonProductsTable" VBox.vgrow="ALWAYS">
+        <TableView fx:id="wonProductsTable" styleClass="auction-table" VBox.vgrow="ALWAYS">
             <columns>
-                <TableColumn fx:id="productIdColumn"
-                             text="Mã SP"
-                             prefWidth="100.0"/>
+                <TableColumn fx:id="productIdColumn" prefWidth="100.0" text="Mã SP" />
 
-                <TableColumn fx:id="productNameColumn"
-                             text="Tên sản phẩm"
-                             prefWidth="280.0"/>
+                <TableColumn fx:id="productNameColumn" prefWidth="280.0" text="Tên sản phẩm" />
 
-                <TableColumn fx:id="sellerNameColumn"
-                             text="Người bán"
-                             prefWidth="180.0"/>
+                <TableColumn fx:id="sellerNameColumn" prefWidth="180.0" text="Người bán" />
 
-                <TableColumn fx:id="winningPriceColumn"
-                             text="Giá trúng thầu"
-                             prefWidth="180.0"/>
+                <TableColumn fx:id="winningPriceColumn" prefWidth="180.0" text="Giá trúng thầu" />
 
-                <TableColumn fx:id="wonTimeColumn"
-                             text="Thời gian trúng thầu"
-                             prefWidth="210.0"/>
+                <TableColumn fx:id="wonTimeColumn" prefWidth="210.0" text="Thời gian trúng thầu" />
             </columns>
             <!-- Cho phép bảng tự động dãn cột nếu còn khoảng trống -->
             <columnResizePolicy>
@@ -77,5 +49,8 @@
         </TableView>
 
     </VBox>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 
-</AnchorPane>
+</StackPane>

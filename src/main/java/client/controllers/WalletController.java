@@ -209,7 +209,8 @@ public class WalletController {
 
     @FXML
     public void goBack(ActionEvent event){
-        String role = UserDAO.getUserRole(Session.getInstance().getCurrentUsername());
+        String role = Session.getInstance().getUserRole();
+
         if (role != null && role.equals("SELLER")) {
             SceneController.switchScene("/client/views/seller/SellerDashboard.fxml");
         }else if (role != null && role.equals("BIDDER")) {

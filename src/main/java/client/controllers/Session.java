@@ -203,4 +203,8 @@ public class Session {
     public Product getCurrentProduct(){
         return currentProduct;
     }
+
+    public String getUserRole(){
+        return currentUser.getRole();
+    }
 }

@@ -40,6 +40,7 @@ import javafx.scene.text.Text;
 
 public class AuctionRoomController {
     private static final Logger logger = LoggerFactory.getLogger(AuctionRoomController.class);
+    @FXML private Label username;
     @FXML private Label roomNameLabel;
     @FXML private Label roomIdLabel;
     @FXML private Label sellerNameLabel;
@@ -76,6 +77,7 @@ public class AuctionRoomController {
         if (priceChart != null) {
             priceChart.getData().add(priceSeries);
         }
+        username.setText(Session.getInstance().getCurrentUsername());
     }
 
     public void initRoom(Room room) {

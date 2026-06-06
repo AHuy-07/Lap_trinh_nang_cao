@@ -83,7 +83,7 @@ public class SellerAuctionRoomController {
 
     private void setupTableCols() {
         bidTimeCol.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getBidTime()));
+                new SimpleStringProperty(formatBidTime(cellData.getValue().getBidTime())));
         bidNameCol.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getBidderUsername()));
         bidAmountCol.setCellValueFactory(cellData ->
@@ -365,6 +365,24 @@ public class SellerAuctionRoomController {
         Locale vietnamLocale = new Locale("vi", "VN");
         NumberFormat vnFormat = NumberFormat.getInstance(vietnamLocale);
         return vnFormat.format(amount) + " VNĐ";
+    }
+
+    private String formatBidTime(String bidTimeStr) {
+        if (bidTimeStr == null || bidTimeStr.trim().isEmpty()) {
+            return "";
+        }
+
+        try {
+            // Parse ISO-8601 format with nanoseconds (e.g., "2026-06-05T23:04:18.093442600")
+            LocalDateTime dateTime = LocalDateTime.parse(bidTimeStr);
+            // Format as "dd/MM/yyyy HH:mm:ss"
+            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            return dateTime.format(outputFormatter);
+        } catch (Exception e) {
+            // If parsing fails, return the original string
+            logger.error("Lỗi định dạng thời gian: " + bidTimeStr, e);
+            return bidTimeStr;
+        }
     }
 
     // --- CÁC HÀM XỬ LÝ THỜI GIAN ---

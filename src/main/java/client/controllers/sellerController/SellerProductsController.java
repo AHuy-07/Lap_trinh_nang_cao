@@ -94,18 +94,18 @@ public class SellerProductsController {
                 Optional<ButtonType> result = confirmAlert.showAndWait();
 
                 if (result.isPresent() && result.get() == ButtonType.OK) {
-                    
+
                     // 1. Tạo gói tin chứa ID gửi lên Server thay vì gọi DAO trực tiếp
                     String productId = selected.getId();
                     Request req = new Request("DELETE_PRODUCT", productId);
-                    
+
                     // 2. Gửi Request và chờ phản hồi (callback)
                     Session.getInstance().sendRequest(req, response -> {
                         Platform.runLater(() -> {
                             if ("DELETE_PRODUCT_SUCCESS".equals(response.getAction())) {
                                 // Nếu DB xóa thành công, mới tiến hành xóa trên giao diện (bảng)
                                 tableMyProducts.getItems().remove(selected);
-                                
+
                                 Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
                                 successAlert.setHeaderText(null);
                                 successAlert.setContentText("Đã xóa sản phẩm thành công!");

@@ -749,15 +749,22 @@ public class ClientHandler implements Runnable{
     }
 
     private void handleDeleteProduct(Request req){
-        String productId = (String) req.getData(); 
-        
+        String productId = (String) req.getData();
+
         // Gọi hàm DAO ở bước 1 để xóa
         boolean isDeleted = ProductDAO.deleteProduct(productId);
-        
-        if (isDeleted) {
-            sendResponse(new Request("DELETE_PRODUCT_SUCCESS", productId));
+        int isSold = ProductDAO.getIsSoldStatus(productId);
+
+        if (isSold == 0) {
+            if (isDeleted) {
+                sendResponse(new Request("DELETE_PRODUCT_SUCCESS", productId));
+            } else {
+                sendResponse(new Request("DELETE_PRODUCT_FAIL", "Không thể xóa hoặc sản phẩm không tồn tại!"));
+            }
         } else {
-            sendResponse(new Request("DELETE_PRODUCT_FAIL", "Không thể xóa hoặc sản phẩm không tồn tại!"));
+            sendResponse(new Request("DELETE_PRODUCT_FAIL", "Sản phẩm đang được đấu giá hoặc đã bán!"));
         }
+
+
     }
 }

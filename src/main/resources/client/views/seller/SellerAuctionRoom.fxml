@@ -55,7 +55,7 @@
                         <VBox spacing="5.0" styleClass="seller-stat-chip">
                             <children>
                                 <Label styleClass="seller-stat-chip-title" text="Người bán" style="-fx-font-family: System"/>
-                                <Label fx:id="sellerNameLabel" styleClass="seller-stat-chip-value" text="Admin" />
+                                <Label fx:id="sellerNameLabel" styleClass="seller-stat-chip-value" text="Admin" style="-fx-font-family: System" />
                             </children>
                         </VBox>
 
