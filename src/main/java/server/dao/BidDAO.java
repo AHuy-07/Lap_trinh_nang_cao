@@ -74,9 +74,9 @@ public class BidDAO {
 
                         updateBalanceNewWinner.setLong(1, newBidderBalance);
                         updateBalanceNewWinner.setString(2, newBidderUsername);
-                        updateBalanceNewWinner.executeUpdate();
                     }
-
+                    
+                    updateBalanceNewWinner.executeUpdate();
 
                     connection.commit();
                     return true;
