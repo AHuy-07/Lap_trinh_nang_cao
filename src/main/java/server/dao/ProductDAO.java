@@ -1,5 +1,6 @@
 package server.dao;
 
+import client.controllers.Session;
 import common.models.Product;
 import common.models.Room;
 import org.slf4j.Logger;
@@ -81,6 +82,7 @@ public class ProductDAO {
                 try(ResultSet resultSet = preparedStatement.executeQuery()){
                     if(resultSet.next()){
                         return null;
+
                     }
                 }
                 try(PreparedStatement insert = connection.prepareStatement(insertValue)){
@@ -97,7 +99,8 @@ public class ProductDAO {
                 }
             } catch(SQLException e){
                 logger.error("Lỗi SQL thêm sản phẩm", e);
-            } return null;
+            }
+            return null;
         }
     }
 
@@ -172,6 +175,47 @@ public class ProductDAO {
 
                 System.err.println("Lỗi định dạng không hợp lệ: " + lastId);
                 return "P_ERROR";
+            }
+        }
+    }
+
+    public static int getIsSoldStatus(String productId) {
+        String query = "SELECT isSold FROM Product WHERE productId = ?";
+
+        synchronized (connection) {
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+
+                pstmt.setString(1, productId);
+
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    // Nếu tìm thấy sản phẩm trong Database
+                    if (rs.next()) {
+                        // Lấy giá trị kiểu int của cột isSold (sẽ trả về 0, 1, v.v.)
+                        return rs.getInt("isSold");
+                    }
+                }
+
+            } catch (SQLException e) {
+                logger.error("Lỗi SQL khi lấy thuộc tính isSold", e);
+            }
+        }
+        // Trả về -1 (hoặc một giá trị mặc định) nếu không tìm thấy sản phẩm hoặc có lỗi xảy ra
+        return -1;
+    }
+
+    public static boolean deleteProduct(String productId){
+        synchronized (connection){
+            String query = "DELETE FROM Product WHERE productId = ?";
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+
+                pstmt.setString(1, productId);
+                int rowsAffected = pstmt.executeUpdate();
+
+                return rowsAffected > 0; // Trả về true nếu xóa thành công
+
+            } catch (SQLException e) {
+                logger.error("Lỗi SQL khi xóa sản phẩm", e);
+                return false; // Trả về false nếu có lỗi
             }
         }
     }

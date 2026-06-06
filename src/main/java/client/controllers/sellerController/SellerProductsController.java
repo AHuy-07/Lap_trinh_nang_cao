@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
+import java.util.Optional;
 
 public class SellerProductsController {
     @FXML private TableView<Product> tableMyProducts;
@@ -68,7 +69,9 @@ public class SellerProductsController {
 
         ContextMenu contextMenu = new ContextMenu();
         MenuItem createRoom = new MenuItem("Tạo phòng với sản phẩm");
+        MenuItem delete = new MenuItem("Xóa sản phẩm");
 
+        // logic tạo phòng vơi ssản phẩm
         createRoom.setOnAction(event -> {
             Product selected = tableMyProducts.getSelectionModel().getSelectedItem();
             if (selected != null) {
@@ -79,7 +82,52 @@ public class SellerProductsController {
             }
 
         });
-        contextMenu.getItems().addAll(createRoom);
+        // logic xóa sản phẩm
+        delete.setOnAction(event -> {
+            Product selected = tableMyProducts.getSelectionModel().getSelectedItem();
+            if(selected != null){
+                Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmAlert.setTitle("Xác nhận xóa");
+                confirmAlert.setHeaderText("Bạn đang yêu cầu xóa một sản phẩm");
+                confirmAlert.setContentText("Bạn có chắc chắn muốn xóa sản phẩm này không?");
+
+                Optional<ButtonType> result = confirmAlert.showAndWait();
+
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+
+                    // 1. Tạo gói tin chứa ID gửi lên Server thay vì gọi DAO trực tiếp
+                    String productId = selected.getId();
+                    Request req = new Request("DELETE_PRODUCT", productId);
+
+                    // 2. Gửi Request và chờ phản hồi (callback)
+                    Session.getInstance().sendRequest(req, response -> {
+                        Platform.runLater(() -> {
+                            if ("DELETE_PRODUCT_SUCCESS".equals(response.getAction())) {
+                                // Nếu DB xóa thành công, mới tiến hành xóa trên giao diện (bảng)
+                                tableMyProducts.getItems().remove(selected);
+
+                                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                                successAlert.setHeaderText(null);
+                                successAlert.setContentText("Đã xóa sản phẩm thành công!");
+                                successAlert.show();
+                            } else {
+                                // Nếu thất bại (Lỗi hoặc bị cấm xóa do đang trong phòng)
+                                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                                errorAlert.setHeaderText(null);
+                                errorAlert.setContentText((String) response.getData());
+                                errorAlert.show();
+                            }
+                        });
+                    });
+
+                }
+            } else {
+                Alert warning = new Alert(Alert.AlertType.WARNING, "Vui lòng chọn 1 sản phẩm trước!");
+                warning.show();
+            }
+        });
+
+        contextMenu.getItems().addAll(createRoom, delete);
         tableMyProducts.setRowFactory(tv -> {
             javafx.scene.control.TableRow<Product> row = new javafx.scene.control.TableRow<>();
             row.contextMenuProperty().bind(

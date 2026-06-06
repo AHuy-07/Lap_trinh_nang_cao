@@ -76,7 +76,7 @@ public class AutoBidDAO {
                 preparedStatement.setString(2, username);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     if (resultSet.next()) {
-                        logger.info("Lấy autobid thanhf công");
+                        logger.info("Lấy autobid thành công");
                         return resultSet.getLong("maxPrice");
                     }
                 }

@@ -24,7 +24,7 @@ public class LoginController {
     private PasswordField txtPassword;
 
     public void Login(ActionEvent event) throws Exception {
-        String username = txtUsername.getText();
+        String username = txtUsername.getText().trim();
         String password = txtPassword.getText();
 
         if (username.isEmpty() || password.isEmpty()) {

@@ -171,7 +171,7 @@ public class Session {
                 oos.close();
                 oos = null;
             }
-            if (socket != null) {
+            if (socket != null && !socket.isClosed()) {
                 socket.close();
                 socket = null;
             }
@@ -179,6 +179,9 @@ public class Session {
             this.currentResponseCallback = null;
             this.currentUser = null;
             this.currentProduct = null;
+            this.sellerDashboardController = null;
+
+            instance = null;
         } catch (IOException e) {
             System.err.println("[CLIENT] Lỗi khi chủ động đóng Socket: " + e.getMessage());
         }
@@ -199,5 +202,9 @@ public class Session {
     }
     public Product getCurrentProduct(){
         return currentProduct;
+    }
+
+    public String getUserRole(){
+        return currentUser.getRole();
     }
 }

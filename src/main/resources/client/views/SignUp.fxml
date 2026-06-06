@@ -27,17 +27,11 @@
             <StackPane prefHeight="90.0" prefWidth="100.0">
                <children>
                   <Circle fill="TRANSPARENT" radius="45.0" stroke="#C5A059" strokeType="INSIDE" styleClass="logo-ring" />
-                  <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@/client/views/thần tày.jpg" />
-                     </image>
-                     <clip>
-                        <Circle centerX="43.0" centerY="43.0" radius="43.0" />
-                     </clip>
-                  </ImageView>               </children>
+                  <SVGPath content="M 25 25 C 20.58 25 17 21.42 17 17 C 17 12.58 20.58 9 25 9 C 29.42 9 33 12.58 33 17 C 33 21.42 29.42 25 25 25 Z M 25 29 C 19.66 29 9 31.68 9 37 L 9 41 L 41 41 L 41 37 C 41 31.68 30.34 29 25 29 Z" fill="TRANSPARENT" stroke="#C5A059" strokeWidth="1.5" styleClass="logo-icon" />
+               </children>
             </StackPane>
 
-            <Label styleClass="brand-title" text="CREATE ACCOUNT" textFill="#2C2520">
+            <Label styleClass="brand-title" text="TẠO TÀI KHOẢN" style="-fx-font-family: System" textFill="#2C2520">
                <font>
                   <Font name="Georgia Bold" size="30.0" />
                </font>
@@ -65,7 +59,7 @@
                      </children>
                   </StackPane>
                   <Separator orientation="VERTICAL" prefHeight="30.0" styleClass="input-separator" />
-                  <TextField fx:id="usernameSignUp" promptText="Username" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="usernameSignUp" promptText="Tên tài khoản" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -81,11 +75,11 @@
                      </children>
                   </StackPane>
                   <Separator orientation="VERTICAL" prefHeight="30.0" styleClass="input-separator" />
-                  <ChoiceBox fx:id="roleSignUp" prefHeight="44.0" prefWidth="395.0" styleClass="choice-box-custom" value="Bidder">
+                  <ChoiceBox fx:id="roleSignUp" prefHeight="44.0" prefWidth="395.0" styleClass="choice-box-custom" value="BIDDER">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="Bidder" />
-                           <String fx:value="Seller" />
+                           <String fx:value="BIDDER" />
+                           <String fx:value="SELLER" />
                         </FXCollections>
                      </items>
                   </ChoiceBox>
@@ -100,7 +94,7 @@
                      </children>
                   </StackPane>
                   <Separator orientation="VERTICAL" prefHeight="30.0" styleClass="input-separator" />
-                  <PasswordField fx:id="passwordSignUp" promptText="Password" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
+                  <PasswordField fx:id="passwordSignUp" promptText="Mật khẩu" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -116,7 +110,7 @@
                      </children>
                   </StackPane>
                   <Separator orientation="VERTICAL" prefHeight="30.0" styleClass="input-separator" />
-                  <PasswordField fx:id="re_passwordSignUp" promptText="Re-enter password" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
+                  <PasswordField fx:id="re_passwordSignUp" promptText="Nhập lại mật khẩu" styleClass="text-field-custom" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -127,13 +121,13 @@
                </VBox.margin>
             </HBox>
 
-            <Button mnemonicParsing="false" onAction="#SignUp" prefHeight="54.0" prefWidth="460.0" styleClass="button-primary" text="CREATE ACCOUNT">
+            <Button mnemonicParsing="false" onAction="#SignUp" prefHeight="54.0" prefWidth="460.0" styleClass="button-primary" text="ĐĂNG KÝ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
 
-            <Button mnemonicParsing="false" onAction="#switchToLogin" styleClass="button-link" text="Already have an account?  Sign in">
+            <Button mnemonicParsing="false" onAction="#switchToLogin" styleClass="button-link" text="Đã có tài khoản?  Đăng nhập">
                <font>
                   <Font size="13.0" />
                </font>

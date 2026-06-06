@@ -126,6 +126,10 @@ public class ClientHandler implements Runnable{
             case "GET_MY_WON_PRODUCTS":
                 handleGetMyWonProducts(req);
                 break;
+            // xóa sản phẩm đã thêm vào trong seller
+            case "DELETE_PRODUCT":
+                handleDeleteProduct(req);
+                break;
             default:
                 logger.warn("Hành động không xác định {}", action);
         }
@@ -742,5 +746,25 @@ public class ClientHandler implements Runnable{
         } catch (IOException e) {
             logger.error("Lỗi khi tải danh sách phòng chiến thắng", e);
         }
+    }
+
+    private void handleDeleteProduct(Request req){
+        String productId = (String) req.getData();
+
+        // Gọi hàm DAO ở bước 1 để xóa
+        boolean isDeleted = ProductDAO.deleteProduct(productId);
+        int isSold = ProductDAO.getIsSoldStatus(productId);
+
+        if (isSold == 0) {
+            if (isDeleted) {
+                sendResponse(new Request("DELETE_PRODUCT_SUCCESS", productId));
+            } else {
+                sendResponse(new Request("DELETE_PRODUCT_FAIL", "Không thể xóa hoặc sản phẩm không tồn tại!"));
+            }
+        } else {
+            sendResponse(new Request("DELETE_PRODUCT_FAIL", "Sản phẩm đang được đấu giá hoặc đã bán!"));
+        }
+
+
     }
 }

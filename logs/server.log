@@ -1,42 +1,54 @@
-2026-06-04 00:00:55 [main] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-06-04 00:00:55 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
-2026-06-04 00:00:55 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
-2026-06-04 00:01:07 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
-2026-06-04 00:01:19 [Thread-1] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz | Type: DEPOSIT | Amount: 1000000
-2026-06-04 00:01:23 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
-2026-06-04 00:01:30 [JavaFX Application Thread] INFO  server.dao.ConnectDatabase - Kết nối database thành công
-2026-06-04 00:01:32 [Thread-1] INFO  server.ClientHandler - Gia tri maxPrice -1
-2026-06-04 00:01:40 [Thread-2] INFO  server.ClientHandler - Gia tri maxPrice -1
-2026-06-04 00:01:46 [Thread-3] INFO  server.ClientHandler - Tien 147000
-2026-06-04 00:01:47 [Thread-4] INFO  server.ClientHandler - Tien 148000
-2026-06-04 00:01:48 [Thread-4] INFO  server.ClientHandler - Tien 149000
-2026-06-04 00:01:49 [Thread-5] INFO  server.ClientHandler - Tien 150000
-2026-06-04 00:01:50 [Thread-5] INFO  server.ClientHandler - Tien 151000
-2026-06-04 00:01:50 [Thread-6] INFO  server.ClientHandler - Tien 152000
-2026-06-04 00:01:51 [Thread-7] INFO  server.ClientHandler - Tien 154000
-2026-06-04 00:01:51 [Thread-6] INFO  server.ClientHandler - Tien 156000
-2026-06-04 00:01:51 [Thread-8] INFO  server.ClientHandler - Tien 157000
-2026-06-04 00:01:51 [Thread-7] INFO  server.ClientHandler - Tien 158000
-2026-06-04 00:01:51 [Thread-9] INFO  server.ClientHandler - Tien 159000
-2026-06-04 00:01:52 [Thread-10] INFO  server.ClientHandler - Tien 160000
-2026-06-04 00:01:52 [Thread-6] INFO  server.ClientHandler - Tien 162000
-2026-06-04 00:01:52 [Thread-11] INFO  server.ClientHandler - Tien 163000
-2026-06-04 00:01:52 [Thread-7] INFO  server.ClientHandler - Tien 163000
-2026-06-04 00:01:52 [Thread-10] INFO  server.ClientHandler - Tien 163000
-2026-06-04 00:01:52 [Thread-6] INFO  server.ClientHandler - Tien 163000
-2026-06-04 00:01:53 [Thread-12] INFO  server.ClientHandler - Tien 164000
-2026-06-04 00:01:53 [Thread-13] INFO  server.ClientHandler - Tien 166000
-2026-06-04 00:01:53 [Thread-14] INFO  server.ClientHandler - Tien 168000
-2026-06-04 00:01:53 [Thread-12] INFO  server.ClientHandler - Tien 170000
-2026-06-04 00:01:53 [Thread-15] INFO  server.ClientHandler - Tien 171000
-2026-06-04 00:01:53 [Thread-16] INFO  server.ClientHandler - Tien 172000
-2026-06-04 00:01:54 [Thread-13] INFO  server.ClientHandler - Tien 173000
-2026-06-04 00:01:54 [Thread-14] INFO  server.ClientHandler - Tien 173000
-2026-06-04 00:01:54 [Thread-17] INFO  server.ClientHandler - Tien 174000
-2026-06-04 00:01:54 [Thread-12] INFO  server.ClientHandler - Tien 175000
-2026-06-04 00:01:54 [Thread-16] INFO  server.ClientHandler - Tien 175000
-2026-06-04 00:01:54 [Thread-17] INFO  server.ClientHandler - Tien 175000
-2026-06-04 00:02:08 [Thread-18] INFO  server.ClientHandler - Tien 176000
-2026-06-04 00:02:08 [Thread-18] INFO  server.ClientHandler - Tien 177000
-2026-06-04 00:02:09 [Thread-18] INFO  server.ClientHandler - Tien 178000
-2026-06-04 00:02:09 [Thread-18] INFO  server.ClientHandler - bot hungdz1
+2026-06-06 12:52:40 [main] INFO  server.dao.ConnectDatabase - Kết nối PRODUCTION database thành công (myDatabase.db)
+2026-06-06 12:52:40 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-06 12:52:40 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-06 13:08:18 [main] INFO  server.dao.ConnectDatabase - Kết nối PRODUCTION database thành công (myDatabase.db)
+2026-06-06 13:08:18 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-06 13:08:18 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-06 13:11:17 [main] INFO  server.dao.ConnectDatabase - Kết nối PRODUCTION database thành công (myDatabase.db)
+2026-06-06 13:11:17 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-06 13:11:17 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-06 13:13:13 [main] INFO  server.dao.ConnectDatabase - Kết nối PRODUCTION database thành công (myDatabase.db)
+2026-06-06 13:13:13 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-06 13:13:13 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-06 13:14:43 [main] INFO  server.dao.ConnectDatabase - Kết nối PRODUCTION database thành công (myDatabase.db)
+2026-06-06 13:14:43 [main] INFO  server.AppServer - [SERVER] Kết nối database thành công
+2026-06-06 13:14:43 [main] INFO  server.AppServer - [SERVER] Server đấu giá đang chạy trên port 8080...
+2026-06-06 13:15:30 [Thread-1] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:15:38 [Thread-1] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz | Type: DEPOSIT | Amount: 1000000
+2026-06-06 13:15:54 [Thread-1] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-06-06 13:15:55 [Thread-1] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-06-06 13:15:58 [Thread-2] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:16:00 [Thread-2] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-06-06 13:16:00 [Thread-2] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-06-06 13:16:03 [Thread-3] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:16:31 [Thread-4] INFO  server.dao.UserDAO - Người dùng seller xác thực thành công
+2026-06-06 13:17:04 [Thread-4] WARN  server.AppServer - [SERVER] Không tìm thấy admin để gửi thông báo
+2026-06-06 13:17:11 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:46 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:47 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:47 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:47 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:47 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:50 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:50 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:50 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:17:50 [Thread-5] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:18:12 [Thread-3] INFO  server.ClientHandler - [SERVER] Người dùng hungdz đã được xóa khỏi danh sách online ngầm.
+2026-06-06 13:18:12 [Thread-3] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz: null
+2026-06-06 13:18:15 [Thread-6] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:30 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:30 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:30 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:31 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:31 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:31 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:32 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz xác thực thành công
+2026-06-06 13:18:39 [Thread-5] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-06 13:18:41 [Thread-5] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-06 13:18:41 [Thread-5] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-06 13:18:44 [Thread-7] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-06 13:18:46 [Thread-7] INFO  server.ClientHandler - [SERVER] Người dùng hungdz1 đã được xóa khỏi danh sách online ngầm.
+2026-06-06 13:18:46 [Thread-7] ERROR server.ClientHandler - Lỗi kết nối với Client hungdz1: null
+2026-06-06 13:18:49 [Thread-8] INFO  server.dao.UserDAO - Người dùng admin xác thực thành công
+2026-06-06 13:20:23 [Thread-8] INFO  server.dao.UserDAO - Người dùng hungdz1 xác thực thành công
+2026-06-06 13:20:43 [Thread-8] INFO  server.dao.WalletDAO - Giao dịch thành công: User hungdz1 | Type: DEPOSIT | Amount: 1000000

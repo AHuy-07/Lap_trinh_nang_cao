@@ -1,7 +1,9 @@
 package client;
 
 import client.controllers.SceneController;
+import client.controllers.Session;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +20,7 @@ public class ClientApp extends Application {
         // Lấy phần AnchorPane của bên file fxml về
         AnchorPane ui = FXMLLoader.load(getClass().getResource("/client/views/Login.fxml"));
 
-        primaryStage.setFullScreen(true);
+        //primaryStage.setFullScreen(true);
 
         /*
         - Tạo một StackPane cố định kích thước để chứa nội dung
@@ -31,8 +33,8 @@ public class ClientApp extends Application {
         contentPane.setMaxSize(BASE_WIDTH, BASE_HEIGHT);
 
         /*
-        ** LƯU Ý: Cần thiết có dòng này
-        * Giúp khởi tạo contentPane trong sceneController, từ đó mới chuyển scene được
+         ** LƯU Ý: Cần thiết có dòng này
+         * Giúp khởi tạo contentPane trong sceneController, từ đó mới chuyển scene được
          */
         SceneController.init(contentPane);
 
@@ -65,6 +67,16 @@ public class ClientApp extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Auction System");
+
+        primaryStage.setOnCloseRequest(event -> {
+            if (Session.getInstance() != null) {
+                Session.getInstance().closeConnection();
+            }
+
+            Platform.exit();
+            System.exit(0);
+        });
+
         primaryStage.show();
     }
 

@@ -17,8 +17,8 @@
 
     <!-- Tiêu đề trang -->
     <StackPane>
-        <Label text="Quản Lý Ví Đấu Giá" styleClass="wallet-page-title" style="-fx-font-family: 'Times New Roman';"/>
-        <Button text="Back" onAction="#goBack" StackPane.alignment="CENTER_LEFT"
+        <Label text="Quản Lý Ví Đấu Giá" styleClass="wallet-page-title" style="-fx-font-family: 'System';"/>
+        <Button text="⬅ Quay lại" onAction="#goBack" StackPane.alignment="CENTER_LEFT"
                 styleClass="wallet-btn-back"/>
         <Label fx:id="status" managed="false" styleClass="wallet-status-error" text="" visible="false" />
     </StackPane>

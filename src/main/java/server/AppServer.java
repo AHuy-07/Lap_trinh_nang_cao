@@ -66,8 +66,8 @@ public class AppServer {
                 try {
                     LocalDateTime now = LocalDateTime.now();
 
-                    List<Room> avtiveRooms = RoomDAO.getActiveRooms();
-                    for (Room room : avtiveRooms) {
+                    List<Room> activeRooms = RoomDAO.getActiveRooms();
+                    for (Room room : activeRooms) {
                         LocalDateTime endTime = LocalDateTime.parse(room.getEndTime(), formatter);
 
                         if (now.isAfter(endTime)) {
