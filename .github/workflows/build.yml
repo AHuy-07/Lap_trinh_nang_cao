@@ -11,11 +11,6 @@ jobs:
   test-code:
     runs-on: ubuntu-latest # Bot sẽ mượn một máy ảo Linux của GitHub
 
-    # Chỉ định cho Bot biết project Maven đang nằm ở thư mục nào
-    defaults:
-      run:
-        working-directory: ./online-auction-system
-
     steps:
     - name: 1. Clone code từ GitHub về máy ảo của Bot
       uses: actions/checkout@v4
