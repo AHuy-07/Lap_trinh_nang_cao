@@ -21,18 +21,15 @@ public class WalletDAO {
     // Tạo một ổ khóa để đảm bảo khi dùng chung 1 Connection, các luồng không bị race condition
     private static final Object DB_LOCK = new Object();
 
-    public static long getBalance(String username) {
+     public static long getBalance(String username) {
         synchronized (connection) {
             String sql = "SELECT balance FROM User WHERE username = ?";
-
-            try {
-                Connection conn = ConnectDatabase.getConnection();
-                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    pstmt.setString(1, username);
-                    try (ResultSet rs = pstmt.executeQuery()) {
-                        if (rs.next()) {
-                            return rs.getLong("balance");
-                        }
+            
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                pstmt.setString(1, username);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getLong("balance");
                     }
                 }
             } catch (SQLException e) {
@@ -40,7 +37,6 @@ public class WalletDAO {
             }
             return -1;
         }
-
     }
 
     public static void updateBalance(String username, long newBalance) {
