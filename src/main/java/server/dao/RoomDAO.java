@@ -186,7 +186,7 @@ public class RoomDAO {
 
             String query = "SELECT r.*, p.productName FROM Room r " +
                     "LEFT JOIN Product p ON r.productId = p.productId " +
-                    "WHERE r.status IN ('ACTIVE', 'CLOSED') " +
+                    "WHERE r.status IN ('ACTIVE') " +
                     "ORDER BY CASE r.status WHEN 'ACTIVE' THEN 1 WHEN 'CLOSED' THEN 2 END, " +
                     "r.roomId DESC";
 
