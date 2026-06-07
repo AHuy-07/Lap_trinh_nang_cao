@@ -48,6 +48,7 @@ Dưới đây là cây thư mục rút gọn (không liệt kê toàn bộ file)
 ```text
 AuctionSystem/                        <-- root project
 ├─ myDatabase.db
+├─ database_test.db
 ├─ pom.xml                             <-- top-level pom
 ├─ src/
 │  ├─ main/
@@ -65,8 +66,6 @@ AuctionSystem/                        <-- root project
 ├─ src/test/
 │  └─ java/
 │     └─ server/dao/AuctionSystemDaoTest.java
-├─ online-auction-system/               <-- submodule (nếu có)
-│  └─ pom.xml
 └─ target/
 ```
 
