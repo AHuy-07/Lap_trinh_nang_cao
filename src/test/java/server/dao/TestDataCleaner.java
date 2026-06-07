@@ -18,8 +18,7 @@ public class TestDataCleaner {
             "BidTransaction",
             "AutoBid",
             "Room",
-            "Product",
-            "User"
+            "Money"
     };
 
     /**
