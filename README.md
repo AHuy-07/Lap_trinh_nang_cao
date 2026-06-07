@@ -26,7 +26,7 @@ Phạm vi hệ thống:
 - Ngôn ngữ: Java
 - Build: Apache Maven
 - GUI Client: JavaFX
-- Database: SQLite (file DB: `myDatabase.db` trong thư mục gốc)
+- Database: SQLite (file DB: `myDatabase.db` và `database_test.db` trong thư mục gốc)
 - Logging: SLF4J + Logback
 - Unit tests: JUnit 5
 
@@ -38,7 +38,7 @@ Yêu cầu phần mềm (khuyến nghị):
 Trước khi chạy:
 - Cài đặt JDK và thiết lập `JAVA_HOME`.
 - Cài Maven (`mvn` có trong PATH).
-- Kiểm tra file DB `myDatabase.db` (nên backup trước khi chạy test).
+- Kiểm tra file DB `myDatabase.db` và `database_test.db`
 
 ---
 
@@ -85,53 +85,25 @@ Tập test quan trọng: `src/test/java/server/dao/AuctionSystemDaoTest.java`
    ```bash
    mvn clean package
    ```
-   - (Tùy chọn) copy dependencies into `target/dependency`:
-   ```bash
-   mvn dependency:copy-dependencies -DoutputDirectory=target/dependency
-   ```
-
-2. Chạy Server (phải chạy trước Client)
-   - Cách A — Dùng Maven exec (đơn giản):
-   ```bash
-   mvn -Dexec.mainClass="server.AppServer" -Dexec.classpathScope=runtime exec:java
-   ```
-   - Cách B — Chạy bằng `java` sau khi build và copy dependencies:
-	 - Windows (cmd/Powershell/Git Bash):
+   - Sau khi quá trình build `BUILD SUCCESS` sẽ sinh ra 2 file `.jar` quan trọng:
+     - AuctionSystem-1.0-SNAPSHOT-server.jar (File chạy Server)
+	 - AuctionSystem-1.0-SNAPSHOT-client.jar (File chạy Client)
+   
+3. Chạy Server (phải chạy trước Client)
+     - Câu lệnh khởi động:
 	 ```bash
-	 java -cp "target\\classes;target\\dependency\\*" server.AppServer
+	 java -jar AuctionSystem-1.0-SNAPSHOT-server.jar
 	 ```
-	 - macOS / Linux:
+  
+4. Chạy Client (sau khi Server đã khởi động)
+   	 - Window:
 	 ```bash
-	 java -cp "target/classes:target/dependency/*" server.AppServer
+	 java -jar AuctionSystem-1.0-SNAPSHOT-client.jar
 	 ```
-
-   - Ghi chú: nếu server báo lỗi cổng bận (8080), chỉnh cổng trong `src/main/java/server/AppServer.java`.
-
-3. Chạy Client (sau khi Server đã khởi động)
-   - Dùng Maven exec:
-   ```bash
-   mvn -Dexec.mainClass="client.ClientApp" -Dexec.classpathScope=runtime exec:java
-   ```
-   - Hoặc dùng `java`:
-	 - Windows:
+   	 - Mac/Linux:
 	 ```bash
-	 java -cp "target\\classes;target\\dependency\\*" client.ClientApp
+	 java --enable-native-access=ALL-UNNAMED -jar AuctionSystem-1.0-SNAPSHOT-client.jar
 	 ```
-	 - macOS / Linux:
-	 ```bash
-	 java -cp "target/classes:target/dependency/*" client.ClientApp
-	 ```
-
-   - Nếu gặp lỗi JavaFX (nếu JDK không kèm JavaFX), chạy với `--module-path`:
-	 - Windows:
-	 ```bash
-	 java --module-path "target\\dependency" --add-modules javafx.controls,javafx.fxml -cp "target\\classes;target\\dependency\\*" client.ClientApp
-	 ```
-	 - macOS / Linux:
-	 ```bash
-	 java --module-path target/dependency --add-modules javafx.controls,javafx.fxml -cp "target/classes:target/dependency/*" client.ClientApp
-	 ```
-
 ---
 
 ## Lưu ý quan trọng — Cross-platform và khác biệt lệnh
@@ -143,9 +115,6 @@ Tập test quan trọng: `src/test/java/server/dao/AuctionSystemDaoTest.java`
   - Import project bằng `pom.xml` (Maven).
   - Tạo Run Configuration cho `server.AppServer` (Application) và `client.ClientApp` (Application).
   - Đảm bảo `Project SDK` trùng với phiên bản JDK đã cài.
-- Database:
-  - File DB mặc định: `myDatabase.db` ở thư mục gốc. Test có thể thay đổi dữ liệu DB — nên sao lưu trước khi chạy test tự động.
-  - Nếu muốn đổi đường dẫn DB, chỉnh `ConnectDatabase` (kiểm trong `src/main/java/server/dao/ConnectDatabase.java`).
 
 ---
 
@@ -154,11 +123,6 @@ Tập test quan trọng: `src/test/java/server/dao/AuctionSystemDaoTest.java`
 ```bash
 mvn test
 ```
-- Chạy một class test cụ thể:
-```bash
-mvn -Dtest=server.dao.AuctionSystemDaoTest test
-```
-Lưu ý: các test DAO có thể tương tác với `myDatabase.db` (tạo bản ghi test). Backup DB nếu cần giữ dữ liệu.
 
 ---
 
@@ -184,7 +148,6 @@ Dựa trên mã nguồn và test hiện có, hệ thống đã triển khai các
 ## Troubleshooting (Vấn đề thường gặp)
 - Lỗi JavaFX ClassNotFound: đảm bảo JavaFX jars có trong `target/dependency` hoặc dùng `--module-path` + `--add-modules`.
 - Lỗi SQLite locked: kiểm tra tiến trình khác đang dùng `myDatabase.db`; đóng process hoặc xóa file `.db-wal`/`.db-shm` nếu cần (chỉ khi an toàn).
-- Tests thay đổi DB: backup `myDatabase.db` trước khi chạy `mvn test`.
 - Port 8080 đang bận: đổi port trong `AppServer.java` hoặc đóng tiến trình chiếm port.
 
 ---
