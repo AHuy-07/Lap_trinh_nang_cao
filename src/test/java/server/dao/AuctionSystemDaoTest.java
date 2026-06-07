@@ -200,6 +200,7 @@ public class AuctionSystemDaoTest {
 
         long bidAmount = active.getStartingPrice() + 10000L;
         long newBalanceForBidder1 = 1_000_000L - bidAmount;
+        BidDAO.placeBid(active, null, TEST_BIDDER1, bidAmount, 0L, newBalanceForBidder1);
 
         // Place bid if not already placed by this bidder
         List<BidTransaction> existingBids = BidDAO.getBidHistory(active);
@@ -266,12 +267,12 @@ public class AuctionSystemDaoTest {
 
         // Check if withdrawal already done
         List<TransactionRecord> history = WalletDAO.getHistory(TEST_WALLET_USER);
-        boolean withdrawalDone = history.stream().anyMatch(t -> "WITHDRAW".equals(t.getType()) && t.getAmount().equals(100000L));
+        //boolean withdrawalDone = history.stream().anyMatch(t -> "WITHDRAW".equals(t.getType()) && t.getAmount().equals(100000L));
         
-        if (!withdrawalDone) {
+        //if (!withdrawalDone) {
             boolean withdrawOk = WalletDAO.processTransaction(TEST_WALLET_USER, 100000L, "WITHDRAW", "ATM");
             assertTrue(withdrawOk);
-        }
+        //}
 
         long balAfter = WalletDAO.getBalance(TEST_WALLET_USER);
         assertEquals(200000L, balAfter);
@@ -283,6 +284,204 @@ public class AuctionSystemDaoTest {
         List<TransactionRecord> finalHistory = WalletDAO.getHistory(TEST_WALLET_USER);
         assertNotNull(finalHistory);
         assertTrue(finalHistory.size() >= 1);
+    }
+
+
+    @Test
+    public void testBiddingCompetitionMultipleBidders() {
+        Room room = RoomDAO.getRoomById(testRoomBidId);
+        assertNotNull(room, "Room should exist");
+        assertEquals("ACTIVE", room.getStatus());
+
+        long startingPrice = room.getStartingPrice();
+        long bidStep = Room.calculateDefaultBidStep(startingPrice);
+
+        // Bidder 1: Places first bid
+        long bid1Amount = startingPrice + bidStep;
+        long bidder1NewBalance = 1_000_000L - bid1Amount;
+
+        List<BidTransaction> existingBids1 = BidDAO.getBidHistory(room);
+        boolean bidder1AlreadyBid = existingBids1.stream()
+                .anyMatch(b -> TEST_BIDDER1.equals(b.getBidderUsername()) && b.getBidAmount() == bid1Amount);
+
+        if (!bidder1AlreadyBid) {
+            boolean bid1Placed = BidDAO.placeBid(room, null, TEST_BIDDER1, bid1Amount, 0L, bidder1NewBalance);
+            assertTrue(bid1Placed, "Bidder1 should successfully place first bid");
+        }
+
+        // Verify Bidder1 is current winner
+        BidTransaction latestBid1 = BidDAO.getLatestBid(room.getRoomId());
+        assertNotNull(latestBid1);
+        assertEquals(TEST_BIDDER1, latestBid1.getBidderUsername());
+        assertEquals(bid1Amount, latestBid1.getBidAmount());
+
+        // Verify current price updated
+        long currentPrice1 = BidDAO.getCurrentPrice(room.getRoomId());
+        assertEquals(bid1Amount, currentPrice1);
+
+        // Bidder 2: Outbids Bidder1
+        long bid2Amount = bid1Amount + bidStep;
+        long bidder2NewBalance = 500_000L - bid2Amount;
+
+        List<BidTransaction> existingBids2 = BidDAO.getBidHistory(room);
+        boolean bidder2AlreadyBid = existingBids2.stream()
+                .anyMatch(b -> TEST_BIDDER2.equals(b.getBidderUsername()) && b.getBidAmount() == bid2Amount);
+
+        if (!bidder2AlreadyBid) {
+            boolean bid2Placed = BidDAO.placeBid(room, TEST_BIDDER1, TEST_BIDDER2, bid2Amount, bidder1NewBalance, bidder2NewBalance);
+            assertTrue(bid2Placed, "Bidder2 should successfully outbid Bidder1");
+        }
+
+        // Verify Bidder2 is now the winner
+        BidTransaction latestBid2 = BidDAO.getLatestBid(room.getRoomId());
+        assertNotNull(latestBid2);
+        assertEquals(TEST_BIDDER2, latestBid2.getBidderUsername());
+        assertEquals(bid2Amount, latestBid2.getBidAmount());
+
+        // Verify current price updated to Bidder2's bid
+        long currentPrice2 = BidDAO.getCurrentPrice(room.getRoomId());
+        assertEquals(bid2Amount, currentPrice2);
+
+        // Verify participant count increased
+        int participants = BidDAO.getParticipantCount(room.getRoomId());
+        assertTrue(participants >= 2, "Should have at least 2 participants");
+
+        // Verify full bid history
+        List<BidTransaction> finalHistory = BidDAO.getBidHistory(room);
+        assertNotNull(finalHistory);
+        assertTrue(finalHistory.stream().anyMatch(b -> TEST_BIDDER1.equals(b.getBidderUsername())),
+                "Bidder1 should be in history");
+        assertTrue(finalHistory.stream().anyMatch(b -> TEST_BIDDER2.equals(b.getBidderUsername())),
+                "Bidder2 should be in history");
+    }
+
+
+    @Test
+    public void testAutoBidExecutionFlow() {
+        Room room = RoomDAO.getRoomById(testRoomAutoId);
+        assertNotNull(room, "Auto-bid test room should exist");
+
+        long initialMaxPrice = 300000L;
+        long now = System.currentTimeMillis();
+
+        // Step 1: Save auto-bid setting
+        List<AutoBidSetting> existingAutoBids = AutoBidDAO.getAutoBidders(testRoomAutoId);
+        boolean autoUserAlreadySet = existingAutoBids.stream()
+                .anyMatch(a -> TEST_AUTO_USER.equals(a.getUsername()));
+
+        if (!autoUserAlreadySet) {
+            boolean saved = AutoBidDAO.saveAutoBid(testRoomAutoId, TEST_AUTO_USER, initialMaxPrice, now);
+            assertTrue(saved, "Auto-bid should be saved successfully");
+        }
+
+        // Step 2: Verify auto-bid setting is stored
+        long fetchedMaxPrice = AutoBidDAO.checkAutoBidStatus(testRoomAutoId, TEST_AUTO_USER);
+        assertEquals(initialMaxPrice, fetchedMaxPrice, "Auto-bid max price should match saved value");
+
+        // Step 3: Verify auto-bidder in list
+        List<AutoBidSetting> autoBidders = AutoBidDAO.getAutoBidders(testRoomAutoId);
+        assertNotNull(autoBidders);
+        assertTrue(autoBidders.stream().anyMatch(a ->
+                TEST_AUTO_USER.equals(a.getUsername()) && a.getMaxPrice() == initialMaxPrice),
+                "Auto-bidder should be in the list with correct max price");
+
+        // Step 4: Update auto-bid max price (simulate user changing limit)
+        long updatedMaxPrice = 400000L;
+        boolean updated = AutoBidDAO.saveAutoBid(testRoomAutoId, TEST_AUTO_USER, updatedMaxPrice, now);
+        assertTrue(updated, "Auto-bid max price should be updateable");
+
+        // Step 5: Verify updated max price
+        long newFetchedMaxPrice = AutoBidDAO.checkAutoBidStatus(testRoomAutoId, TEST_AUTO_USER);
+        assertEquals(updatedMaxPrice, newFetchedMaxPrice, "Auto-bid should reflect updated max price");
+
+        // Step 6: Verify update is reflected in list
+        List<AutoBidSetting> updatedAutoBidders = AutoBidDAO.getAutoBidders(testRoomAutoId);
+        assertTrue(updatedAutoBidders.stream().anyMatch(a ->
+                TEST_AUTO_USER.equals(a.getUsername()) && a.getMaxPrice() == updatedMaxPrice),
+                "Auto-bid list should show updated max price");
+
+        // Step 7: Test removal
+        boolean removed = AutoBidDAO.removeAutoBid(testRoomAutoId, TEST_AUTO_USER);
+        assertTrue(removed, "Auto-bid should be removable");
+
+        // Step 8: Verify removal
+        long statusAfterRemoval = AutoBidDAO.checkAutoBidStatus(testRoomAutoId, TEST_AUTO_USER);
+        assertEquals(-1, statusAfterRemoval, "Auto-bid should return -1 after removal");
+
+        List<AutoBidSetting> afterRemovalList = AutoBidDAO.getAutoBidders(testRoomAutoId);
+        assertFalse(afterRemovalList.stream().anyMatch(a -> TEST_AUTO_USER.equals(a.getUsername())),
+                "Auto-bidder should not be in list after removal");
+    }
+
+
+    @Test
+    public void testAuctionCompletionAndRoomStatusTransition() {
+        String testProductId = "P_004";
+        String testCompletionRoom = "completion_test_room";
+
+        // Setup test product if not exists
+        ProductDAO.addProducts(testProductId, "Completion Test Product", "TYPE", "Details", TEST_SELLER);
+
+        Room newRoom = new Room(null, testCompletionRoom, testProductId, TEST_SELLER, 50000L,
+                LocalDateTime.now().plusMinutes(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
+                LocalDateTime.now().plusMinutes(30).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+
+        Room createdRoom = RoomDAO.createRoom(newRoom);
+        assertNotNull(createdRoom, "Room should be created");
+        String roomIdForCompletion = createdRoom.getRoomId();
+
+        // Step 2: Verify initial status is PENDING
+        Room initialRoom = RoomDAO.getRoomById(roomIdForCompletion);
+        assertNotNull(initialRoom);
+        assertEquals("PENDING", initialRoom.getStatus(), "New room should have PENDING status");
+
+        // Step 3: Update room status to ACTIVE
+        boolean activateSuccess = RoomDAO.updateRoomStatus(roomIdForCompletion, "ACTIVE");
+        assertTrue(activateSuccess, "Room should be activated successfully");
+
+        // Step 4: Verify status changed to ACTIVE
+        Room activeRoom = RoomDAO.getRoomById(roomIdForCompletion);
+        assertNotNull(activeRoom);
+        assertEquals("ACTIVE", activeRoom.getStatus(), "Room should be ACTIVE");
+
+        // Step 5: Place some bids in the active room
+        long bidAmount = initialRoom.getStartingPrice() + Room.calculateDefaultBidStep(initialRoom.getStartingPrice());
+        long bidderBalance = 1_000_000L - bidAmount;
+
+        List<BidTransaction> existingBids = BidDAO.getBidHistory(activeRoom);
+        boolean alreadyHasBid = existingBids.stream()
+                .anyMatch(b -> TEST_BIDDER1.equals(b.getBidderUsername()) && b.getBidAmount() == bidAmount);
+
+        if (!alreadyHasBid) {
+            boolean bidPlaced = BidDAO.placeBid(activeRoom, null, TEST_BIDDER1, bidAmount, 0L, bidderBalance);
+            assertTrue(bidPlaced, "Bid should be placed in active room");
+        }
+
+        // Step 6: Verify bid was recorded
+        BidTransaction latestBid = BidDAO.getLatestBid(roomIdForCompletion);
+        assertNotNull(latestBid);
+        assertEquals(bidAmount, latestBid.getBidAmount());
+
+        // Step 7: Close the auction (update status to CLOSED)
+        boolean closeSuccess = RoomDAO.updateRoomStatus(roomIdForCompletion, "CLOSED");
+        assertTrue(closeSuccess, "Room should be closed successfully");
+
+        // Step 8: Verify room is now CLOSED
+        Room closedRoom = RoomDAO.getRoomById(roomIdForCompletion);
+        assertNotNull(closedRoom);
+        assertEquals("CLOSED", closedRoom.getStatus(), "Room should be CLOSED");
+
+        // Step 9: Verify bid history is preserved in closed room
+        List<BidTransaction> closedRoomHistory = BidDAO.getBidHistory(closedRoom);
+        assertNotNull(closedRoomHistory);
+        assertTrue(closedRoomHistory.stream().anyMatch(b ->
+                TEST_BIDDER1.equals(b.getBidderUsername()) && b.getBidAmount() == bidAmount),
+                "Bid history should be preserved in closed room");
+
+        // Step 10: Verify closed room is not in active rooms list
+        List<Room> activeRooms = RoomDAO.getActiveRooms();
+        assertFalse(activeRooms.stream().anyMatch(r -> roomIdForCompletion.equals(r.getRoomId())),
+                "Closed room should not appear in active rooms list");
     }
 }
 
