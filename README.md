@@ -201,5 +201,5 @@ Dựa trên mã nguồn và test hiện có, hệ thống đã triển khai các
 ---
 
 ## Link báo cáo và video demo
-[Drive: ](https://drive.google.com/drive/folders/1PMHOwlx5A5Alv1g_E6o-bJHmyYi1c-Ix?usp=sharing) 
+[phttps://drive.google.com/drive/folders/1PMHOwlx5A5Alv1g_E6o-bJHmyYi1c-Ix?usp=sharing](https://drive.google.com/drive/folders/1PMHOwlx5A5Alv1g_E6o-bJHmyYi1c-Ix?usp=sharing)
 
