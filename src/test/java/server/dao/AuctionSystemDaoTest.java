@@ -8,8 +8,11 @@ import common.models.TransactionRecord;
 import common.models.User;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,9 +28,9 @@ public class AuctionSystemDaoTest {
     private static final String TEST_AUTO_USER = "test_auto_user";
     private static final String TEST_WALLET_USER = "test_wallet_user";
     
-    private static final String TEST_PRODUCT_ID = "TEST_PRODUCT_001";
-    private static final String TEST_PRODUCT_BID = "TEST_PRODUCT_BID";
-    private static final String TEST_PRODUCT_AUTO = "TEST_PRODUCT_AUTO";
+    private static final String TEST_PRODUCT_ID = "P_001";
+    private static final String TEST_PRODUCT_BID = "P_002";
+    private static final String TEST_PRODUCT_AUTO = "P_003";
     
     private static String testRoomId;
     private static String testRoomBidId;
@@ -40,17 +43,18 @@ public class AuctionSystemDaoTest {
         // Initialize the test database connection
         ConnectDatabase.getConnection();
         // Initialize test database schema
+
         TestDataCleaner.initializeTestDatabase();
         
         // Initialize test data once for all tests
         initializeTestData();
     }
 
-    /**
-     * Initialize test data - create if not exists, reuse if exists
-     */
+
     private static void initializeTestData() {
         // Create test bidder if not exists
+        String begintime = (LocalDateTime.now().plusMinutes(1)).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String endtime = (LocalDateTime.now().plusMinutes(15)).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         User bidder = UserDAO.login(TEST_BIDDER, "pass");
         if (bidder == null) {
             UserDAO.signUp(TEST_BIDDER, "pass", "BIDDER");
@@ -100,7 +104,7 @@ public class AuctionSystemDaoTest {
         // Create test room if not exists
         Room existingRoom = RoomDAO.getRoomById(TEST_PRODUCT_ID);
         if (existingRoom == null) {
-            Room room = new Room(null, "Test Room", TEST_PRODUCT_ID, TEST_SELLER, 100000L, "2026-06-04 10:00", "2026-06-04 11:00");
+            Room room = new Room(null, "Test Room", TEST_PRODUCT_ID, TEST_SELLER, 100000L, begintime, endtime);
             Room created = RoomDAO.createRoom(room);
             if (created != null) {
                 testRoomId = created.getRoomId();
@@ -119,7 +123,7 @@ public class AuctionSystemDaoTest {
         // Create test room for bid if not exists
         Room existingRoomBid = RoomDAO.getRoomById(TEST_PRODUCT_BID);
         if (existingRoomBid == null) {
-            Room room = new Room(null, "Bid Test Room", TEST_PRODUCT_BID, TEST_SELLER_BID, 50000L, "2026-06-04 10:00", "2026-06-04 11:00");
+            Room room = new Room(null, "Bid Test Room", TEST_PRODUCT_BID, TEST_SELLER_BID, 50000L, begintime, endtime);
             Room created = RoomDAO.createRoom(room);
             if (created != null) {
                 testRoomBidId = created.getRoomId();
@@ -138,7 +142,7 @@ public class AuctionSystemDaoTest {
         // Create test room for auto if not exists
         Room existingRoomAuto = RoomDAO.getRoomById(TEST_PRODUCT_AUTO);
         if (existingRoomAuto == null) {
-            Room room = new Room(null, "Auto Test Room", TEST_PRODUCT_AUTO, TEST_SELLER, 10000L, "2026-06-04 10:00", "2026-06-04 11:00");
+            Room room = new Room(null, "Auto Test Room", TEST_PRODUCT_AUTO, TEST_SELLER, 10000L, begintime, endtime);
             Room created = RoomDAO.createRoom(room);
             if (created != null) {
                 testRoomAutoId = created.getRoomId();
@@ -151,10 +155,10 @@ public class AuctionSystemDaoTest {
     @AfterAll
     public static void teardown() {
         ConnectDatabase.closeConnection();
+        TestDataCleaner.clearTestData();
         // Reset to production mode (for safety, in case other code uses this)
         ConnectDatabase.setTestMode(false);
     }
-
     @Test
     public void testSignUpLoginGetRoleAndSessionLogout() {
         User logged = UserDAO.login(TEST_BIDDER, "pass");
