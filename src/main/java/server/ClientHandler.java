@@ -300,10 +300,6 @@ public class ClientHandler implements Runnable{
 
     // Hàm bot chạy auto đấu giá
     private void triggerAutoBid(String roomId) {
-        /*
-
-         */
-
         new Thread(() -> {
             while (true) {
                 Room room = RoomDAO.getRoomById(roomId);
@@ -311,99 +307,114 @@ public class ClientHandler implements Runnable{
                     break;
                 }
 
-                long currentPrice = BidDAO.getCurrentPrice(roomId);
-                long bidStep = Room.calculateDefaultBidStep(room.getStartingPrice());
-                long nextPrice = currentPrice + bidStep;
 
-                List<AutoBidSetting> bidders = AutoBidDAO.getAutoBidders(roomId);
-                if (bidders == null || bidders.isEmpty()) {
-                    break;
-                }
 
-                PriorityQueue<AutoBidSetting> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(AutoBidSetting::getCreateAt).thenComparingLong(AutoBidSetting::getMaxPrice));
-                priorityQueue.addAll(bidders);
-
+                Object roomLock = roomBidLocks.computeIfAbsent(roomId, key -> new Object());
                 boolean actionTake = false;
-
-
                 Set<AutoBidSetting> autobidNeedToDelete = new HashSet<>();
 
-                while (!priorityQueue.isEmpty()) {
-                    AutoBidSetting bot = priorityQueue.poll();
-
-                    if (bot.getUsername().equals(room.getWinnerUsername())) {
-                        continue;
-                    }
-
-                    if (nextPrice > bot.getMaxPrice()) {
-                        autobidNeedToDelete.add(bot);
-                        continue;
-                    }
-
-                    long botBalance = WalletDAO.getBalance(bot.getUsername());
-                    if (botBalance < nextPrice) {
-                        autobidNeedToDelete.add(bot);
-                        continue;
-                    }
-
-                    String oldWinner = room.getWinnerUsername();
-                    long oldWinPrice = 0L;
-                    long oldBidderBalance = 0L;
-
-                    if (oldWinner != null) {
-                        oldWinPrice = room.getWinPrice();
-                        oldBidderBalance = WalletDAO.getBalance(oldWinner);
-                    }
-
-                    // Xu li phan Xung dot
-                    AutoBidSetting earlierConflictBot = null;
-                    for (AutoBidSetting otherbot : bidders) {
-                        if (autobidNeedToDelete.contains(otherbot)) {
-                            continue;
-                        }
-                        if (!otherbot.getUsername().equals(bot.getUsername())) {
-                            Long otherBotBalance = WalletDAO.getBalance(otherbot.getUsername());
-                            if (otherBotBalance < nextPrice) {
-                                autobidNeedToDelete.add(otherbot);
-                                continue;
-                            }
-                            if (otherbot.getMaxPrice() < nextPrice) {
-                                autobidNeedToDelete.add(otherbot);
-                                continue;
-                            }
-                            if (earlierConflictBot != null) {
-                                if (otherbot.getCreateAt() < earlierConflictBot.getCreateAt()) {
-                                    earlierConflictBot = otherbot;
-                                }
-                            } else {
-                                if (otherbot.getCreateAt() < bot.getCreateAt()) {
-                                    earlierConflictBot = otherbot;
-                                }
-                            }
-                        }
-                    }
-
-
-                    boolean success;
-
-                    if (earlierConflictBot != null) {
-                        long earlierConflictBotBalance = WalletDAO.getBalance(earlierConflictBot.getUsername());
-                        success = BidDAO.placeBid(room, oldWinner, earlierConflictBot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, earlierConflictBotBalance - nextPrice);
-                    } else {
-                        success = BidDAO.placeBid(room, oldWinner, bot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, botBalance - nextPrice);
-                    }
-
-                    if (success) {
-                        int participantCount = BidDAO.getParticipantCount(roomId);
-                        BidTransaction latestBid = BidDAO.getLatestBid(roomId);
-                        Object[] data = new Object[]{latestBid, participantCount};
-                        AppServer.broadcastToRoom(roomId, new Request("NEW_BID", data));
-                        extendEndTimeIfNeeded(roomId, room);
-                        actionTake = true;
+                synchronized (roomLock) {
+                    room = RoomDAO.getRoomById(roomId);
+                    if (room == null || !room.getStatus().equals("ACTIVE")) {
                         break;
                     }
 
+                    List<AutoBidSetting> bidders = AutoBidDAO.getAutoBidders(roomId);
+                    if (bidders == null || bidders.isEmpty()) {
+                        break;
+                    }
+                    
+                    long currentPrice = BidDAO.getCurrentPrice(roomId);
+                    long bidStep = Room.calculateDefaultBidStep(room.getStartingPrice());
+                    long nextPrice = currentPrice + bidStep;
+
+
+
+                    PriorityQueue<AutoBidSetting> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(AutoBidSetting::getCreateAt).thenComparingLong(AutoBidSetting::getMaxPrice));
+                    priorityQueue.addAll(bidders);
+
+
+
+
+
+
+                    while (!priorityQueue.isEmpty()) {
+                        AutoBidSetting bot = priorityQueue.poll();
+
+                        if (bot.getUsername().equals(room.getWinnerUsername())) {
+                            continue;
+                        }
+
+                        if (nextPrice > bot.getMaxPrice()) {
+                            autobidNeedToDelete.add(bot);
+                            continue;
+                        }
+
+                        long botBalance = WalletDAO.getBalance(bot.getUsername());
+                        if (botBalance < nextPrice) {
+                            autobidNeedToDelete.add(bot);
+                            continue;
+                        }
+
+                        String oldWinner = room.getWinnerUsername();
+                        long oldWinPrice = 0L;
+                        long oldBidderBalance = 0L;
+
+                        if (oldWinner != null) {
+                            oldWinPrice = room.getWinPrice();
+                            oldBidderBalance = WalletDAO.getBalance(oldWinner);
+                        }
+
+                        // Xu li phan Xung dot
+                        AutoBidSetting earlierConflictBot = null;
+                        for (AutoBidSetting otherbot : bidders) {
+                            if (autobidNeedToDelete.contains(otherbot)) {
+                                continue;
+                            }
+                            if (!otherbot.getUsername().equals(bot.getUsername())) {
+                                Long otherBotBalance = WalletDAO.getBalance(otherbot.getUsername());
+                                if (otherBotBalance < nextPrice) {
+                                    autobidNeedToDelete.add(otherbot);
+                                    continue;
+                                }
+                                if (otherbot.getMaxPrice() < nextPrice) {
+                                    autobidNeedToDelete.add(otherbot);
+                                    continue;
+                                }
+                                if (earlierConflictBot != null) {
+                                    if (otherbot.getCreateAt() < earlierConflictBot.getCreateAt()) {
+                                        earlierConflictBot = otherbot;
+                                    }
+                                } else {
+                                    if (otherbot.getCreateAt() < bot.getCreateAt()) {
+                                        earlierConflictBot = otherbot;
+                                    }
+                                }
+                            }
+                        }
+
+
+                        boolean success;
+
+                        if (earlierConflictBot != null) {
+                            long earlierConflictBotBalance = WalletDAO.getBalance(earlierConflictBot.getUsername());
+                            success = BidDAO.placeBid(room, oldWinner, earlierConflictBot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, earlierConflictBotBalance - nextPrice);
+                        } else {
+                            success = BidDAO.placeBid(room, oldWinner, bot.getUsername(), nextPrice, oldBidderBalance + oldWinPrice, botBalance - nextPrice);
+                        }
+
+                        if (success) {
+                            int participantCount = BidDAO.getParticipantCount(roomId);
+                            BidTransaction latestBid = BidDAO.getLatestBid(roomId);
+                            Object[] data = new Object[]{latestBid, participantCount};
+                            AppServer.broadcastToRoom(roomId, new Request("NEW_BID", data));
+                            extendEndTimeIfNeeded(roomId, room);
+                            actionTake = true;
+                            break;
+                        }
+                    }
                 }
+
 
                 for (AutoBidSetting bot : autobidNeedToDelete) {
                     AutoBidDAO.removeAutoBid(roomId, bot.getUsername());
@@ -425,7 +436,7 @@ public class ClientHandler implements Runnable{
             }
         }).start();
     }
-
+    
     //Them 1 phut
     private void extendEndTimeIfNeeded(String roomId, Room room) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
