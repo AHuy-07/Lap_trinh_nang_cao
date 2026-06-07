@@ -112,7 +112,7 @@ Tập test quan trọng: `src/test/java/server/dao/AuctionSystemDaoTest.java`
 - Trên PowerShell: cách đặt chuỗi có thể khác (dùng dấu nháy kép `"..."`), nếu gặp lỗi hãy chạy trong Git Bash hoặc cmd.
 - Nếu dùng IDE (IntelliJ IDEA):
   - Import project bằng `pom.xml` (Maven).
-  - Tạo Run Configuration cho `server.AppServer` (Application) và `client.ClientApp` (Application).
+  - Tạo Run Configuration cho `server.AppServer` (Application) và `client.Main` (Application).
   - Đảm bảo `Project SDK` trùng với phiên bản JDK đã cài.
 
 ---
@@ -157,7 +157,7 @@ Dựa trên mã nguồn và test hiện có, hệ thống đã triển khai các
   - Set Project SDK (JDK >= 17).
   - Tạo Run/Debug configuration cho:
 	- Main class: `server.AppServer` (Server)
-	- Main class: `client.ClientApp` (Client — JavaFX)
+	- Main class: `client.Main` (Client — JavaFX)
   - Run Server trước, sau đó run Client.
 
 ---
