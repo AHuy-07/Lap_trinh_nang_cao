@@ -127,7 +127,7 @@ public class SellerProductsController {
             }
         });
 
-        contextMenu.getItems().addAll(createRoom, delete);
+        contextMenu.getItems().addAll(createRoom);
         tableMyProducts.setRowFactory(tv -> {
             javafx.scene.control.TableRow<Product> row = new javafx.scene.control.TableRow<>();
             row.contextMenuProperty().bind(
